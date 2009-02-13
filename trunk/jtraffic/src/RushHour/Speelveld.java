@@ -23,8 +23,13 @@ public class Speelveld {
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.690378A2-439A-7846-B6E3-92EEE6A46272]
-    // </editor-fold> 
+    // </editor-fold>
+    /**
+     * Constructor
+     */
     public Speelveld () {
+        breedte = 10;
+        hoogte = 10;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 

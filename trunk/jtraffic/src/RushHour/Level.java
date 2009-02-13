@@ -27,6 +27,7 @@ public class Level {
     // #[regen=yes,id=DCE.D3AA990C-E595-4085-FF55-7F09B5CE95F2]
     // </editor-fold> 
     public Level () {
+        this.voertuigen = new ArrayList<Voertuig>();
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -52,13 +53,23 @@ public class Level {
     // #[regen=yes,id=DCE.4AA52795-976D-7625-5514-67D107760A82]
     // </editor-fold> 
     public Voertuig voertuigOpPlaats (int plaats) {
-        return null;
+        if (plaats >= 0 && plaats < voertuigen.size() -1)
+        {
+            return voertuigen.get(plaats);
+        }
+        else
+            return null;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.D2B3617D-ADA4-A3D4-308C-3734863ECB11]
-    // </editor-fold> 
+    // </editor-fold>
+    /**
+     * Voegt een voertuig aan de level toe
+     * @param voertuig het voertuig dat toegevoegd moet worden
+     */
     public void voegVoertuigToe (Voertuig voertuig) {
+        voertuigen.add(voertuig);
     }
 
 }

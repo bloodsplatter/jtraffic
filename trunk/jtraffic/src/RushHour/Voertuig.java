@@ -35,6 +35,18 @@ public class Voertuig {
     // #[regen=yes,id=DCE.B2EA278E-3163-DF9B-812E-995D2AAD641C]
     // </editor-fold> 
     public Voertuig () {
+        y = 0;
+        x = 0;
+        this.grootte = Grootte.Auto;
+        this.orientatie = Orientatie.Horizontaal;
+    }
+
+    public Voertuig(Grootte grootte, Orientatie orientatie)
+    {
+        this.grootte = grootte;
+        this.orientatie = orientatie;
+        x = 0;
+        y = 0;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -102,6 +114,8 @@ public class Voertuig {
     // #[regen=yes,id=DCE.B1AD730E-66D4-8101-094D-90D4ACA88853]
     // </editor-fold> 
     public void setPosition (int X, int Y) {
+        this.x = X;
+        this.y = Y;
     }
 
 }
