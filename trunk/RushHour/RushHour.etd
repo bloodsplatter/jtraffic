@@ -58,7 +58,8 @@
 
 </UML:Element.presentation></UML:Operation>
 
-</UML:Element.ownedElement></UML:Class>
+
+<UML:SourceFileArtifact xmi.id="DCE.E3A7A089-DB3C-8DB6-71C7-50339A435985" name="Unnamed" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" sourcefile="..\jtraffic\src\RushHour\Speelveld.java"/></UML:Element.ownedElement></UML:Class>
 <UML:Class xmi.id="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" name="Voertuig" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF"><UML:Element.presentation>
 </UML:Element.presentation><UML:Element.ownedElement>
 <UML:Operation xmi.id="DCE.B2EA278E-3163-DF9B-812E-995D2AAD641C" name="Voertuig" isConstructor="true" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.presentation>
@@ -147,13 +148,15 @@
 <UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
       Stel de positie in
     &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class>
+</UML:Element.presentation></UML:Operation>
+<UML:SourceFileArtifact xmi.id="DCE.D333D8B4-3B0F-802A-93E2-BC532F021EE9" name="Unnamed" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" sourcefile="..\jtraffic\src\RushHour\Voertuig.java"/></UML:Element.ownedElement></UML:Class>
 <UML:Enumeration xmi.id="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" name="Orientatie" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF"><UML:Element.presentation>
 </UML:Element.presentation><UML:Element.ownedElement>
 <UML:TaggedValue xmi.id="DCE.60B60022-9A79-CD8C-E426-D0DACBD2B533" owner="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" name="documentation">
 <UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
       De ori&amp;#235;ntatie van het voertuig
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement><UML:Enumeration.literal>
+    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue>
+<UML:SourceFileArtifact xmi.id="DCE.43B3C304-CDD9-94FB-A2DE-D80BD429C2E1" name="Unnamed" owner="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" sourcefile="..\jtraffic\src\RushHour\Orientatie.java"/></UML:Element.ownedElement><UML:Enumeration.literal>
 <UML:EnumerationLiteral xmi.id="DCE.3ACDF043-1C84-2754-70B9-C6D1188844B5" enumeration="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" name="Horizontaal"><UML:Element.presentation>
 </UML:Element.presentation><UML:Element.ownedElement>
 <UML:TaggedValue xmi.id="DCE.0BACB565-0F7F-3EC7-711B-7C5BDBE68104" owner="DCE.3ACDF043-1C84-2754-70B9-C6D1188844B5" name="documentation">
@@ -183,7 +186,8 @@
 <UML:TaggedValue xmi.id="DCE.A2246EF3-9379-CC15-A20E-82D5363C638E" owner="DCE.98599967-627F-3E4E-2A7C-0A3625F221E2" name="documentation">
 <UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
       De grote van het voertuig
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:Enumeration>
+    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue>
+<UML:SourceFileArtifact xmi.id="DCE.428D4255-0FEB-7E52-2CDA-4B12FE6E5B5C" name="Unnamed" owner="DCE.98599967-627F-3E4E-2A7C-0A3625F221E2" sourcefile="..\jtraffic\src\RushHour\Grootte.java"/></UML:Element.ownedElement></UML:Enumeration>
 <UML:TaggedValue xmi.id="DCE.4D3E92FD-E9C2-C349-B53C-392537188A5E" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF" name="documentation">
 <UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
       De spelobjecten
@@ -235,7 +239,8 @@
 <UML:Multiplicity xmi.id="DCE.3532DC6A-6D05-09AB-AD24-484BA0E4C6E5"/></UML:TypedElement.multiplicity></UML:Parameter>
 <UML:Parameter xmi.id="DCE.E9B4BB49-D089-3D20-1B59-D9158AC2F2C6" type="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" name="voertuig" owner="DCE.D2B3617D-ADA4-A3D4-308C-3734863ECB11" alias="" direction="out" kind="addressOf"><UML:TypedElement.multiplicity>
 <UML:Multiplicity xmi.id="DCE.DE0FC014-714F-67B9-EFFB-A0A7FA5C8BA9"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class></UML:Element.ownedElement></UML:Package>
+</UML:Element.presentation></UML:Operation>
+<UML:SourceFileArtifact xmi.id="DCE.CA1611CB-4D07-4F50-6904-D2A42672F0F9" name="Unnamed" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" sourcefile="..\jtraffic\src\RushHour\Level.java"/></UML:Element.ownedElement></UML:Class></UML:Element.ownedElement></UML:Package>
 
 
 
