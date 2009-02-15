@@ -3,7 +3,7 @@ package RushHour;
 
 /**
  *  <p style="margin-top: 0">
- *        Documentatietest
+ *        Een speelveld
  *      </p>
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -35,29 +35,47 @@ public class Speelveld {
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.4E76A7C0-5F2B-3BBC-FE42-6B670A957F8F]
     // </editor-fold> 
-    public int getBreedte () {
+    /**
+     * Geeft de breedte van het speelveld trug
+     * @return de breedte van het speelveld
+     */
+    public int getBreedte() {
         return breedte;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.9327832B-FDEF-9702-C689-6678F8428D04]
     // </editor-fold> 
-    public void setBreedte (int val) {
-        this.breedte = val;
+    /**
+     * Stelt de breedte in van het speelveld.
+     * @param val de gewenste breedte van het speelveld
+     */
+    public void setBreedte(int val) {
+        if (val > 0)
+            this.breedte = val;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.3DE66517-16C5-D7B2-2CFC-4F0F7D80B71A]
     // </editor-fold> 
-    public int getHoogte () {
+    /**
+     * Geeft de hoogte van het speelveld
+     * @return de hoogte van het speelveld
+     */
+    public int getHoogte() {
         return hoogte;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.FFBA37CB-512A-0845-0B5C-D2B60594FE2E]
     // </editor-fold> 
-    public void setHoogte (int val) {
-        this.hoogte = val;
+    /**
+     * Stelt de hoogte van het speelveld in
+     * @param val de gewenste hoogte van het speelveld
+     */
+    public void setHoogte(int val) {
+        if (val > 0)
+            this.hoogte = val;
     }
 
 }

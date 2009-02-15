@@ -26,21 +26,32 @@ public class Level {
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.D3AA990C-E595-4085-FF55-7F09B5CE95F2]
     // </editor-fold> 
-    public Level () {
+    /**
+     * Constructor
+     */
+    public Level() {
         this.voertuigen = new ArrayList<Voertuig>();
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.A9F52AD7-8366-ACC3-67CC-93A0E2FB2BCE]
     // </editor-fold> 
-    public Speelveld getVeld () {
+    /**
+     * Geeft het speelveld
+     * @return het speelveld
+     */
+    public Speelveld getVeld() {
         return veld;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.F40D4C23-C90B-4328-0972-643BFEE3D1B1]
     // </editor-fold> 
-    public void setVeld (Speelveld val) {
+    /**
+     * Stelt het speelveld in
+     * @param val het gewenste speelveld
+     */
+    public void setVeld(Speelveld val) {
         this.veld = val;
     }
 
@@ -48,17 +59,20 @@ public class Level {
      *  <p style="margin-top: 0">
      *        Geeft een voertuig uit de lijst
      *      </p>
+     * @param plaats de plaats van het voertuig in de lijst
+     * @return het gevraagde voertuig
+     * @throws ArrayIndexOutOfBoundsException als de plaats niet bestaat
      */
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.4AA52795-976D-7625-5514-67D107760A82]
     // </editor-fold> 
-    public Voertuig voertuigOpPlaats (int plaats) {
+    public Voertuig voertuigOpPlaats (int plaats) throws ArrayIndexOutOfBoundsException {
         if (plaats >= 0 && plaats < voertuigen.size() -1)
         {
             return voertuigen.get(plaats);
         }
         else
-            return null;
+            throw new ArrayIndexOutOfBoundsException("Zo veel voertuigen zijn er niet.");
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -69,7 +83,8 @@ public class Level {
      * @param voertuig het voertuig dat toegevoegd moet worden
      */
     public void voegVoertuigToe (Voertuig voertuig) {
-        voertuigen.add(voertuig);
+        if (!voertuigen.contains(voertuig))
+            voertuigen.add(voertuig);
     }
 
 }
