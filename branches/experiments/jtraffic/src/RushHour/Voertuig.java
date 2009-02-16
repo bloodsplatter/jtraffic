@@ -1,5 +1,8 @@
 package RushHour;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 
 /**
  *  <p style="margin-top: 0">
@@ -31,6 +34,8 @@ public class Voertuig {
     // </editor-fold> 
     private int y;
 
+    private ArrayList<Voertuig> voertuigen;
+
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.B2EA278E-3163-DF9B-812E-995D2AAD641C]
     // </editor-fold> 
@@ -42,6 +47,7 @@ public class Voertuig {
         x = 0;
         this.grootte = Grootte.Auto;
         this.orientatie = Orientatie.Horizontaal;
+        this.voertuigen = new ArrayList<Voertuig>();
     }
 
     /**
@@ -159,6 +165,30 @@ public class Voertuig {
         // TODO hier moeten nog checks uitgevoerd worden.
         this.y = val;
     }
+    
+    public boolean MoveUp() {
+        // TODO hier moeten nog checks uitgevoerd worden.
+        this.y -= 1;
+        Iterator<Voertuig> itr = voertuigen.iterator();
+        while(itr.hasNext()){
+
+        }
+
+        return true;
+    }
+    public void MoveDown() {
+        // TODO hier moeten nog checks uitgevoerd worden.
+        this.y += 1;
+    }
+    public void MoveLeft() {
+        // TODO hier moeten nog checks uitgevoerd worden.
+        this.x -= 1;
+    }
+    public void MoveRight() {
+        // TODO hier moeten nog checks uitgevoerd worden.
+        this.x += 1;
+    }
+
 
     /**
      *  <p style="margin-top: 0">

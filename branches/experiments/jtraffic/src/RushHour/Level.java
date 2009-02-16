@@ -1,6 +1,7 @@
 package RushHour;
 
-import java.util.ArrayList;
+import java.util.*;
+
 
 
 /**
@@ -85,6 +86,74 @@ public class Level {
     public void voegVoertuigToe (Voertuig voertuig) {
         if (!voertuigen.contains(voertuig))
             voertuigen.add(voertuig);
+    }
+
+        public void Print() {
+        int hoogtem = this.veld.getBreedte() + 2;
+        int breetem = this.veld.getBreedte() + 2;
+        char dispmatrx[][] = new char[hoogtem][breetem * 2];
+
+        for (int i = 0; i < hoogtem; i++) {
+            for (int j = 0; j < breetem * 2; j += 2) {
+                if (i == 0 || i == hoogtem - 1) {
+                    dispmatrx[i][j] = '-';
+                    dispmatrx[i][j + 1] = '-';
+                } else if (i == hoogtem / 2 && j == 0) {
+                    dispmatrx[i][j] = ' ';
+                    dispmatrx[i][j + 1] = ' ';
+                } else if (j == 0) {
+                    dispmatrx[i][j] = '|';
+                    dispmatrx[i][j+1] = ' ';
+                } else if (j == breetem*2 -2){
+                    dispmatrx[i][j] = ' ';
+                    dispmatrx[i][j+1] = '|';
+                } else {
+                    dispmatrx[i][j] = ' ';
+                    dispmatrx[i][j + 1] = ' ';
+                }
+            }
+        }
+        dispmatrx[0][0] = '+';
+        dispmatrx[0][breetem * 2 - 1] = '+';
+        dispmatrx[hoogtem - 1][0] = '+';
+        dispmatrx[hoogtem - 1][breetem * 2 - 1] = '+';
+
+        Iterator<Voertuig> itr = voertuigen.iterator();
+        Voertuig tmpvrt = new Voertuig();
+        while(itr.hasNext()){
+            tmpvrt = itr.next();
+            if(tmpvrt.getOrientatie() == Orientatie.Horizontaal){
+
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)] = '=';
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = '=';
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)+ 2] = '=';
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 3)] = '=';
+                if( tmpvrt.getGrootte() == Grootte.Vrachtwagen){
+                    dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 4)] = '=';
+                    dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 5)] = '=';
+                }
+            }else if(tmpvrt.getOrientatie() == Orientatie.Verticaal){
+
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)] = 'I';
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = 'I';
+                dispmatrx[(1 + tmpvrt.getY()+1)][(2 + tmpvrt.getX() * 2)] = 'I';
+                dispmatrx[(1 + tmpvrt.getY()+1)][(2 + tmpvrt.getX() * 2 + 1)] = 'I';
+                if( tmpvrt.getGrootte() == Grootte.Vrachtwagen){
+                    dispmatrx[(1 + tmpvrt.getY()+2)][(2 + tmpvrt.getX() * 2)] = 'I';
+                    dispmatrx[(1 + tmpvrt.getY()+2)][(2 + tmpvrt.getX() * 2 + 1)] = 'I';
+                }
+            }
+
+        }
+
+        System.out.print("\n\n\n\n");
+        for (int i = 0; i < hoogtem; i++) {
+            for (int j = 0; j < breetem * 2; j++) {
+                System.out.append(dispmatrx[i][j]);
+            }
+            System.out.append('\n');
+        }
+
     }
 
 }
