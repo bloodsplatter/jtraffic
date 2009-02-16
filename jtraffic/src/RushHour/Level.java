@@ -1,6 +1,7 @@
 package RushHour;
 
 import java.util.*;
+import java.util.Iterator;
 
 
 
@@ -74,6 +75,29 @@ public class Level {
         }
         else
             throw new ArrayIndexOutOfBoundsException("Zo veel voertuigen zijn er niet.");
+    }
+
+    /**
+     * Zoekt een voertuig op een bepaalde positie
+     * @param X de X-coördinaat van het voertuig
+     * @param Y de Y-coördinaat van het voertuig
+     * @return null als het voertuig niet gevonden is, anders het voertuig zelf
+     * @see RushHour.Voertuig
+     */
+    public Voertuig voertuigOpPositie(int X, int Y)
+    {
+        Voertuig voertuig = null;
+        Iterator<Voertuig> iterator = voertuigen.iterator();
+        while (iterator.hasNext())
+        {
+            voertuig = iterator.next();
+            if (voertuig.getX() == X && voertuig.getY() == Y)
+            {
+                break;
+            }
+        }
+
+        return voertuig;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 

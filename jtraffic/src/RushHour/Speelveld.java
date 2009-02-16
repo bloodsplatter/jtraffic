@@ -32,6 +32,17 @@ public class Speelveld {
         hoogte = 10;
     }
 
+    /**
+     * Geparameteriseerde constructor
+     * @param breedte
+     * @param hoogte
+     */
+    public Speelveld(int breedte, int hoogte)
+    {
+        this.breedte = breedte;
+        this.hoogte = hoogte;
+    }
+
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.4E76A7C0-5F2B-3BBC-FE42-6B670A957F8F]
     // </editor-fold> 
