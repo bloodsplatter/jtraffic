@@ -1,8 +1,5 @@
 package RushHour;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 
 /**
  *  <p style="margin-top: 0">
