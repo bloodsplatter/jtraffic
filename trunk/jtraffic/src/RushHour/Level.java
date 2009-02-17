@@ -19,6 +19,8 @@ public class Level {
     // </editor-fold> 
     private Speelveld veld;
 
+    private String naam;
+
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.F0552C0C-0429-8133-D01A-6AFD160DF257]
     // </editor-fold> 
@@ -57,6 +59,28 @@ public class Level {
     }
 
     /**
+     *
+     * @return
+     */
+    public String getNaam() {
+        return naam;
+    }
+
+    /**
+     * Stelt de naam van de level in
+     * @param naam de gewenste naam
+     */
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.naam;
+    }
+
+    /**
      *  <p style="margin-top: 0">
      *        Geeft een voertuig uit de lijst
      *      </p>
@@ -86,11 +110,12 @@ public class Level {
     public Voertuig voertuigOpPositie(int X, int Y)
     {
         Voertuig voertuig = null;
+        Voertuig temp = new Voertuig();
         Iterator<Voertuig> iterator = voertuigen.iterator();
         while (iterator.hasNext())
         {
-            voertuig = iterator.next();
-            if (voertuig.getX() == X && voertuig.getY() == Y)
+            temp = iterator.next();
+            if (temp.getX() == X && temp.getY() == Y)
             {
                 break;
             }
