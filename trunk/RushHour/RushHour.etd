@@ -5,244 +5,225 @@
 <UML:DataType xmi.id="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" name="void" owner="DCE.72D0B15F-3BD3-A9D7-6FFE-C88650E33A09"/>
 
 
-<UML:Package xmi.id="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF" name="RushHour" owner="DCE.72D0B15F-3BD3-A9D7-6FFE-C88650E33A09"><UML:Element.presentation>
+<UML:Package xmi.id="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF" name="RushHour" owner="DCE.72D0B15F-3BD3-A9D7-6FFE-C88650E33A09"><UML:Element.ownedElement>
+<UML:Class isAbstract="false" isLeaf="false" visibility="public" name="Speelveld" xmi.id="DCE.617B47F4-23D0-C6A2-B0BE-93E96D571E05" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF" clientDependency="" associationEnd=""><UML:Element.ownedElement><UML:SourceFileArtifact sourcefile="..\jtraffic\src\RushHour\Speelveld.java" xmi.id="DCE.6F079838-865B-6CD0-2E27-C4D02F148CB0" owner="DCE.617B47F4-23D0-C6A2-B0BE-93E96D571E05"/><UML:TaggedValue xmi.id="DCE.D3B1C067-95F7-B21E-EA07-4800732926BA" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651</UML:TaggedValue.dataValue></UML:TaggedValue><UML:TaggedValue xmi.id="DCE.4B8F372F-3385-8D08-1742-A9CBC75CCCE7" name="documentation">
+<UML:TaggedValue.dataValue>  &lt;p style="margin-top: 0"&gt;
+        Een speelveld
+      &lt;/p&gt;
+ </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Attribute visibility="private" isLeaf="false" ownerScope="instance" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="breedte" xmi.id="DCE.AE47042B-A4FA-D322-AC7E-180F31BEFA3C" owner="DCE.617B47F4-23D0-C6A2-B0BE-93E96D571E05">
+<UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.937D1B0C-1B6B-A9DB-370D-C4A3D4C63E11" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.D8BF197E-0238-5719-6267-E37DAA813A4D</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:Attribute><UML:Attribute visibility="private" isLeaf="false" ownerScope="instance" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="hoogte" xmi.id="DCE.82A91F36-2EDD-5CF0-0DA7-1C914A3D6386" owner="DCE.617B47F4-23D0-C6A2-B0BE-93E96D571E05">
+<UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.7098FC14-0CE8-CD70-153C-66A86097A92E" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.14E101EE-DFE2-345E-FBB1-862059ABF7DA</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:Attribute><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" isConstructor="true" name="Speelveld" xmi.id="DCE.5103610A-F565-209F-F33F-39CBB1212A5D" owner="DCE.617B47F4-23D0-C6A2-B0BE-93E96D571E05">
+<UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.9FA9CFF1-4A7B-F9B7-DDE5-B79F59642F6F" name="documentation">
+<UML:TaggedValue.dataValue>     Constructor
+     </UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" isConstructor="true" name="Speelveld" xmi.id="DCE.6CA4CE79-23D5-9CB5-DADE-1391165CFD86" owner="DCE.617B47F4-23D0-C6A2-B0BE-93E96D571E05"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.D64C6BF6-9285-B094-2E17-50AB7F9A9B9E" name="documentation">
+<UML:TaggedValue.dataValue>     Geparameteriseerde constructor
+     @param breedte
+     @param hoogte
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="breedte" xmi.id="DCE.2653E583-FDB7-D481-B8A0-275C2D5D6BC1" owner="DCE.6CA4CE79-23D5-9CB5-DADE-1391165CFD86"/><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="hoogte" xmi.id="DCE.496948D8-DD13-45F7-139F-C588AA17A6E4" owner="DCE.6CA4CE79-23D5-9CB5-DADE-1391165CFD86"/></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="getBreedte" xmi.id="DCE.C8140996-B7CA-1EAE-512C-1B7F52682995" owner="DCE.617B47F4-23D0-C6A2-B0BE-93E96D571E05"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.D2481975-F61F-FEB7-EB63-DD5523F77D99" name="documentation">
+<UML:TaggedValue.dataValue>     Geeft de breedte van het speelveld trug
+     @return de breedte van het speelveld
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" xmi.id="DCE.B9C58C71-9A14-28C5-6A2E-E8220B04284C" owner="DCE.C8140996-B7CA-1EAE-512C-1B7F52682995"/></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="setBreedte" xmi.id="DCE.AC2552BF-9F1D-A534-050C-020D8F7494EB" owner="DCE.617B47F4-23D0-C6A2-B0BE-93E96D571E05"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.EDBD665A-FC64-F271-9DE9-2043EEA3CD05" name="documentation">
+<UML:TaggedValue.dataValue>     Stelt de breedte in van het speelveld.
+     @param val de gewenste breedte van het speelveld
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" xmi.id="DCE.51828109-E8E0-035B-3D76-0EFC6D63AB43" owner="DCE.AC2552BF-9F1D-A534-050C-020D8F7494EB"/><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="val" xmi.id="DCE.90D195D0-CC84-4597-57BD-853CF297D55D" owner="DCE.AC2552BF-9F1D-A534-050C-020D8F7494EB"/></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="getHoogte" xmi.id="DCE.5E9FBE49-F30F-ECA8-64CF-D217045CB9E1" owner="DCE.617B47F4-23D0-C6A2-B0BE-93E96D571E05"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.EE0F2B12-82A8-2E62-1AC3-94B516A2BB4B" name="documentation">
+<UML:TaggedValue.dataValue>     Geeft de hoogte van het speelveld
+     @return de hoogte van het speelveld
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" xmi.id="DCE.A8D0D141-228F-80CF-E9E5-588626BADEF8" owner="DCE.5E9FBE49-F30F-ECA8-64CF-D217045CB9E1"/></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="setHoogte" xmi.id="DCE.40AE6EF0-A3E8-77F9-9FC7-5D39126B5D17" owner="DCE.617B47F4-23D0-C6A2-B0BE-93E96D571E05"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.D150A04D-0B64-F518-4260-E5A39A49AA1D" name="documentation">
+<UML:TaggedValue.dataValue>     Stelt de hoogte van het speelveld in
+     @param val de gewenste hoogte van het speelveld
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" xmi.id="DCE.0036C8B1-4295-7486-C934-EAB4F0472BD8" owner="DCE.40AE6EF0-A3E8-77F9-9FC7-5D39126B5D17"/><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="val" xmi.id="DCE.3F127836-AE26-28E1-B17D-C2590730C0D4" owner="DCE.40AE6EF0-A3E8-77F9-9FC7-5D39126B5D17"/></UML:Element.ownedElement></UML:Operation></UML:Element.ownedElement></UML:Class><UML:Class isAbstract="false" isLeaf="false" visibility="public" name="Level" xmi.id="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF" clientDependency="" associationEnd="DCE.F6DF9F35-BB4C-3198-E3FE-6939C9D01259 DCE.7FE33DF2-81D6-90FE-4282-A062542D8CE6 DCE.D294AC11-0078-1A3F-DD59-3F5148B5BC27"><UML:Element.ownedElement><UML:SourceFileArtifact sourcefile="..\jtraffic\src\RushHour\Level.java" xmi.id="DCE.076CA1AC-2125-2A12-794F-B51ED90FF850" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"/><UML:TaggedValue xmi.id="DCE.21217C04-655B-7C44-6836-87B97DD3AA76" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB</UML:TaggedValue.dataValue></UML:TaggedValue><UML:TaggedValue xmi.id="DCE.C969B1C2-F312-7D80-CDC9-B710C0C8AFE5" name="documentation">
+<UML:TaggedValue.dataValue>  &lt;p style="margin-top: 0"&gt;
+        Een level
+      &lt;/p&gt;
+ </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Attribute visibility="private" isLeaf="false" ownerScope="instance" type="Speelveld" AssociationType="Aggregation" name="veld" xmi.id="DCE.5234BB41-70F2-FEE4-E9D6-C975C6805708">
+<UML:Element.presentation/><UML:Attribute.default>
+<UML:Expression xmi.id="DCE.7CACDE65-4619-91D6-5285-454009BBC716"/></UML:Attribute.default></UML:Attribute><UML:Attribute visibility="private" isLeaf="false" ownerScope="instance" type="DCE.CAA8FD7B-193D-6F4F-7CC9-81EB88063DF5" AssociationType="Aggregation" name="naam" xmi.id="DCE.1D4836F8-ECEA-7801-B05D-302A2BFF4048" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB">
+<UML:Element.presentation/><UML:Attribute.default>
+<UML:Expression xmi.id="DCE.A5255AE8-3DE0-E624-06CB-D03BFAB9408C"/></UML:Attribute.default></UML:Attribute><UML:Attribute visibility="private" isLeaf="false" ownerScope="instance" type="Voertuig" name="voertuigen" xmi.id="DCE.F0552C0C-0429-8133-D01A-6AFD160DF257">
+<UML:TypedElement.multiplicity>
+<UML:Multiplicity>
+<UML:Multiplicity.range><UML:MultiplicityRange lower="0" upper="*" collectionType="ArrayList"/></UML:Multiplicity.range></UML:Multiplicity></UML:TypedElement.multiplicity></UML:Attribute><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" isConstructor="true" name="Level" xmi.id="DCE.D3AA990C-E595-4085-FF55-7F09B5CE95F2" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB">
+<UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.C92AD838-D747-5522-99FB-5AC14418995C" name="documentation">
+<UML:TaggedValue.dataValue>     Constructor
+     </UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="getVeld" xmi.id="DCE.1DEFAAC0-C262-470B-F0A0-0367A8D1EFAF" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.6F789AB5-4681-15A8-C409-FBB6645FBAC5" name="documentation">
+<UML:TaggedValue.dataValue>     Geeft het speelveld
+     @return het speelveld
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="" xmi.id="DCE.7F3821DE-77C3-2968-F6AF-1C5B75FB3677" owner="DCE.1DEFAAC0-C262-470B-F0A0-0367A8D1EFAF"/></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="setVeld" xmi.id="DCE.1184A1B6-7485-3252-AF6C-8A3661D0557D" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.4C3ACF55-32E5-FD57-32AF-E88F49664DB6" name="documentation">
+<UML:TaggedValue.dataValue>     Stelt het speelveld in
+     @param val het gewenste speelveld
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" xmi.id="DCE.3B12290D-E57D-07E4-EC00-0952C17ABE86" owner="DCE.1184A1B6-7485-3252-AF6C-8A3661D0557D"/><UML:Parameter visibility="package" isQuery="false" type="" name="val" xmi.id="DCE.8743C585-FFAF-F4FF-E266-9A3ABC2C1931" owner="DCE.1184A1B6-7485-3252-AF6C-8A3661D0557D"/></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="getNaam" xmi.id="DCE.E524E331-C54C-96CD-8F8F-265A8C30F04F" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.1A14D32A-A8C1-59CA-2FCF-B9A012C5C080" name="documentation">
+<UML:TaggedValue.dataValue>          @return
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.CAA8FD7B-193D-6F4F-7CC9-81EB88063DF5" xmi.id="DCE.7DB774EB-FB71-A9FD-FC21-F09D2ACBC821" owner="DCE.E524E331-C54C-96CD-8F8F-265A8C30F04F"/></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="setNaam" xmi.id="DCE.6B7CFF63-55FB-22D8-8694-76DF86818005" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.02ECD4F2-1F40-9B6F-9516-F768C9AF31C0" name="documentation">
+<UML:TaggedValue.dataValue>     Stelt de naam van de level in
+     @param naam de gewenste naam
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" xmi.id="DCE.FC61420E-CAE9-DE25-F52F-DDA03BE1B113" owner="DCE.6B7CFF63-55FB-22D8-8694-76DF86818005"/><UML:Parameter visibility="package" isQuery="false" type="DCE.CAA8FD7B-193D-6F4F-7CC9-81EB88063DF5" name="naam" xmi.id="DCE.C5BB1ED4-5679-EC60-9615-6ACF309EDA6C" owner="DCE.6B7CFF63-55FB-22D8-8694-76DF86818005"/></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="toString" xmi.id="DCE.77A00848-E532-7475-E2E4-D352FD0E3478" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"><UML:Element.ownedElement><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.CAA8FD7B-193D-6F4F-7CC9-81EB88063DF5" xmi.id="DCE.43DDFB90-718B-1F3C-3455-3E5344A7F656" owner="DCE.77A00848-E532-7475-E2E4-D352FD0E3478"/></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="voertuigOpPlaats" xmi.id="DCE.121A3373-6AE0-576F-E784-117DD1F030A7" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" raisedException="DCE.D35E4487-F16E-A358-BB1F-2F7033054C92"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.C97FCE83-CF59-4A50-A1CF-78BBBDC7BCB5" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.4AA52795-976D-7625-5514-67D107760A82</UML:TaggedValue.dataValue></UML:TaggedValue><UML:TaggedValue xmi.id="DCE.6191F0D5-21DE-E29E-9AA5-6158CB86939B" name="documentation">
+<UML:TaggedValue.dataValue>      &lt;p style="margin-top: 0"&gt;
+            Geeft een voertuig uit de lijst
+          &lt;/p&gt;
+     @param plaats de plaats van het voertuig in de lijst
+     @return het gevraagde voertuig
+     @throws ArrayIndexOutOfBoundsException als de plaats niet bestaat
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" xmi.id="DCE.64361847-98AD-1090-81A8-C0762F81095A" owner="DCE.121A3373-6AE0-576F-E784-117DD1F030A7"/><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="plaats" xmi.id="DCE.735C42BE-20AB-0AD0-3903-4883B173FBDD" owner="DCE.121A3373-6AE0-576F-E784-117DD1F030A7"/></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="voertuigOpPositie" xmi.id="DCE.DB8F5D77-34F6-0348-9DB3-9A661A398133" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.571BD640-9210-745B-2904-AB015DC9307A" name="documentation">
+<UML:TaggedValue.dataValue>     Zoekt een voertuig op een bepaalde positie
+     @param X de X-coördinaat van het voertuig
+     @param Y de Y-coördinaat van het voertuig
+     @return null als het voertuig niet gevonden is, anders het voertuig zelf
+     @see RushHour.Voertuig
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" xmi.id="DCE.45B3B993-5AF6-E385-9D7A-0BB26DBB7AAD" owner="DCE.DB8F5D77-34F6-0348-9DB3-9A661A398133"/><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="X" xmi.id="DCE.829C3A85-D959-C89E-1863-27EBB84A6F90" owner="DCE.DB8F5D77-34F6-0348-9DB3-9A661A398133"/><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="Y" xmi.id="DCE.4504A357-C896-07BF-5E33-C8AA78D29116" owner="DCE.DB8F5D77-34F6-0348-9DB3-9A661A398133"/></UML:Element.ownedElement></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="voegVoertuigToe" xmi.id="DCE.5ACBB66C-35D6-0659-222C-8989A5ADB2F0" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.A863B05A-4F7B-B057-6E1A-C5F934B1CDBA" name="documentation">
+<UML:TaggedValue.dataValue>     Voegt een voertuig aan de level toe
+     @param voertuig het voertuig dat toegevoegd moet worden
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" xmi.id="DCE.B1ED18D1-5275-123A-1071-D7DF99D39E29" owner="DCE.5ACBB66C-35D6-0659-222C-8989A5ADB2F0"/><UML:Parameter visibility="package" isQuery="false" type="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" name="voertuig" xmi.id="DCE.17129852-A2F4-503F-D3BD-7A954D0B9277" owner="DCE.5ACBB66C-35D6-0659-222C-8989A5ADB2F0"/></UML:Element.ownedElement></UML:Operation></UML:Element.ownedElement>
+<UML:Element.presentation>
+
+</UML:Element.presentation></UML:Class><UML:Enumeration visibility="public" name="Orientatie" xmi.id="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF" clientDependency="" associationEnd="DCE.E5627262-3722-F050-BC87-626DD0F69A12"><UML:Enumeration.literal><UML:EnumerationLiteral visibility="package" isLeaf="false" ownerScope="instance" type="int" name="Horizontaal" xmi.id="DCE.6E9DF530-4840-EB7D-7824-B0B59D2FFE72" enumeration="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D">
+<UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.D132AAB9-8440-03AD-407D-ECF8B140A240" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.3ACDF043-1C84-2754-70B9-C6D1188844B5</UML:TaggedValue.dataValue></UML:TaggedValue><UML:TaggedValue xmi.id="DCE.77DC30ED-225F-EFE5-B947-C2880196A48A" name="documentation">
+<UML:TaggedValue.dataValue>      &lt;p style="margin-top: 0"&gt;
+            Het voertuig staat horizontaal op het speelveld
+          &lt;/p&gt;
+     </UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:EnumerationLiteral><UML:EnumerationLiteral visibility="package" isLeaf="false" ownerScope="instance" type="int" name="Verticaal" xmi.id="DCE.B108BED4-7B2E-2855-199C-5E5B8C6F26C9" enumeration="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D">
+<UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.B9709EDC-6D16-ACF5-DEB3-046B7B0312EC" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.F5300E21-44C6-DDDD-DA70-9DC573C4819B</UML:TaggedValue.dataValue></UML:TaggedValue><UML:TaggedValue xmi.id="DCE.3D450E89-BFB6-0FA6-9EF2-32D413E83809" name="documentation">
+<UML:TaggedValue.dataValue>      &lt;p style="margin-top: 0"&gt;
+            Het voertuig staat verticaal op het speelveld
+          &lt;/p&gt;
+     </UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:EnumerationLiteral></UML:Enumeration.literal>
+<UML:Element.ownedElement><UML:SourceFileArtifact sourcefile="..\jtraffic\src\RushHour\Orientatie.java" xmi.id="DCE.E44E8388-CB2F-0871-51DE-BF9C8BF21C8F" owner="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D"/><UML:TaggedValue xmi.id="DCE.200D1CCA-58EB-575E-A808-0B028A48FD5A" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D</UML:TaggedValue.dataValue></UML:TaggedValue><UML:TaggedValue xmi.id="DCE.D9321558-5384-BB68-4DD5-3B74F5C1C1E9" name="documentation">
+<UML:TaggedValue.dataValue>  &lt;p style="margin-top: 0"&gt;
+        De ori&amp;#235;ntatie van het voertuig
+      &lt;/p&gt;
+ </UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement><UML:Element.presentation>
+
+</UML:Element.presentation></UML:Enumeration><UML:Class isAbstract="false" isLeaf="false" visibility="public" name="Voertuig" xmi.id="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF" clientDependency="" associationEnd="DCE.72046CC5-228B-4F58-8227-8DEEF1461A7A DCE.24802354-1D1A-A3D7-6902-87A4F54621E1 DCE.2FA5E355-3F14-5D09-E7A8-4BB7CADCC4EB DCE.A55A4BDF-1D4C-4F8C-2B18-34EC28C2AF28"><UML:Element.ownedElement><UML:SourceFileArtifact sourcefile="..\jtraffic\src\RushHour\Voertuig.java" xmi.id="DCE.6A5F7BB6-B4CF-6BC2-6919-5D558E1BB122" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"/><UML:TaggedValue xmi.id="DCE.1E0C6848-5C7B-DF8C-C1C6-2A144D5178A3" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.BCF3685A-9810-3D8C-7162-061D5F12D290</UML:TaggedValue.dataValue></UML:TaggedValue><UML:TaggedValue xmi.id="DCE.A4252D55-6899-B778-4FBA-00875A1B5A1B" name="documentation">
+<UML:TaggedValue.dataValue>  &lt;p style="margin-top: 0"&gt;
+        Een voertuig op het speelveld
+      &lt;/p&gt;
+ </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Attribute visibility="private" isLeaf="false" ownerScope="instance" type="Orientatie" AssociationType="Aggregation" name="orientatie" xmi.id="DCE.8CC65A05-13B2-4140-7E90-79D620DF863B"><UML:Element.presentation>
+</UML:Element.presentation><UML:Attribute.default>
+<UML:Expression xmi.id="DCE.C883BF69-8811-B163-069C-9404D92EFDCE"/></UML:Attribute.default></UML:Attribute><UML:Attribute visibility="private" isLeaf="false" ownerScope="instance" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="grootte" xmi.id="DCE.6BD93AC4-1C4F-D3AA-62E4-E609F71D7D8F" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290">
+<UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.D39CF273-8B3C-CD13-5F7F-920BB918712F" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.6BD93AC4-1C4F-D3AA-62E4-E609F71D7D8F</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation><UML:Attribute.default>
+<UML:Expression xmi.id="DCE.12C9B505-D34C-D946-BC6F-4246EA85B022"/></UML:Attribute.default></UML:Attribute><UML:Attribute visibility="private" isLeaf="false" ownerScope="instance" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="x" xmi.id="DCE.4D7BA81A-DBCC-2912-8BD1-6895471622C8" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290">
+<UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.036105DC-C7C2-55B8-5FD7-76C3D4327DC5" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.4D7BA81A-DBCC-2912-8BD1-6895471622C8</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation><UML:Attribute.default>
+<UML:Expression xmi.id="DCE.97E705CB-069D-F876-B854-288E654239B0"/></UML:Attribute.default></UML:Attribute><UML:Attribute visibility="private" isLeaf="false" ownerScope="instance" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="y" xmi.id="DCE.6C396192-75D4-5F4B-D421-91BDB75DD6E9" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290">
+<UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.7855BFC2-0661-856B-0ED5-0E2407337CC3" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.6C396192-75D4-5F4B-D421-91BDB75DD6E9</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation><UML:Attribute.default>
+<UML:Expression xmi.id="DCE.AAB3A5C0-51C6-8F07-D428-8E674C231126"/></UML:Attribute.default></UML:Attribute><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" isConstructor="true" name="Voertuig" xmi.id="DCE.B2EA278E-3163-DF9B-812E-995D2AAD641C" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290">
+<UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.297CDC80-4E53-806E-2639-61208727FE43" name="documentation">
+<UML:TaggedValue.dataValue>     Constructor
+     </UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" isConstructor="true" name="Voertuig" xmi.id="DCE.A710F968-B3A3-0BCB-8087-6204E1651AFD" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.57265D1B-632E-BA7F-BFB3-A06EB2818A9A" name="documentation">
+<UML:TaggedValue.dataValue>     Geparameteriseerde constructor
+     @param grootte de grootte van het voertuig
+     @param orientatie de orientatie van het voertuig
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="grootte" xmi.id="DCE.06A96467-A0F6-1E7B-03B7-8B840B898473" owner="DCE.A710F968-B3A3-0BCB-8087-6204E1651AFD"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.7DC5BD1C-487A-AB8D-0280-F22CD2329716"/></UML:TypedElement.multiplicity></UML:Parameter><UML:Parameter visibility="package" isQuery="false" type="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" name="orientatie" xmi.id="DCE.80888D8F-55F5-A183-7029-E976C110AF33" owner="DCE.A710F968-B3A3-0BCB-8087-6204E1651AFD"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.4EDDB969-36C7-D564-5EA0-9294A6981711"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" isConstructor="true" name="Voertuig" xmi.id="DCE.8273DE79-39CC-AC1F-A2BE-124BA3A0E472" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.3D9D3EFD-0CE6-48E1-CAE6-06D41C543A47" name="documentation">
+<UML:TaggedValue.dataValue>     Geparameteriseerde constructor
+     @param X de horizontale positie van het voertuig in het speelveld
+     @param Y de verticale positie van het voertuig in het speelveld
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="X" xmi.id="DCE.1C6D13BB-513E-F0F7-8379-5BBF45C62DA4" owner="DCE.8273DE79-39CC-AC1F-A2BE-124BA3A0E472"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.0CA7AC2C-2D22-DD5C-4375-2E01DBD3B58E"/></UML:TypedElement.multiplicity></UML:Parameter><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="Y" xmi.id="DCE.13D568C0-6BCC-2F5D-017F-09079EFF9EA4" owner="DCE.8273DE79-39CC-AC1F-A2BE-124BA3A0E472"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.260C65FB-6509-82CE-24F3-5D681BFD1677"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="getGrootte" xmi.id="DCE.C96628D6-0914-AFCF-F455-D87C12408387" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.A9800244-3916-421B-9077-71CC424156D6" name="documentation">
+<UML:TaggedValue.dataValue>     Geeft de grootte van het voertuig
+     @return de grootte van het voertuig
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" xmi.id="DCE.05428DE8-0B4D-E9F0-A4F6-440FCD966765" owner="DCE.C96628D6-0914-AFCF-F455-D87C12408387"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.0C7D7896-9630-4D73-1D8C-D558EF30D5B9"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="setGrootte" xmi.id="DCE.0839E9C8-6D1B-8DBE-FEB1-3C6FFD4D8EB2" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.EA27F8C6-5395-5D0D-E6A4-41982BBDD1E4" name="documentation">
+<UML:TaggedValue.dataValue>     Stelt de grootte van het voertuig in
+     @param val de gewenste grootte
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" xmi.id="DCE.E6D9E0EC-AA82-0DD2-70B2-4E07D0CFBC1E" owner="DCE.0839E9C8-6D1B-8DBE-FEB1-3C6FFD4D8EB2"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.F9D3CA31-9C59-D0A5-CE77-B56A0E255EC7"/></UML:TypedElement.multiplicity></UML:Parameter><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="val" xmi.id="DCE.76A16A25-5389-C05C-AEFE-DCE8DC8E0C1C" owner="DCE.0839E9C8-6D1B-8DBE-FEB1-3C6FFD4D8EB2"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.9E8FD228-D340-D887-A47B-25BDF06DA280"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="getOrientatie" xmi.id="DCE.82396613-351B-0AF6-3318-13C3ED8AA8A6" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.649EB15D-03E8-1681-3783-864F795DC1FE" name="documentation">
+<UML:TaggedValue.dataValue>     Geeft de oriëntatie van het voertuig
+     @return de oriëntatie van het voertuig
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" xmi.id="DCE.86369700-3528-E823-CBEA-2E3870CACC4F" owner="DCE.82396613-351B-0AF6-3318-13C3ED8AA8A6"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.9F241842-0ECE-906D-31AA-E9EE95D5EF6D"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="setOrientatie" xmi.id="DCE.448F8385-2E92-3F23-C759-D19ED5199E1D" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.0B8D5FC6-2EC8-FEBE-BD27-710B5E6A7247" name="documentation">
+<UML:TaggedValue.dataValue>     Stelt de oriëntatie van het voertuig in
+     @param val de gewenste oriëntatie
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" xmi.id="DCE.E13A736B-E434-B6A3-EFD3-38E0260BA7EC" owner="DCE.448F8385-2E92-3F23-C759-D19ED5199E1D"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.087CC80D-52B8-4929-1C11-F88070F27EFF"/></UML:TypedElement.multiplicity></UML:Parameter><UML:Parameter visibility="package" isQuery="false" type="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" name="val" xmi.id="DCE.3CB0DEDD-6E55-5512-18EB-3E055705B5D0" owner="DCE.448F8385-2E92-3F23-C759-D19ED5199E1D"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.F31EC667-4D8B-1A78-CB53-E40C548F54C3"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="getX" xmi.id="DCE.07868CD2-4BC0-9B22-2663-894106232A4F" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.0DB2318E-5453-FA2E-83B4-C60627698BA1" name="documentation">
+<UML:TaggedValue.dataValue>     Geeft de X-coördinaat
+     @return de X-coördinaat
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" xmi.id="DCE.19D21301-881D-504E-FF48-57AB109E2D64" owner="DCE.07868CD2-4BC0-9B22-2663-894106232A4F"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.1E08AD26-689E-0CE6-B480-DC10CF450B8F"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="setX" xmi.id="DCE.7A395978-B5D0-D622-8763-2D9F108B672A" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.B7EFC655-3FBA-8FB7-0431-0FFDCA1ACE9C" name="documentation">
+<UML:TaggedValue.dataValue>     Stelt de X-coördinaat in
+     @param val de gewenste X-coördinaat
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" xmi.id="DCE.84565E33-9757-2512-3903-FE968E43E176" owner="DCE.7A395978-B5D0-D622-8763-2D9F108B672A"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.6E3DD558-529B-328B-293F-F9951CDB73F7"/></UML:TypedElement.multiplicity></UML:Parameter><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="val" xmi.id="DCE.90557CDB-27FF-0C1C-CF40-6FCFC0E3365E" owner="DCE.7A395978-B5D0-D622-8763-2D9F108B672A"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.6530FC09-07DB-ABFA-81F6-568D3499FC7C"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="getY" xmi.id="DCE.5DFFBA52-8A94-6ADE-DBF1-B8208E7F03D0" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.C592CF84-881E-833F-0DF6-D46E6A0E6C8D" name="documentation">
+<UML:TaggedValue.dataValue>     Geeft de Y-coördinaat
+     @return de Y-coördinaat
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" xmi.id="DCE.9FDFFBB8-14EF-07FD-8B46-3F685487C2BF" owner="DCE.5DFFBA52-8A94-6ADE-DBF1-B8208E7F03D0"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.21B54068-9FE0-72C5-0552-0412685A4026"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="setY" xmi.id="DCE.2A69C894-15F3-9570-57FD-8442E6BF7BA9" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.86781949-C1F9-7F61-734D-DCFBE6229D4B" name="documentation">
+<UML:TaggedValue.dataValue>     Stelt de Y-coördinaat in
+     @param val de Y-coördinaat
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" xmi.id="DCE.EBC60573-82C5-EEFC-8D73-1B75765DD798" owner="DCE.2A69C894-15F3-9570-57FD-8442E6BF7BA9"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.342A54EC-13E8-B8AC-395E-A3A5847E10DD"/></UML:TypedElement.multiplicity></UML:Parameter><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="val" xmi.id="DCE.C36A294F-1B76-D290-54AB-6DBA619EFF51" owner="DCE.2A69C894-15F3-9570-57FD-8442E6BF7BA9"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.768DFC2A-7426-59B5-08AE-319E048633B7"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation><UML:Operation visibility="public" isLeaf="false" ownerScope="instance" isAbstract="false" name="setPosition" xmi.id="DCE.B1AD730E-66D4-8101-094D-90D4ACA88853" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement><UML:TaggedValue xmi.id="DCE.951A6CD9-B054-7E7C-AB2C-E2A3520D2BF9" name="MarkerID" hidden="true">
+<UML:TaggedValue.dataValue>DCE.B1AD730E-66D4-8101-094D-90D4ACA88853</UML:TaggedValue.dataValue></UML:TaggedValue><UML:TaggedValue xmi.id="DCE.C6D7622E-CD05-5833-99BE-998F2EA9F6C2" name="documentation">
+<UML:TaggedValue.dataValue>      &lt;p style="margin-top: 0"&gt;
+            Stel de positie in
+          &lt;/p&gt;
+     @param X de X-coördinaat
+     @param Y de Y-coördinaat
+     </UML:TaggedValue.dataValue></UML:TaggedValue><UML:Parameter visibility="package" direction="result" isQuery="false" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" xmi.id="DCE.EAE4A368-D5BB-D632-DAA7-2B88F19ABAA9" owner="DCE.B1AD730E-66D4-8101-094D-90D4ACA88853"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.E16C3A24-A78B-D248-9687-BB3672A9E699"/></UML:TypedElement.multiplicity></UML:Parameter><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="X" xmi.id="DCE.1F2B4383-5C14-5877-D0DB-F65AEEAD5180" owner="DCE.B1AD730E-66D4-8101-094D-90D4ACA88853"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.36A2E577-1888-4FAD-DF9F-02E7DF7994EF"/></UML:TypedElement.multiplicity></UML:Parameter><UML:Parameter visibility="package" isQuery="false" direction="in" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="Y" xmi.id="DCE.83B32EB3-8447-6CEB-CFAD-5D1C0D6BFAD3" owner="DCE.B1AD730E-66D4-8101-094D-90D4ACA88853"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.7A0C3DBD-56A8-55F8-BA65-968923A5693A"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation></UML:Element.ownedElement><UML:Element.presentation>
+
+</UML:Element.presentation></UML:Class>
 
 
-</UML:Element.presentation><UML:Element.ownedElement>
-<UML:Class xmi.id="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" name="Speelveld" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF"><UML:Element.presentation>
 
-</UML:Element.presentation><UML:Element.ownedElement>
-<UML:Operation xmi.id="DCE.690378A2-439A-7846-B6E3-92EEE6A46272" name="Speelveld" isConstructor="true" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651"><UML:Element.presentation>
-
-</UML:Element.presentation></UML:Operation>
-<UML:TaggedValue xmi.id="DCE.8CFBDDEF-78F3-2BF2-5CC7-D1964E742235" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" name="documentation">
-<UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
-      Documentatietest
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue>
-<UML:Attribute xmi.id="DCE.D8BF197E-0238-5719-6267-E37DAA813A4D" visibility="private" name="breedte" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" supplierDependency="DCE.1BA9124B-A398-A685-17CB-80940997E16F" clientDependency="DCE.84106CFD-D86C-FF0A-D06A-91A447E2388A"><UML:Element.presentation>
-
-</UML:Element.presentation><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.F92460EE-54DA-8FC2-86AF-5DF5F9AE5A9F"/></UML:TypedElement.multiplicity><UML:Attribute.default>
-<UML:Expression xmi.id="DCE.655A5CAC-E01D-8C24-5842-070C35044286"/></UML:Attribute.default></UML:Attribute>
-<UML:Realization xmi.id="DCE.1BA9124B-A398-A685-17CB-80940997E16F" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" client="DCE.4E76A7C0-5F2B-3BBC-FE42-6B670A957F8F" supplier="DCE.D8BF197E-0238-5719-6267-E37DAA813A4D"/>
-<UML:Operation xmi.id="DCE.4E76A7C0-5F2B-3BBC-FE42-6B670A957F8F" name="getBreedte" isConstructor="false" clientDependency="DCE.1BA9124B-A398-A685-17CB-80940997E16F" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.AB1191D3-72E8-7418-66F2-CFAB5EE52182" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" direction="result" owner="DCE.4E76A7C0-5F2B-3BBC-FE42-6B670A957F8F"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.A79DEED8-2FBA-0EDF-41F3-CB734AB39714"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-
-</UML:Element.presentation></UML:Operation>
-<UML:Realization xmi.id="DCE.84106CFD-D86C-FF0A-D06A-91A447E2388A" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" client="DCE.D8BF197E-0238-5719-6267-E37DAA813A4D" supplier="DCE.9327832B-FDEF-9702-C689-6678F8428D04"/>
-<UML:Operation xmi.id="DCE.9327832B-FDEF-9702-C689-6678F8428D04" name="setBreedte" isConstructor="false" supplierDependency="DCE.84106CFD-D86C-FF0A-D06A-91A447E2388A" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.B22D3EBD-1B1E-DC84-A253-CD9103A94E5A" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" direction="result" owner="DCE.9327832B-FDEF-9702-C689-6678F8428D04"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.71886653-9267-045D-D9CF-45655E06A397"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:Parameter xmi.id="DCE.385CC60D-EFC4-B6ED-1190-8C2CAC75CC1F" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="val" owner="DCE.9327832B-FDEF-9702-C689-6678F8428D04"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.7FEF4C99-50EA-566F-4527-F4901CE23A69"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-
-</UML:Element.presentation></UML:Operation>
-<UML:Attribute xmi.id="DCE.14E101EE-DFE2-345E-FBB1-862059ABF7DA" visibility="private" name="hoogte" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" supplierDependency="DCE.08914C6A-EDD3-A946-4B5C-C70EFD06F9A7" clientDependency="DCE.57929882-CAD6-42CD-DD49-80AC049BF0FA"><UML:Element.presentation>
-
-</UML:Element.presentation><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.EEB42F1C-716C-1A0F-9621-80609E2FDDB3"/></UML:TypedElement.multiplicity><UML:Attribute.default>
-<UML:Expression xmi.id="DCE.473D0B41-A7B9-5BDA-D144-A9C4326BC956"/></UML:Attribute.default></UML:Attribute>
-<UML:Realization xmi.id="DCE.08914C6A-EDD3-A946-4B5C-C70EFD06F9A7" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" client="DCE.3DE66517-16C5-D7B2-2CFC-4F0F7D80B71A" supplier="DCE.14E101EE-DFE2-345E-FBB1-862059ABF7DA"/>
-<UML:Operation xmi.id="DCE.3DE66517-16C5-D7B2-2CFC-4F0F7D80B71A" name="getHoogte" isConstructor="false" clientDependency="DCE.08914C6A-EDD3-A946-4B5C-C70EFD06F9A7" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.BE34F59F-337A-8101-5ED0-0F395E7A6151" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" direction="result" owner="DCE.3DE66517-16C5-D7B2-2CFC-4F0F7D80B71A"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.28A2A061-5100-9F18-B638-C44C1F0ACC82"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-
-</UML:Element.presentation></UML:Operation>
-<UML:Realization xmi.id="DCE.57929882-CAD6-42CD-DD49-80AC049BF0FA" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" client="DCE.14E101EE-DFE2-345E-FBB1-862059ABF7DA" supplier="DCE.FFBA37CB-512A-0845-0B5C-D2B60594FE2E"/>
-<UML:Operation xmi.id="DCE.FFBA37CB-512A-0845-0B5C-D2B60594FE2E" name="setHoogte" isConstructor="false" supplierDependency="DCE.57929882-CAD6-42CD-DD49-80AC049BF0FA" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.C30A06D9-F3CD-CD48-2051-EA99BF0C4C83" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" direction="result" owner="DCE.FFBA37CB-512A-0845-0B5C-D2B60594FE2E"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.8523D59A-7215-CCF8-467A-218F619CC093"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:Parameter xmi.id="DCE.B0D0AE35-164F-32B6-140B-36859422B4CF" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="val" owner="DCE.FFBA37CB-512A-0845-0B5C-D2B60594FE2E"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.B95599B5-D258-3B6F-672A-B6A9B5D610D8"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-
-</UML:Element.presentation></UML:Operation>
-
-
-<UML:SourceFileArtifact xmi.id="DCE.E3A7A089-DB3C-8DB6-71C7-50339A435985" name="Unnamed" owner="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" sourcefile="..\jtraffic\src\RushHour\Speelveld.java"/></UML:Element.ownedElement></UML:Class>
-<UML:Class xmi.id="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" name="Voertuig" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF"><UML:Element.presentation>
-</UML:Element.presentation><UML:Element.ownedElement>
-<UML:Operation xmi.id="DCE.B2EA278E-3163-DF9B-812E-995D2AAD641C" name="Voertuig" isConstructor="true" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:TaggedValue xmi.id="DCE.7BE7002D-7E80-695E-24DF-39054ADA5593" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" name="documentation">
-<UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
-      Een voertuig op het speelveld
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue>
-
-
-
-
-
-<UML:Attribute xmi.id="DCE.8CC65A05-13B2-4140-7E90-79D620DF863B" visibility="private" name="orientatie" type="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" supplierDependency="DCE.698573B5-5CF2-C322-4D0E-89F560E9A69B" clientDependency="DCE.3C858EC6-F002-18F7-9B0C-ADA8EB6C5895"><UML:Element.presentation>
-</UML:Element.presentation><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.2C402ED9-5C1E-F293-BCD0-8CFF5861E6B5"/></UML:TypedElement.multiplicity><UML:Attribute.default>
-<UML:Expression xmi.id="DCE.4A1D6564-937E-4740-895A-2AF949D27866"/></UML:Attribute.default></UML:Attribute>
-<UML:Realization xmi.id="DCE.698573B5-5CF2-C322-4D0E-89F560E9A69B" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" client="DCE.D74C6A0A-85DE-DA78-E7BC-E20D445D17F3" supplier="DCE.8CC65A05-13B2-4140-7E90-79D620DF863B"/>
-<UML:Operation xmi.id="DCE.D74C6A0A-85DE-DA78-E7BC-E20D445D17F3" name="getOrientatie" isConstructor="false" clientDependency="DCE.698573B5-5CF2-C322-4D0E-89F560E9A69B" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.D5BBF4B7-30CF-FDC0-ED9B-536D73B6942F" type="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" direction="result" owner="DCE.D74C6A0A-85DE-DA78-E7BC-E20D445D17F3"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.405C959E-8434-F292-5EF1-C67B10586384"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:Realization xmi.id="DCE.3C858EC6-F002-18F7-9B0C-ADA8EB6C5895" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" client="DCE.8CC65A05-13B2-4140-7E90-79D620DF863B" supplier="DCE.DDBD8211-092A-D0DB-F626-369F25EC155A"/>
-<UML:Operation xmi.id="DCE.DDBD8211-092A-D0DB-F626-369F25EC155A" name="setOrientatie" isConstructor="false" supplierDependency="DCE.3C858EC6-F002-18F7-9B0C-ADA8EB6C5895" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.FFE7F415-7337-946A-C2E2-899E7E87C0B3" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" direction="result" owner="DCE.DDBD8211-092A-D0DB-F626-369F25EC155A"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.68279148-00D0-3112-B011-353766FA0549"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:Parameter xmi.id="DCE.F2EC290F-C678-4C33-C04D-32EBAF7E3CA4" type="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" name="val" owner="DCE.DDBD8211-092A-D0DB-F626-369F25EC155A"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.635B2D76-0D1D-5644-1F76-7A90527B245F"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:Attribute xmi.id="DCE.6BD93AC4-1C4F-D3AA-62E4-E609F71D7D8F" visibility="private" name="grootte" type="DCE.98599967-627F-3E4E-2A7C-0A3625F221E2" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" supplierDependency="DCE.C2754392-7D2B-FB73-1BE3-118A5B5FC7D5" clientDependency="DCE.FEA87C11-1CC4-154E-841D-F8CDE98886C1"><UML:Element.presentation>
-</UML:Element.presentation><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.F1567548-9A60-5888-3FA6-DDA2CD90F701"/></UML:TypedElement.multiplicity><UML:Attribute.default>
-<UML:Expression xmi.id="DCE.284E5FC6-2FD3-4C29-F136-681CE3BBCE1A"/></UML:Attribute.default></UML:Attribute>
-<UML:Realization xmi.id="DCE.C2754392-7D2B-FB73-1BE3-118A5B5FC7D5" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" client="DCE.ED8E8FE3-96E9-058E-1DFB-86FF6076CCBE" supplier="DCE.6BD93AC4-1C4F-D3AA-62E4-E609F71D7D8F"/>
-<UML:Operation xmi.id="DCE.ED8E8FE3-96E9-058E-1DFB-86FF6076CCBE" name="getGrootte" isConstructor="false" clientDependency="DCE.C2754392-7D2B-FB73-1BE3-118A5B5FC7D5" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.BF96856D-8E11-9939-96FC-B7035B7B93EB" type="DCE.98599967-627F-3E4E-2A7C-0A3625F221E2" direction="result" owner="DCE.ED8E8FE3-96E9-058E-1DFB-86FF6076CCBE"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.6A52BE75-F53C-D52C-A9AC-21B11529A5B6"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:Realization xmi.id="DCE.FEA87C11-1CC4-154E-841D-F8CDE98886C1" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" client="DCE.6BD93AC4-1C4F-D3AA-62E4-E609F71D7D8F" supplier="DCE.EF344CE1-BA05-214D-0B33-F016507FB6E2"/>
-<UML:Operation xmi.id="DCE.EF344CE1-BA05-214D-0B33-F016507FB6E2" name="setGrootte" isConstructor="false" supplierDependency="DCE.FEA87C11-1CC4-154E-841D-F8CDE98886C1" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.0CB84E59-DCB7-4F8B-C5AF-0C731AAEBACE" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" direction="result" owner="DCE.EF344CE1-BA05-214D-0B33-F016507FB6E2"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.66A93625-AF81-6D0F-E9E5-2E3D9F9D65C2"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:Parameter xmi.id="DCE.165BE7C8-574E-8A6E-F3B2-0A4C31C21982" type="DCE.98599967-627F-3E4E-2A7C-0A3625F221E2" name="val" owner="DCE.EF344CE1-BA05-214D-0B33-F016507FB6E2"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.C68D6741-C6C2-0541-903B-142D0D2008C9"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:Attribute xmi.id="DCE.4D7BA81A-DBCC-2912-8BD1-6895471622C8" visibility="private" name="x" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" supplierDependency="DCE.35E1E97B-3422-EF0E-AE0D-E39082642B77" clientDependency="DCE.D7E5B2A4-FA9D-8926-E9F8-DA437ECEEE4C"><UML:Element.presentation>
-</UML:Element.presentation><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.787807CE-35BC-6F6F-803A-95BD9A87BD65"/></UML:TypedElement.multiplicity><UML:Attribute.default>
-<UML:Expression xmi.id="DCE.9B0A611B-6EA3-FC6C-3FE8-33E21272EEE4"/></UML:Attribute.default></UML:Attribute>
-<UML:Realization xmi.id="DCE.35E1E97B-3422-EF0E-AE0D-E39082642B77" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" client="DCE.07868CD2-4BC0-9B22-2663-894106232A4F" supplier="DCE.4D7BA81A-DBCC-2912-8BD1-6895471622C8"/>
-<UML:Operation xmi.id="DCE.07868CD2-4BC0-9B22-2663-894106232A4F" name="getX" isConstructor="false" clientDependency="DCE.35E1E97B-3422-EF0E-AE0D-E39082642B77" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.CDB9CBAF-049A-8D7F-3B90-833BE8AEB2DC" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" direction="result" owner="DCE.07868CD2-4BC0-9B22-2663-894106232A4F"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.09DC8FD2-135B-6BE0-37AF-86A50069FAE8"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:Realization xmi.id="DCE.D7E5B2A4-FA9D-8926-E9F8-DA437ECEEE4C" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" client="DCE.4D7BA81A-DBCC-2912-8BD1-6895471622C8" supplier="DCE.7A395978-B5D0-D622-8763-2D9F108B672A"/>
-<UML:Operation xmi.id="DCE.7A395978-B5D0-D622-8763-2D9F108B672A" name="setX" isConstructor="false" supplierDependency="DCE.D7E5B2A4-FA9D-8926-E9F8-DA437ECEEE4C" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.0FDDED6F-10D6-700A-916C-96DBDCD63EE1" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" direction="result" owner="DCE.7A395978-B5D0-D622-8763-2D9F108B672A"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.694FF04B-E2DF-B3B2-B710-54FE7B5E68A6"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:Parameter xmi.id="DCE.9337CB5A-99CF-2C9F-A035-B4D43E3236DD" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="val" owner="DCE.7A395978-B5D0-D622-8763-2D9F108B672A"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.06E90D84-4D0E-4DE1-52A6-BA526A40F457"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:Attribute xmi.id="DCE.6C396192-75D4-5F4B-D421-91BDB75DD6E9" visibility="private" name="y" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" supplierDependency="DCE.2E75755C-E98B-190B-A955-2B90078AFA38" clientDependency="DCE.9F1A1C7D-3A2B-B944-BF78-C7C57407F51D"><UML:Element.presentation>
-</UML:Element.presentation><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.3FF13512-5A24-90E5-6C27-49740EE24F14"/></UML:TypedElement.multiplicity><UML:Attribute.default>
-<UML:Expression xmi.id="DCE.C3486E94-2A93-440C-CEDA-DFDADBAC19B6"/></UML:Attribute.default></UML:Attribute>
-<UML:Realization xmi.id="DCE.2E75755C-E98B-190B-A955-2B90078AFA38" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" client="DCE.5DFFBA52-8A94-6ADE-DBF1-B8208E7F03D0" supplier="DCE.6C396192-75D4-5F4B-D421-91BDB75DD6E9"/>
-<UML:Operation xmi.id="DCE.5DFFBA52-8A94-6ADE-DBF1-B8208E7F03D0" name="getY" isConstructor="false" clientDependency="DCE.2E75755C-E98B-190B-A955-2B90078AFA38" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.B8D8DF44-DEA7-9587-E732-F98607CACABE" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" direction="result" owner="DCE.5DFFBA52-8A94-6ADE-DBF1-B8208E7F03D0"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.529EB8A0-A609-35E0-22EB-E640289E747C"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:Realization xmi.id="DCE.9F1A1C7D-3A2B-B944-BF78-C7C57407F51D" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" client="DCE.6C396192-75D4-5F4B-D421-91BDB75DD6E9" supplier="DCE.2A69C894-15F3-9570-57FD-8442E6BF7BA9"/>
-<UML:Operation xmi.id="DCE.2A69C894-15F3-9570-57FD-8442E6BF7BA9" name="setY" isConstructor="false" supplierDependency="DCE.9F1A1C7D-3A2B-B944-BF78-C7C57407F51D" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.95839ADC-1451-50CA-3615-4BE915C70005" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" direction="result" owner="DCE.2A69C894-15F3-9570-57FD-8442E6BF7BA9"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.35DC7C9E-88DE-C530-3DB4-E95E50004A8C"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:Parameter xmi.id="DCE.99F4AC81-0347-D653-3899-E63EA25A30D8" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="val" owner="DCE.2A69C894-15F3-9570-57FD-8442E6BF7BA9"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.D2C7403F-77AF-45D6-FDD5-FFE19A9BE9CC"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:Operation xmi.id="DCE.B1AD730E-66D4-8101-094D-90D4ACA88853" name="setPosition" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.C3E276A6-0ECF-3165-BA87-81E1C805C360" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" direction="result" owner="DCE.B1AD730E-66D4-8101-094D-90D4ACA88853"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.30928334-041A-925C-2199-D55C9BFC6842"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:Parameter xmi.id="DCE.9F2B1623-FA14-CE41-2F3C-10D2CBCCF388" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="X" owner="DCE.B1AD730E-66D4-8101-094D-90D4ACA88853" alias="" direction="out" kind="addressOf"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.E73D292E-EC5A-5654-7DFE-34ABB636F0C0"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:Parameter xmi.id="DCE.F02E3E03-5063-849F-30DA-56C2A8E1204E" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="Y" owner="DCE.B1AD730E-66D4-8101-094D-90D4ACA88853" alias="" direction="out" kind="addressOf"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.89283D6E-6088-2F06-23C3-D47814304C70"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:TaggedValue xmi.id="DCE.2BDFE95F-FF9A-14EF-C9FC-14173BAF3C18" owner="DCE.B1AD730E-66D4-8101-094D-90D4ACA88853" name="documentation">
-<UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
-      Stel de positie in
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:SourceFileArtifact xmi.id="DCE.D333D8B4-3B0F-802A-93E2-BC532F021EE9" name="Unnamed" owner="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" sourcefile="..\jtraffic\src\RushHour\Voertuig.java"/></UML:Element.ownedElement></UML:Class>
-<UML:Enumeration xmi.id="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" name="Orientatie" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF"><UML:Element.presentation>
-</UML:Element.presentation><UML:Element.ownedElement>
-<UML:TaggedValue xmi.id="DCE.60B60022-9A79-CD8C-E426-D0DACBD2B533" owner="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" name="documentation">
-<UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
-      De ori&amp;#235;ntatie van het voertuig
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue>
-<UML:SourceFileArtifact xmi.id="DCE.43B3C304-CDD9-94FB-A2DE-D80BD429C2E1" name="Unnamed" owner="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" sourcefile="..\jtraffic\src\RushHour\Orientatie.java"/></UML:Element.ownedElement><UML:Enumeration.literal>
-<UML:EnumerationLiteral xmi.id="DCE.3ACDF043-1C84-2754-70B9-C6D1188844B5" enumeration="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" name="Horizontaal"><UML:Element.presentation>
-</UML:Element.presentation><UML:Element.ownedElement>
-<UML:TaggedValue xmi.id="DCE.0BACB565-0F7F-3EC7-711B-7C5BDBE68104" owner="DCE.3ACDF043-1C84-2754-70B9-C6D1188844B5" name="documentation">
-<UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
-      Het voertuig staat horizontaal op het speelveld
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:EnumerationLiteral>
-<UML:EnumerationLiteral xmi.id="DCE.F5300E21-44C6-DDDD-DA70-9DC573C4819B" enumeration="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" name="Verticaal"><UML:Element.presentation>
-</UML:Element.presentation><UML:Element.ownedElement>
-<UML:TaggedValue xmi.id="DCE.9BAA653A-9A06-93C9-E6B9-33CFA6CC7F60" owner="DCE.F5300E21-44C6-DDDD-DA70-9DC573C4819B" name="documentation">
-<UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
-      Het voertuig staat verticaal op het speelveld
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:EnumerationLiteral></UML:Enumeration.literal></UML:Enumeration>
-<UML:Enumeration xmi.id="DCE.98599967-627F-3E4E-2A7C-0A3625F221E2" name="Grootte" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF"><UML:Element.presentation>
-</UML:Element.presentation><UML:Enumeration.literal>
-<UML:EnumerationLiteral xmi.id="DCE.C4C0AD28-7C6C-3286-3BB7-7FAAF0EABCE5" enumeration="DCE.98599967-627F-3E4E-2A7C-0A3625F221E2" name="Auto"><UML:Element.presentation>
-</UML:Element.presentation><UML:Element.ownedElement>
-<UML:TaggedValue xmi.id="DCE.80AC46FE-1C37-C9C0-BD6F-B6C620EAF69A" owner="DCE.C4C0AD28-7C6C-3286-3BB7-7FAAF0EABCE5" name="documentation">
-<UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
-      Het voertuig neemt 2 vakjes in beslag
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:EnumerationLiteral>
-<UML:EnumerationLiteral xmi.id="DCE.ED7EEF6E-E6C1-584A-A527-C152F7CF9627" enumeration="DCE.98599967-627F-3E4E-2A7C-0A3625F221E2" name="Vrachtwagen"><UML:Element.presentation>
-</UML:Element.presentation><UML:Element.ownedElement>
-<UML:TaggedValue xmi.id="DCE.EFE2CF1B-6E16-697F-08CF-BAC9ADA0B27D" owner="DCE.ED7EEF6E-E6C1-584A-A527-C152F7CF9627" name="documentation">
-<UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
-      Het voertuig neemt 3 vakjes in op het speelveld
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:EnumerationLiteral></UML:Enumeration.literal><UML:Element.ownedElement>
-<UML:TaggedValue xmi.id="DCE.A2246EF3-9379-CC15-A20E-82D5363C638E" owner="DCE.98599967-627F-3E4E-2A7C-0A3625F221E2" name="documentation">
-<UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
-      De grote van het voertuig
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue>
-<UML:SourceFileArtifact xmi.id="DCE.428D4255-0FEB-7E52-2CDA-4B12FE6E5B5C" name="Unnamed" owner="DCE.98599967-627F-3E4E-2A7C-0A3625F221E2" sourcefile="..\jtraffic\src\RushHour\Grootte.java"/></UML:Element.ownedElement></UML:Enumeration>
 <UML:TaggedValue xmi.id="DCE.4D3E92FD-E9C2-C349-B53C-392537188A5E" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF" name="documentation">
 <UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
       De spelobjecten
     &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue>
-<UML:Class xmi.id="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" name="Level" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF"><UML:Element.presentation>
-</UML:Element.presentation><UML:Element.ownedElement>
-<UML:Operation xmi.id="DCE.D3AA990C-E595-4085-FF55-7F09B5CE95F2" name="Level" isConstructor="true" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:TaggedValue xmi.id="DCE.E10D9400-BD7B-A4EB-983D-51ABB7131B23" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" name="documentation">
-<UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
-      Een level
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue>
-<UML:Attribute xmi.id="DCE.5234BB41-70F2-FEE4-E9D6-C975C6805708" visibility="private" name="veld" type="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" supplierDependency="DCE.30822916-C1F9-AE3C-897A-0666F37F7599" clientDependency="DCE.EAFB93B1-02E8-34EB-7F10-84A480F3A3C4"><UML:Element.presentation>
-</UML:Element.presentation><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.F9A0CD31-7CBC-4DB6-5525-FFD824C59315"/></UML:TypedElement.multiplicity><UML:Attribute.default>
-<UML:Expression xmi.id="DCE.33A57B8E-560D-5F2F-9BAA-7DD05F7ED4A0"/></UML:Attribute.default></UML:Attribute>
-<UML:Realization xmi.id="DCE.30822916-C1F9-AE3C-897A-0666F37F7599" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" client="DCE.A9F52AD7-8366-ACC3-67CC-93A0E2FB2BCE" supplier="DCE.5234BB41-70F2-FEE4-E9D6-C975C6805708"/>
-<UML:Operation xmi.id="DCE.A9F52AD7-8366-ACC3-67CC-93A0E2FB2BCE" name="getVeld" isConstructor="false" clientDependency="DCE.30822916-C1F9-AE3C-897A-0666F37F7599" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.85D74019-E7EA-13EE-0B33-15D9DD037694" type="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" direction="result" owner="DCE.A9F52AD7-8366-ACC3-67CC-93A0E2FB2BCE"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.ABE62020-EDD5-80DC-38F7-418A2E170AED"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:Realization xmi.id="DCE.EAFB93B1-02E8-34EB-7F10-84A480F3A3C4" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" client="DCE.5234BB41-70F2-FEE4-E9D6-C975C6805708" supplier="DCE.F40D4C23-C90B-4328-0972-643BFEE3D1B1"/>
-<UML:Operation xmi.id="DCE.F40D4C23-C90B-4328-0972-643BFEE3D1B1" name="setVeld" isConstructor="false" supplierDependency="DCE.EAFB93B1-02E8-34EB-7F10-84A480F3A3C4" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.9ED32334-32E0-B6A3-A8D2-A51522ED06B4" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" direction="result" owner="DCE.F40D4C23-C90B-4328-0972-643BFEE3D1B1"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.2B4F1453-199B-1417-7043-444C7597DD06"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:Parameter xmi.id="DCE.5A78E317-E95B-F482-D7FF-70F84AB0E991" type="DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651" name="val" owner="DCE.F40D4C23-C90B-4328-0972-643BFEE3D1B1"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.3DFAE4DB-A546-BE1F-C67A-65BC374778BE"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:Attribute xmi.id="DCE.F0552C0C-0429-8133-D01A-6AFD160DF257" visibility="private" name="voertuigen" type="DCE.0CF6FBE7-E331-78B3-1727-9A92682388D5" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" supplierDependency="DCE.E61062EF-21E6-12C5-1856-7EDFCB5C3984" clientDependency="DCE.5F4E9EF3-5993-E4B1-E450-D83358D92085"><UML:Element.presentation>
-</UML:Element.presentation><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.A38E5AC6-A12A-D82E-F89C-02F7324D1885"/></UML:TypedElement.multiplicity><UML:Attribute.default>
-<UML:Expression xmi.id="DCE.A742F85E-4026-552B-D67F-BD6461D7BCEB"/></UML:Attribute.default></UML:Attribute>
-<UML:Realization xmi.id="DCE.E61062EF-21E6-12C5-1856-7EDFCB5C3984" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" client="DCE.23E5349F-17FA-B68C-CEB6-076DB9DF19A0" supplier="DCE.F0552C0C-0429-8133-D01A-6AFD160DF257"/>
 
-<UML:Realization xmi.id="DCE.5F4E9EF3-5993-E4B1-E450-D83358D92085" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" client="DCE.F0552C0C-0429-8133-D01A-6AFD160DF257" supplier="DCE.980FD9FB-389E-F50A-9F41-5E84F0944940"/>
+<UML:Aggregation xmi.id="DCE.21F25603-8B2B-7AC8-0547-F1F5AB30886A" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF" aggregateEnd="DCE.72046CC5-228B-4F58-8227-8DEEF1461A7A" partEnd="DCE.E5627262-3722-F050-BC87-626DD0F69A12"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.72046CC5-228B-4F58-8227-8DEEF1461A7A" visibility="private" type="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" association="DCE.21F25603-8B2B-7AC8-0547-F1F5AB30886A"/>
+<UML:NavigableEnd xmi.id="DCE.E5627262-3722-F050-BC87-626DD0F69A12" visibility="private" type="DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D" association="DCE.21F25603-8B2B-7AC8-0547-F1F5AB30886A" name="orientatie"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.8611B451-8BD5-F139-4E15-371B91E691B4"/></UML:TypedElement.multiplicity><UML:Attribute.default>
+<UML:Expression xmi.id="DCE.A2F272B6-7098-45A2-9C3F-67F0D42F516B"/></UML:Attribute.default></UML:NavigableEnd></UML:Association.end></UML:Aggregation>
 
-<UML:Operation xmi.id="DCE.4AA52795-976D-7625-5514-67D107760A82" name="voertuigOpPlaats" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.FEB3C4C9-4560-EDCA-88D0-0AFB77D60EBD" type="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" direction="result" owner="DCE.4AA52795-976D-7625-5514-67D107760A82"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.B55E50E2-B3E7-C761-9050-1F2BF14EC327"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:Parameter xmi.id="DCE.5FEE0683-6276-7494-DD7C-A4C2A734AC5B" type="DCE.8046C122-6DA8-FF63-1B58-A7832E3A0A79" name="plaats" owner="DCE.4AA52795-976D-7625-5514-67D107760A82" alias="" direction="out" kind="addressOf"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.260A5470-9D7F-C7D6-A116-B8D137C5808C"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:TaggedValue xmi.id="DCE.47DCF0BA-0F11-DDBE-9C49-5EF2198C14DD" owner="DCE.4AA52795-976D-7625-5514-67D107760A82" name="documentation">
-<UML:TaggedValue.dataValue>&lt;p style="margin-top: 0"&gt;
-      Geeft een voertuig uit de lijst
-    &lt;/p&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:Operation xmi.id="DCE.D2B3617D-ADA4-A3D4-308C-3734863ECB11" name="voegVoertuigToe" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB"><UML:Element.ownedElement>
-<UML:Parameter xmi.id="DCE.795311B1-A9BE-D4C5-967B-9E39DC2CE1F4" type="DCE.9C5EAFE9-710F-4A40-CBFE-7B2A06B78B0E" direction="result" owner="DCE.D2B3617D-ADA4-A3D4-308C-3734863ECB11"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.3532DC6A-6D05-09AB-AD24-484BA0E4C6E5"/></UML:TypedElement.multiplicity></UML:Parameter>
-<UML:Parameter xmi.id="DCE.E9B4BB49-D089-3D20-1B59-D9158AC2F2C6" type="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" name="voertuig" owner="DCE.D2B3617D-ADA4-A3D4-308C-3734863ECB11" alias="" direction="out" kind="addressOf"><UML:TypedElement.multiplicity>
-<UML:Multiplicity xmi.id="DCE.DE0FC014-714F-67B9-EFFB-A0A7FA5C8BA9"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
-</UML:Element.presentation></UML:Operation>
-<UML:SourceFileArtifact xmi.id="DCE.CA1611CB-4D07-4F50-6904-D2A42672F0F9" name="Unnamed" owner="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" sourcefile="..\jtraffic\src\RushHour\Level.java"/></UML:Element.ownedElement></UML:Class></UML:Element.ownedElement></UML:Package>
+
+
+<UML:Aggregation xmi.id="DCE.8D87C8F8-1AC3-88D8-34F3-0FFCFA8768F0" owner="DCE.D05FFAF0-D20C-E77B-5652-18417029DDEF" aggregateEnd="DCE.D294AC11-0078-1A3F-DD59-3F5148B5BC27" partEnd="DCE.A55A4BDF-1D4C-4F8C-2B18-34EC28C2AF28"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.D294AC11-0078-1A3F-DD59-3F5148B5BC27" visibility="private" type="DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB" association="DCE.8D87C8F8-1AC3-88D8-34F3-0FFCFA8768F0"/>
+<UML:NavigableEnd xmi.id="DCE.A55A4BDF-1D4C-4F8C-2B18-34EC28C2AF28" visibility="private" type="DCE.BCF3685A-9810-3D8C-7162-061D5F12D290" association="DCE.8D87C8F8-1AC3-88D8-34F3-0FFCFA8768F0" name="voertuigen"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.0CBF9510-BB4E-B0F5-F8FE-359022FAE541">
+<UML:Multiplicity.range><UML:MultiplicityRange lower="0" upper="*" collectionType="ArrayList" xmi.id="DCE.B8695206-FF4B-84FD-14D5-9AC60A4A3FE9"/></UML:Multiplicity.range></UML:Multiplicity></UML:TypedElement.multiplicity><UML:Attribute.default>
+<UML:Expression xmi.id="DCE.87A2D3A7-9836-8692-BF7D-C85397B8B1EB"/></UML:Attribute.default></UML:NavigableEnd></UML:Association.end></UML:Aggregation></UML:Element.ownedElement>
+</UML:Package>
 
 
 
 
-<UML:DataType xmi.id="DCE.0CF6FBE7-E331-78B3-1727-9A92682388D5" name="ArrayList&lt;Voertuig&gt;" owner="DCE.72D0B15F-3BD3-A9D7-6FFE-C88650E33A09"/></UML:Element.ownedElement></UML:Project></XMI.content> </XMI>
+<UML:DataType xmi.id="DCE.0CF6FBE7-E331-78B3-1727-9A92682388D5" name="ArrayList&lt;Voertuig&gt;" owner="DCE.72D0B15F-3BD3-A9D7-6FFE-C88650E33A09"/>
+<UML:DataType xmi.id="DCE.C738255C-95CE-7050-8ABE-76D86C9F3250" name="boolean" owner="DCE.72D0B15F-3BD3-A9D7-6FFE-C88650E33A09"/>
+<UML:DataType xmi.id="DCE.CAA8FD7B-193D-6F4F-7CC9-81EB88063DF5" name="String" owner="DCE.72D0B15F-3BD3-A9D7-6FFE-C88650E33A09"/>
+<UML:DataType xmi.id="DCE.D35E4487-F16E-A358-BB1F-2F7033054C92" name="ArrayIndexOutOfBoundsException" owner="DCE.72D0B15F-3BD3-A9D7-6FFE-C88650E33A09"/>
+</UML:Element.ownedElement></UML:Project></XMI.content> </XMI>
