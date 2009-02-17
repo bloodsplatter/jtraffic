@@ -23,17 +23,17 @@ public class Ai {
         Voertuig tmpvt;
 
         mainvt = lvl.voertuigOpPlaats(0);
-        if (mainvt.getX() > 0) {
+        while(mainvt.getX() > 0){
             tmpvt = lvl.voertuigOpPositie(mainvt.getX(), mainvt.getY());
             if (tmpvt != null) {
                 setProbleem(tmpvt, mainvt.getX() - 1, mainvt.getY());
             } else {
                 mainvt.NaarLinks();
             }
-        } else {
+        }
             // Gewonnen
             System.out.println("Done!");
-        }
+        
 
 
     }
