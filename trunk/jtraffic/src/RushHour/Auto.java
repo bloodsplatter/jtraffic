@@ -4,10 +4,15 @@ package RushHour;
 /**
  * Een auto
  * @author bloodsplatter
+ * @see RushHour.Voertuig
  */
 public class Auto extends Voertuig {
     private int grootte;
 
+    /**
+     * Maakt een auto met de opgegeven oriëntatie
+     * @param orientatie de gewenste oriëntatie
+     */
     public Auto(Orientatie orientatie) {
         super(orientatie);
         grootte = 2;

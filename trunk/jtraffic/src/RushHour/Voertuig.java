@@ -40,7 +40,6 @@ public abstract class Voertuig {
 
     /**
      * Geparameteriseerde constructor
-     * @param grootte de grootte van het voertuig
      * @param orientatie de orientatie van het voertuig
      */
     public Voertuig(Orientatie orientatie)
@@ -147,6 +146,10 @@ public abstract class Voertuig {
         this.y = Y;
     }
 
+    /**
+     * Geeft de grootte van het voertuig
+     * @return de grootte van het voertuig
+     */
     public abstract int getGrootte();
 }
 

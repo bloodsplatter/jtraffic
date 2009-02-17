@@ -1,13 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package RushHour;
 
 /**
  * Een vrachtwagen
  * @author bloodsplatter
+ * @see RushHour.Voertuig
  */
 public class Vrachtwagen extends Voertuig {
     private int grootte;
