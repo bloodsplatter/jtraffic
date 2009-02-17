@@ -40,15 +40,5 @@ public class Main {
         Ai ai = new Ai(lvl);
         ai.run();
         lvl.Print();
-        ai.run();
-        lvl.Print();
-        ai.run();
-        lvl.Print();
-        ai.run();
-        lvl.Print();
-        ai.run();
-        lvl.Print();
-        ai.run();
-        lvl.Print();
     }
 }
