@@ -55,23 +55,33 @@ public class Ai {
 
                         nwvrt = lvl.voertuigOpPositie(tmpvt.getX(), tmpvt.getY() - 1);
                         if (nwvrt != null) {
-                            if(setProbleem(tmpvt, tmpvt.getX(), tmpvt.getY() - 1) == false){
+                            if (setProbleem(tmpvt, tmpvt.getX(), tmpvt.getY() - 1) == false) {
                                 break;
                             }
                         } else {
                             tmpvt.NaarBoven();
                         }
-
                     }
-                    isOpgelost = true;
+
+                    // Controleer nu of het is opgelost of hij is terug
+                    // geroepen door de Maxstack
+                    if (lvl.voertuigOpPositie(FreeposX, FreeposY) == null) {
+                        isOpgelost = true;
+                    }
+
                 }
                 if (((FreeposY + Convertor.GrootteNaarInt(tmpvt.getGrootte())) < lvl.getVeld().getHoogte()) && isOpgelost == false) {
                     // Oplossing naar onder is mogelijk haalbaar...
-                    nwvrt = lvl.voertuigOpPositie(tmpvt.getX(), tmpvt.getY() + 1);
-                    if (nwvrt != null) {
-                        setProbleem(tmpvt, tmpvt.getX(), tmpvt.getY() + 1);
-                    } else {
-                        tmpvt.NaarBeneden();
+                    while (lvl.voertuigOpPositie(FreeposX, FreeposY) != null) {
+
+                        nwvrt = lvl.voertuigOpPositie(tmpvt.getX(), tmpvt.getY() + 1);
+                        if (nwvrt != null) {
+                            if (setProbleem(tmpvt, tmpvt.getX(), tmpvt.getY() + 1) == false) {
+                                break;
+                            }
+                        } else {
+                            tmpvt.NaarBeneden();
+                        }
                     }
 
                 }
@@ -82,21 +92,35 @@ public class Ai {
                 //Chek of oplossing mogelijk is
                 if ((FreeposX - Convertor.GrootteNaarInt(tmpvt.getGrootte())) >= 0) {
                     // Oplosing naar boven is mogelijk haalbaar...
-                    nwvrt = lvl.voertuigOpPositie(tmpvt.getX() - 1, tmpvt.getY());
-                    if (nwvrt != null) {
-                        setProbleem(tmpvt, tmpvt.getX() - 1, tmpvt.getY());
-                    } else {
-                        tmpvt.NaarLinks();
+                    while (lvl.voertuigOpPositie(FreeposX, FreeposY) != null) {
+
+                        nwvrt = lvl.voertuigOpPositie(tmpvt.getX() - 1, tmpvt.getY());
+                        if (nwvrt != null) {
+                            if (setProbleem(tmpvt, tmpvt.getX() - 1, tmpvt.getY()) == false) {
+                                break;
+                            }
+                        } else {
+                            tmpvt.NaarLinks();
+                        }
                     }
-                    isOpgelost = true;
+                    // Controleer nu of het is opgelost of hij is terug
+                    // geroepen door de Maxstack
+                    if (lvl.voertuigOpPositie(FreeposX, FreeposY) == null) {
+                        isOpgelost = true;
+                    }
                 }
                 if (((FreeposX + Convertor.GrootteNaarInt(tmpvt.getGrootte())) < lvl.getVeld().getHoogte()) && isOpgelost == false) {
                     // Oplossing naar onder is mogelijk haalbaar...
-                    nwvrt = lvl.voertuigOpPositie(tmpvt.getX() + 1, tmpvt.getY());
-                    if (nwvrt != null) {
-                        setProbleem(tmpvt, tmpvt.getX() + 1, tmpvt.getY());
-                    } else {
-                        tmpvt.NaarRechts();
+                    while (lvl.voertuigOpPositie(FreeposX, FreeposY) != null) {
+
+                        nwvrt = lvl.voertuigOpPositie(tmpvt.getX() + 1, tmpvt.getY());
+                        if (nwvrt != null) {
+                            if (setProbleem(tmpvt, tmpvt.getX() + 1, tmpvt.getY()) == false) {
+                                break;
+                            }
+                        } else {
+                            tmpvt.NaarRechts();
+                        }
                     }
 
                 }
