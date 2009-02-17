@@ -1,6 +1,7 @@
 package RushHour;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 /**
@@ -104,11 +105,35 @@ public class Level {
      * @param X de X-coördinaat van het voertuig
      * @param Y de Y-coördinaat van het voertuig
      * @return null als het voertuig niet gevonden is, anders het voertuig zelf
-     * @see RushHour.Voertuig
      */
     public Voertuig voertuigOpPositie(int X, int Y)
     {
-        return null;
+        Voertuig ret = null;
+        Voertuig tmp;
+        Iterator<Voertuig> it = voertuigen.iterator();
+
+        while (it.hasNext())
+        {
+            tmp = it.next();
+            if (tmp.getOrientatie() == Orientatie.Horizontaal)
+            {
+                if ((tmp.getX() <= X && tmp.getX()+tmp.getGrootte() >= X) && tmp.getY() == Y )
+                {
+                    ret = tmp;
+                    break;
+                }
+            }
+            else
+            {
+                if ((tmp.getY() <= Y && tmp.getY()+tmp.getGrootte() >= Y) && tmp.getX() == X)
+                {
+                    ret = tmp;
+                    break;
+                }
+            }
+        }
+
+        return ret;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
