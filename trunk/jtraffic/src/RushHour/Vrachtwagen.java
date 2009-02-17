@@ -6,25 +6,26 @@
 package RushHour;
 
 /**
- *
+ * Een vrachtwagen
  * @author bloodsplatter
  */
 public class Vrachtwagen extends Voertuig {
     private int grootte;
 
     /**
-     *
-     * @param X
-     * @param Y
+     * Maakt een vrachtwagen op de opgegeven locatie
+     * @param X de X-coördinaat
+     * @param Y de Y-coördinaat
      */
     public Vrachtwagen(int X, int Y) {
         super(X, Y);
+        super.setOrientatie(Orientatie.Horizontaal);
         grootte = 3;
     }
 
     /**
-     *
-     * @param orientatie
+     * Maakt een vrachtwagen met de opgegeven oriëntatie
+     * @param orientatie de gewenste oriëntatie
      */
     public Vrachtwagen(Orientatie orientatie) {
         super(orientatie);
@@ -32,40 +33,11 @@ public class Vrachtwagen extends Voertuig {
     }
 
     /**
-     *
+     * Maakt een vrachtwagen
      */
     public Vrachtwagen() {
         super(0,0);
         grootte = 3;
-    }
-
-    /**
-     *
-     * @param X
-     * @param Y
-     * @param grootte
-     */
-    public Vrachtwagen(int X, int Y, int grootte) {
-        super(X, Y);
-        this.grootte = grootte;
-    }
-
-    /**
-     *
-     * @param orientatie
-     * @param grootte
-     */
-    public Vrachtwagen(Orientatie orientatie, int grootte) {
-        super(orientatie);
-        this.grootte = grootte;
-    }
-
-    /**
-     *
-     * @param grootte
-     */
-    public Vrachtwagen(int grootte) {
-        this.grootte = grootte;
     }
 
     /**

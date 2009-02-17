@@ -8,10 +8,15 @@ package RushHour;
 public class Auto extends Voertuig {
     private int grootte;
 
+    public Auto(Orientatie orientatie) {
+        super(orientatie);
+        grootte = 2;
+    }
+
     /**
-     * 
-     * @param X
-     * @param Y
+     * Maak een auto op de opgegeven locatie aan
+     * @param X de X-coördinaat
+     * @param Y de Y-coördinaat
      */
     public Auto(int X, int Y) {
         super(X, Y);
@@ -19,38 +24,7 @@ public class Auto extends Voertuig {
     }
 
     /**
-     *
-     * @param X
-     * @param Y
-     * @param grootte
-     */
-    public Auto(int X, int Y, int grootte) {
-        super(X, Y);
-        this.grootte = grootte;
-    }
-
-    /**
-     *
-     * @param orientatie
-     * @param grootte
-     */
-    public Auto(Orientatie orientatie, int grootte) {
-        super(orientatie);
-        this.grootte = grootte;
-    }
-
-    /**
-     *
-     * @param grootte
-     */
-    public Auto(int grootte) {
-        super();
-        this.grootte = grootte;
-    }
-
-
-    /**
-     *
+     * Constructor
      */
     public Auto() {
         super(0,0);
@@ -58,8 +32,8 @@ public class Auto extends Voertuig {
     }
 
     /**
-     *
-     * @return
+     * Geeft de grote van het voertuig
+     * @return de grote van het voertuig
      */
     public int getGrootte() {
         return grootte;
