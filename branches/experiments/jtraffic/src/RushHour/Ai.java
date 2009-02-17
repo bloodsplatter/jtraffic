@@ -49,7 +49,7 @@ public class Ai {
                 // chek up/down
 
                 //Chek of oplossing mogelijk is
-                if ((FreeposY - Convertor.GrootteNaarInt(tmpvt.getGrootte())) >= 0) {
+                if ((FreeposY - tmpvt.getGrootte()) >= 0) {
                     // Oplosing naar boven is mogelijk haalbaar...
                     while (lvl.voertuigOpPositie(FreeposX, FreeposY) != null) {
 
@@ -70,7 +70,7 @@ public class Ai {
                     }
 
                 }
-                if (((FreeposY + Convertor.GrootteNaarInt(tmpvt.getGrootte())) < lvl.getVeld().getHoogte()) && isOpgelost == false) {
+                if ((FreeposY + tmpvt.getGrootte() < lvl.getVeld().getHoogte()) && isOpgelost == false) {
                     // Oplossing naar onder is mogelijk haalbaar...
                     while (lvl.voertuigOpPositie(FreeposX, FreeposY) != null) {
 
@@ -90,7 +90,7 @@ public class Ai {
                 // chek up/down
 
                 //Chek of oplossing mogelijk is
-                if ((FreeposX - Convertor.GrootteNaarInt(tmpvt.getGrootte())) >= 0) {
+                if ((FreeposX - tmpvt.getGrootte()) >= 0) {
                     // Oplosing naar boven is mogelijk haalbaar...
                     while (lvl.voertuigOpPositie(FreeposX, FreeposY) != null) {
 
@@ -109,7 +109,7 @@ public class Ai {
                         isOpgelost = true;
                     }
                 }
-                if (((FreeposX + Convertor.GrootteNaarInt(tmpvt.getGrootte())) < lvl.getVeld().getHoogte()) && isOpgelost == false) {
+                if (((FreeposX + tmpvt.getGrootte()) < lvl.getVeld().getHoogte()) && isOpgelost == false) {
                     // Oplossing naar onder is mogelijk haalbaar...
                     while (lvl.voertuigOpPositie(FreeposX, FreeposY) != null) {
 

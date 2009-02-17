@@ -144,7 +144,7 @@ public class Level {
         dispmatrx[hoogtem - 1][breetem * 2 - 1] = '+';
 
         Iterator<Voertuig> itr = voertuigen.iterator();
-        Voertuig tmpvrt = new Voertuig();
+        Voertuig tmpvrt;
         while(itr.hasNext()){
             tmpvrt = itr.next();
             if(tmpvrt.getOrientatie() == Orientatie.Horizontaal){
