@@ -109,6 +109,7 @@ public class Level {
      */
     public void voegVoertuigToe (Voertuig voertuig) {
         if (!voertuigen.contains(voertuig))
+            voertuig.setLevel(this);
             voertuigen.add(voertuig);
     }
 
