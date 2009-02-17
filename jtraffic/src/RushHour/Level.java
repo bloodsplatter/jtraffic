@@ -1,7 +1,6 @@
 package RushHour;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
 /**
@@ -109,19 +108,7 @@ public class Level {
      */
     public Voertuig voertuigOpPositie(int X, int Y)
     {
-        Voertuig voertuig = null;
-        Voertuig temp = new Voertuig();
-        Iterator<Voertuig> iterator = voertuigen.iterator();
-        while (iterator.hasNext())
-        {
-            temp = iterator.next();
-            if (temp.getX() == X && temp.getY() == Y)
-            {
-                break;
-            }
-        }
-
-        return voertuig;
+        return null;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
