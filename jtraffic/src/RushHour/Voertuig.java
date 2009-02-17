@@ -9,17 +9,12 @@ package RushHour;
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.BCF3685A-9810-3D8C-7162-061D5F12D290]
 // </editor-fold> 
-public class Voertuig {
+public abstract class Voertuig {
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.8CC65A05-13B2-4140-7E90-79D620DF863B]
     // </editor-fold> 
     private Orientatie orientatie;
-
-    // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
-    // #[regen=yes,id=DCE.6BD93AC4-1C4F-D3AA-62E4-E609F71D7D8F]
-    // </editor-fold> 
-    private Grootte grootte;
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.4D7BA81A-DBCC-2912-8BD1-6895471622C8]
@@ -41,7 +36,6 @@ public class Voertuig {
     public Voertuig() {
         y = 0;
         x = 0;
-        this.grootte = Grootte.Auto;
         this.orientatie = Orientatie.Horizontaal;
         
     }
@@ -51,9 +45,8 @@ public class Voertuig {
      * @param grootte de grootte van het voertuig
      * @param orientatie de orientatie van het voertuig
      */
-    public Voertuig(Grootte grootte, Orientatie orientatie)
+    public Voertuig(Orientatie orientatie)
     {
-        this.grootte = grootte;
         this.orientatie = orientatie;
         x = 0;
         y = 0;
@@ -66,33 +59,11 @@ public class Voertuig {
      */
     public Voertuig(int X, int Y)
     {
-        this.grootte = Grootte.Auto;
         this.orientatie = Orientatie.Horizontaal;
         this.x = X;
         this.y = Y;
     }
 
-    // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
-    // #[regen=yes,regenBody=yes,id=DCE.ED8E8FE3-96E9-058E-1DFB-86FF6076CCBE]
-    // </editor-fold> 
-    /**
-     * Geeft de grootte van het voertuig
-     * @return de grootte van het voertuig
-     */
-    public Grootte getGrootte() {
-        return grootte;
-    }
-
-    // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
-    // #[regen=yes,regenBody=yes,id=DCE.EF344CE1-BA05-214D-0B33-F016507FB6E2]
-    // </editor-fold> 
-    /**
-     * Stelt de grootte van het voertuig in
-     * @param val de gewenste grootte
-     */
-    public void setGrootte(Grootte val) {
-        this.grootte = val;
-    }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.D74C6A0A-85DE-DA78-E7BC-E20D445D17F3]
@@ -220,11 +191,12 @@ public class Voertuig {
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.B1AD730E-66D4-8101-094D-90D4ACA88853]
     // </editor-fold> 
-    public void setPosition (int X, int Y) {
+    public void setPositie (int X, int Y) {
         // TODO hier moeten nog checks uitgevoerd worden.
         this.x = X;
         this.y = Y;
     }
 
+    public abstract int getGrootte();
 }
 
