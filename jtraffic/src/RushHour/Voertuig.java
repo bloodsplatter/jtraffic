@@ -130,6 +130,10 @@ public class Voertuig {
         return x;
     }
 
+    /**
+     *
+     * @param lvl
+     */
     public void setLevel(Level lvl){
         this.lvl = lvl;
     }
@@ -167,25 +171,42 @@ public class Voertuig {
         // TODO hier moeten nog checks uitgevoerd worden.
         this.y = val;
     }
+
     
-    public boolean MoveUp() {
+    /**
+     * Beweeg het voertuig 1 positie naar boven
+     * @return true als het gelukt is, anders false
+     */
+    public boolean NaarBoven() {
         // TODO hier moeten nog checks uitgevoerd worden.
         // Chek lvl.is object op ???
         this.y -= 1;
 
         return true;
     }
-    public boolean MoveDown() {
+    /**
+     * Beweeg het voertuig 1 positie naar beneden
+     * @return true als het gelukt is, anders false
+     */
+    public boolean NaarBeneden() {
         // TODO hier moeten nog checks uitgevoerd worden.
         this.y += 1;
         return true;
     }
-    public boolean MoveLeft() {
+    /**
+     * Beweeg het voertuig 1 positie naar links
+     * @return true als het gelukt is, anders false
+     */
+    public boolean NaarLinks() {
         // TODO hier moeten nog checks uitgevoerd worden.
         this.x -= 1;
         return true;
     }
-    public boolean MoveRight() {
+    /**
+     * Beweeg het voertuig 1 positie naar rechts
+     * @return true als het gelukt is, anders false
+     */
+    public boolean NaarRechts() {
         // TODO hier moeten nog checks uitgevoerd worden.
         this.x += 1;
         return true;
