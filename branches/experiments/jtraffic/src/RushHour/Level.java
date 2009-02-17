@@ -153,7 +153,7 @@ public class Level {
                 dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = '=';
                 dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)+ 2] = '=';
                 dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 3)] = '=';
-                if( tmpvrt.getGrootte() == Grootte.Vrachtwagen){
+                if( tmpvrt.getGrootte() == 3){
                     dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 4)] = '=';
                     dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 5)] = '=';
                 }
@@ -163,7 +163,7 @@ public class Level {
                 dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = 'I';
                 dispmatrx[(1 + tmpvrt.getY()+1)][(2 + tmpvrt.getX() * 2)] = 'I';
                 dispmatrx[(1 + tmpvrt.getY()+1)][(2 + tmpvrt.getX() * 2 + 1)] = 'I';
-                if( tmpvrt.getGrootte() == Grootte.Vrachtwagen){
+                if( tmpvrt.getGrootte() == 3){
                     dispmatrx[(1 + tmpvrt.getY()+2)][(2 + tmpvrt.getX() * 2)] = 'I';
                     dispmatrx[(1 + tmpvrt.getY()+2)][(2 + tmpvrt.getX() * 2 + 1)] = 'I';
                 }

@@ -26,12 +26,12 @@ public class Main {
 
 
 
-        Voertuig vrt2 = new Voertuig(Grootte.Vrachtwagen,Orientatie.Horizontaal);
+        Vrachtwagen vrt2 = new Vrachtwagen(Orientatie.Horizontaal);
         vrt2.setX(4);
         vrt2.setY(3);
         lvl.voegVoertuigToe(vrt2);
 
-        Voertuig vrt1 = new Voertuig(Grootte.Auto,Orientatie.Verticaal);
+        Auto vrt1 = new Auto(Orientatie.Verticaal);
         vrt1.setX(0);
         vrt1.setY(2);
         lvl.voegVoertuigToe(vrt1);
