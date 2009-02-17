@@ -22,7 +22,7 @@ public class Ai {
 
        tmpvt = lvl.voertuigOpPlaats(0);
        if(tmpvt.getX() > 0){
-           tmpvt.MoveLeft();
+           tmpvt.NaarLinks();
        }else{
         // Gewonnen
            System.out.println("Done!");
