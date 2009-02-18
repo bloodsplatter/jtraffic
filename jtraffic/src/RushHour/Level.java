@@ -87,12 +87,14 @@ public class Level {
     public Voertuig voertuigOpPositie(int X, int Y)
     {
         Voertuig voertuig = null;
+        Voertuig tmvoertuig = null;
         Iterator<Voertuig> iterator = voertuigen.iterator();
         while (iterator.hasNext())
         {
-            voertuig = iterator.next();
-            if (voertuig.getX() == X && voertuig.getY() == Y)
+            tmvoertuig = iterator.next();
+            if ((tmvoertuig.getX() == X && tmvoertuig.getY() == Y) || (tmvoertuig.getOrientatie() == Orientatie.Horizontaal && tmvoertuig.getX() + 1 == X && tmvoertuig.getY() == Y) || (tmvoertuig.getOrientatie() == Orientatie.Verticaal && tmvoertuig.getX() == X && tmvoertuig.getY() + 1 == Y)  || (tmvoertuig.getGrootte() == 3 && tmvoertuig.getOrientatie() == Orientatie.Horizontaal && tmvoertuig.getX() + 2 == X && tmvoertuig.getY() == Y) || (tmvoertuig.getGrootte() == 3 && tmvoertuig.getOrientatie() == Orientatie.Verticaal && tmvoertuig.getX() == X && tmvoertuig.getY() + 2 == Y))
             {
+                voertuig = tmvoertuig;
                 break;
             }
         }

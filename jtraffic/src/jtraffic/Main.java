@@ -31,14 +31,39 @@ public class Main {
         vrt2.setY(3);
         lvl.voegVoertuigToe(vrt2);
 
-        Auto vrt1 = new Auto(Orientatie.Verticaal);
+        Vrachtwagen vrt3 = new Vrachtwagen(Orientatie.Horizontaal);
+        vrt3.setX(0);
+        vrt3.setY(1);
+        lvl.voegVoertuigToe(vrt3);
+
+        Vrachtwagen vrt1 = new Vrachtwagen(Orientatie.Verticaal);
         vrt1.setX(0);
         vrt1.setY(2);
         lvl.voegVoertuigToe(vrt1);
+
+        Auto vrt4 = new Auto(Orientatie.Horizontaal);
+        vrt4.setX(0);
+        vrt4.setY(0);
+        lvl.voegVoertuigToe(vrt4);
 
         lvl.Print();
         Ai ai = new Ai(lvl);
         ai.run();
         lvl.Print();
+                ai.run();
+        lvl.Print();
+                ai.run();
+        lvl.Print();
+                ai.run();
+        lvl.Print();
+                ai.run();
+        lvl.Print();
+                ai.run();
+        lvl.Print();
+                ai.run();
+        lvl.Print();
+                ai.run();
+        lvl.Print();
+        
     }
 }

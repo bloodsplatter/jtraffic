@@ -23,14 +23,14 @@ public class Ai {
         Voertuig tmpvt;
 
         mainvt = lvl.voertuigOpPlaats(0);
-        while(mainvt.getX() > 0){
-            tmpvt = lvl.voertuigOpPositie(mainvt.getX(), mainvt.getY());
+        //while(mainvt.getX() > 0){
+            tmpvt = lvl.voertuigOpPositie((mainvt.getX() - 1), mainvt.getY());
             if (tmpvt != null) {
                 setProbleem(tmpvt, mainvt.getX() - 1, mainvt.getY());
             } else {
                 mainvt.NaarLinks();
             }
-        }
+        //}
             // Gewonnen
             System.out.println("Done!");
         
@@ -55,7 +55,7 @@ public class Ai {
 
                         nwvrt = lvl.voertuigOpPositie(tmpvt.getX(), tmpvt.getY() - 1);
                         if (nwvrt != null) {
-                            if (setProbleem(tmpvt, tmpvt.getX(), tmpvt.getY() - 1) == false) {
+                            if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() - 1) == false) {
                                 break;
                             }
                         } else {
@@ -76,7 +76,7 @@ public class Ai {
 
                         nwvrt = lvl.voertuigOpPositie(tmpvt.getX(), tmpvt.getY() + 1);
                         if (nwvrt != null) {
-                            if (setProbleem(tmpvt, tmpvt.getX(), tmpvt.getY() + 1) == false) {
+                            if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() + 1) == false) {
                                 break;
                             }
                         } else {
@@ -96,7 +96,7 @@ public class Ai {
 
                         nwvrt = lvl.voertuigOpPositie(tmpvt.getX() - 1, tmpvt.getY());
                         if (nwvrt != null) {
-                            if (setProbleem(tmpvt, tmpvt.getX() - 1, tmpvt.getY()) == false) {
+                            if (setProbleem(nwvrt, tmpvt.getX() - 1, tmpvt.getY()) == false) {
                                 break;
                             }
                         } else {
@@ -109,13 +109,13 @@ public class Ai {
                         isOpgelost = true;
                     }
                 }
-                if (((FreeposX + tmpvt.getGrootte()) < lvl.getVeld().getHoogte()) && isOpgelost == false) {
+                if (((FreeposX + tmpvt.getGrootte()) < lvl.getVeld().getBreedte()) && isOpgelost == false) {
                     // Oplossing naar onder is mogelijk haalbaar...
                     while (lvl.voertuigOpPositie(FreeposX, FreeposY) != null) {
 
-                        nwvrt = lvl.voertuigOpPositie(tmpvt.getX() + 1, tmpvt.getY());
+                        nwvrt = lvl.voertuigOpPositie(tmpvt.getX() + tmpvt.getGrootte(), tmpvt.getY());
                         if (nwvrt != null) {
-                            if (setProbleem(tmpvt, tmpvt.getX() + 1, tmpvt.getY()) == false) {
+                            if (setProbleem(nwvrt, tmpvt.getX() + tmpvt.getGrootte(), tmpvt.getY()) == false) {
                                 break;
                             }
                         } else {
