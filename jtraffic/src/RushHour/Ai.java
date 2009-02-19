@@ -24,21 +24,21 @@ public class Ai {
 
         mainvt = lvl.voertuigOpPlaats(0);
         //while(mainvt.getX() > 0){
-            tmpvt = lvl.voertuigOpPositie((mainvt.getX() - 1), mainvt.getY());
-            if (tmpvt != null) {
-                setProbleem(tmpvt, mainvt.getX() - 1, mainvt.getY());
-            } else {
-                mainvt.NaarLinks();
-            }
+        tmpvt = lvl.voertuigOpPositie((mainvt.getX() - 1), mainvt.getY());
+        if (tmpvt != null) {
+            setProbleem(tmpvt, mainvt.getX() - 1, mainvt.getY(), mainvt);
+        } else {
+            mainvt.NaarLinks();
+        }
         //}
-            // Gewonnen
-            System.out.println("Done!");
-        
+        // Gewonnen
+        System.out.println("Done!");
+
 
 
     }
 
-    private Boolean setProbleem(Voertuig tmpvt, int FreeposX, int FreeposY) {
+    private Boolean setProbleem(Voertuig tmpvt, int FreeposX, int FreeposY, Voertuig rootvt) {
         // Chek this stack & max stack
         if (Thisstack < MaxStack) {
             Thisstack++;
@@ -55,7 +55,10 @@ public class Ai {
 
                         nwvrt = lvl.voertuigOpPositie(tmpvt.getX(), tmpvt.getY() - 1);
                         if (nwvrt != null) {
-                            if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() - 1) == false) {
+                            if (rootvt.hashCode() == nwvrt.hashCode()) {
+                                break;
+                            }
+                            if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() - 1, tmpvt) == false) {
                                 break;
                             }
                         } else {
@@ -76,7 +79,10 @@ public class Ai {
 
                         nwvrt = lvl.voertuigOpPositie(tmpvt.getX(), tmpvt.getY() + 1);
                         if (nwvrt != null) {
-                            if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() + 1) == false) {
+                            if (rootvt.hashCode() == nwvrt.hashCode()) {
+                                break;
+                            }
+                            if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() + 1, tmpvt) == false) {
                                 break;
                             }
                         } else {
@@ -96,7 +102,10 @@ public class Ai {
 
                         nwvrt = lvl.voertuigOpPositie(tmpvt.getX() - 1, tmpvt.getY());
                         if (nwvrt != null) {
-                            if (setProbleem(nwvrt, tmpvt.getX() - 1, tmpvt.getY()) == false) {
+                            if (rootvt.hashCode() == nwvrt.hashCode()) {
+                                break;
+                            }
+                            if (setProbleem(nwvrt, tmpvt.getX() - 1, tmpvt.getY(), tmpvt) == false) {
                                 break;
                             }
                         } else {
@@ -115,7 +124,10 @@ public class Ai {
 
                         nwvrt = lvl.voertuigOpPositie(tmpvt.getX() + tmpvt.getGrootte(), tmpvt.getY());
                         if (nwvrt != null) {
-                            if (setProbleem(nwvrt, tmpvt.getX() + tmpvt.getGrootte(), tmpvt.getY()) == false) {
+                            if (rootvt.hashCode() == nwvrt.hashCode()) {
+                                break;
+                            }
+                            if (setProbleem(nwvrt, tmpvt.getX() + tmpvt.getGrootte(), tmpvt.getY(), tmpvt) == false) {
                                 break;
                             }
                         } else {

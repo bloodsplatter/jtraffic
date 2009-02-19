@@ -46,6 +46,11 @@ public class Main {
         vrt4.setY(0);
         lvl.voegVoertuigToe(vrt4);
 
+        Auto vrt5 = new Auto(Orientatie.Horizontaal);
+        vrt5.setX(2);
+        vrt5.setY(0);
+        lvl.voegVoertuigToe(vrt5);
+        
         lvl.Print();
         Ai ai = new Ai(lvl);
         ai.run();
