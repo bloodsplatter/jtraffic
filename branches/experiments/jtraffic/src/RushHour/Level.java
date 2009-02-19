@@ -175,7 +175,7 @@ public class Level {
 
         }
 
-        System.out.print("\n\n\n\n");
+        System.out.print("\n\n\n\n\n\n");
         for (int i = 0; i < hoogtem; i++) {
             for (int j = 0; j < breetem * 2; j++) {
                 System.out.append(dispmatrx[i][j]);
