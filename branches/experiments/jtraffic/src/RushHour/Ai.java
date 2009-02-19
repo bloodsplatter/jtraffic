@@ -13,24 +13,26 @@ public class Ai {
     private Level lvl;
     private int MaxStack = 6;
     private int Thisstack = 0;
+    private int MaxLoops = 20;
 
     public Ai(Level lvl) {
         this.lvl = lvl;
     }
 
-    public void run() {
+    public void run() throws InterruptedException {
         Voertuig mainvt;
         Voertuig tmpvt;
-
+        int loops = 0;
         mainvt = lvl.voertuigOpPlaats(0);
-        //while(mainvt.getX() > 0){
+        while((mainvt.getX() >= 0) && (loops < MaxLoops)){
         tmpvt = lvl.voertuigOpPositie((mainvt.getX() - 1), mainvt.getY());
         if (tmpvt != null) {
             setProbleem(tmpvt, mainvt.getX() - 1, mainvt.getY(), mainvt);
         } else {
             mainvt.NaarLinks();
+            lvl.Print();
         }
-        //}
+        }
         // Gewonnen
         System.out.println("Done!");
 
@@ -38,7 +40,7 @@ public class Ai {
 
     }
 
-    private Boolean setProbleem(Voertuig tmpvt, int FreeposX, int FreeposY, Voertuig rootvt) {
+    private Boolean setProbleem(Voertuig tmpvt, int FreeposX, int FreeposY, Voertuig rootvt) throws InterruptedException {
         // Chek this stack & max stack
         if (Thisstack < MaxStack) {
             Thisstack++;
@@ -63,6 +65,7 @@ public class Ai {
                             }
                         } else {
                             tmpvt.NaarBoven();
+                            lvl.Print();
                         }
                     }
 
@@ -87,6 +90,7 @@ public class Ai {
                             }
                         } else {
                             tmpvt.NaarBeneden();
+                            lvl.Print();
                         }
                     }
 
@@ -110,6 +114,7 @@ public class Ai {
                             }
                         } else {
                             tmpvt.NaarLinks();
+                            lvl.Print();
                         }
                     }
                     // Controleer nu of het is opgelost of hij is terug
@@ -132,6 +137,7 @@ public class Ai {
                             }
                         } else {
                             tmpvt.NaarRechts();
+                            lvl.Print();
                         }
                     }
 

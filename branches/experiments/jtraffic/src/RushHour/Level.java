@@ -115,7 +115,9 @@ public class Level {
             voertuigen.add(voertuig);
     }
 
-        public void Print() {
+        public void Print() throws InterruptedException {
+        Thread.sleep(500);
+
         int hoogtem = this.veld.getBreedte() + 2;
         int breetem = this.veld.getBreedte() + 2;
         char dispmatrx[][] = new char[hoogtem][breetem * 2];
@@ -151,23 +153,23 @@ public class Level {
             tmpvrt = itr.next();
             if(tmpvrt.getOrientatie() == Orientatie.Horizontaal){
 
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)] = '=';
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = '=';
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)+ 2] = '=';
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 3)] = '=';
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)+ 2] = tmpvrt.getKleur();
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 3)] = tmpvrt.getKleur();
                 if( tmpvrt.getGrootte() == 3){
-                    dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 4)] = '=';
-                    dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 5)] = '=';
+                    dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 4)] = tmpvrt.getKleur();
+                    dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 5)] = tmpvrt.getKleur();
                 }
             }else if(tmpvrt.getOrientatie() == Orientatie.Verticaal){
 
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)] = 'I';
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = 'I';
-                dispmatrx[(1 + tmpvrt.getY()+1)][(2 + tmpvrt.getX() * 2)] = 'I';
-                dispmatrx[(1 + tmpvrt.getY()+1)][(2 + tmpvrt.getX() * 2 + 1)] = 'I';
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
+                dispmatrx[(1 + tmpvrt.getY()+1)][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
+                dispmatrx[(1 + tmpvrt.getY()+1)][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
                 if( tmpvrt.getGrootte() == 3){
-                    dispmatrx[(1 + tmpvrt.getY()+2)][(2 + tmpvrt.getX() * 2)] = 'I';
-                    dispmatrx[(1 + tmpvrt.getY()+2)][(2 + tmpvrt.getX() * 2 + 1)] = 'I';
+                    dispmatrx[(1 + tmpvrt.getY()+2)][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
+                    dispmatrx[(1 + tmpvrt.getY()+2)][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
                 }
             }
 

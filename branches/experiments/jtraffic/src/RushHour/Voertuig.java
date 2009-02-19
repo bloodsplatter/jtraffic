@@ -26,6 +26,8 @@ public abstract class Voertuig {
     // </editor-fold> 
     private int y;
 
+    private char k;
+
     private Level lvl;
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.B2EA278E-3163-DF9B-812E-995D2AAD641C]
@@ -57,11 +59,12 @@ public abstract class Voertuig {
      * @param X de horizontale positie van het voertuig in het speelveld
      * @param Y de verticale positie van het voertuig in het speelveld
      */
-    public Voertuig(int X, int Y)
+    public Voertuig(int X, int Y,char kleur)
     {
         this.orientatie = Orientatie.Horizontaal;
         this.x = X;
         this.y = Y;
+        this.k = kleur;
     }
 
 
@@ -140,7 +143,22 @@ public abstract class Voertuig {
         this.y = val;
     }
 
-    
+        public char getKleur() {
+        return k;
+    }
+
+    // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
+    // #[regen=yes,regenBody=yes,id=DCE.2A69C894-15F3-9570-57FD-8442E6BF7BA9]
+    // </editor-fold> 
+    /**
+     * Stelt de Y-coördinaat in
+     * @param val de Y-coördinaat
+     */
+    public void setKleur(char kleur) {
+        // TODO hier moeten nog checks uitgevoerd worden.
+        this.k = kleur;
+    }
+
     /**
      * Beweeg het voertuig 1 positie naar boven
      * @return true als het gelukt is, anders false
