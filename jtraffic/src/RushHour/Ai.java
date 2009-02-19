@@ -73,16 +73,16 @@ public class Ai {
                     }
 
                 }
-                if ((FreeposY + tmpvt.getGrootte() < lvl.getVeld().getHoogte()) && isOpgelost == false) {
+                if ((FreeposY + tmpvt.getGrootte() <= lvl.getVeld().getHoogte()) && isOpgelost == false) {
                     // Oplossing naar onder is mogelijk haalbaar...
                     while (lvl.voertuigOpPositie(FreeposX, FreeposY) != null) {
 
-                        nwvrt = lvl.voertuigOpPositie(tmpvt.getX(), tmpvt.getY() + 1);
+                        nwvrt = lvl.voertuigOpPositie(tmpvt.getX(), tmpvt.getY() + tmpvt.getGrootte());
                         if (nwvrt != null) {
                             if (rootvt.hashCode() == nwvrt.hashCode()) {
                                 break;
                             }
-                            if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() + 1, tmpvt) == false) {
+                            if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() + tmpvt.getGrootte(), tmpvt) == false) {
                                 break;
                             }
                         } else {

@@ -20,15 +20,15 @@ public class Main {
         Level lvl = new Level();
 
         Speelveld splvld = new Speelveld();
-        splvld.setBreedte(7);
-        splvld.setHoogte(7);
+        splvld.setBreedte(6);
+        splvld.setHoogte(5);
         lvl.setVeld(splvld);
 
 
 
         Vrachtwagen vrt2 = new Vrachtwagen(Orientatie.Horizontaal);
-        vrt2.setX(4);
-        vrt2.setY(3);
+        vrt2.setX(3);
+        vrt2.setY(2);
         lvl.voegVoertuigToe(vrt2);
 
         Vrachtwagen vrt3 = new Vrachtwagen(Orientatie.Horizontaal);
