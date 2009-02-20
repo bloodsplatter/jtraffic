@@ -34,6 +34,7 @@ public class Level {
      */
     public Level() {
         this.voertuigen = new ArrayList<Voertuig>();
+        naam = "";
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -92,12 +93,12 @@ public class Level {
     // #[regen=yes,id=DCE.4AA52795-976D-7625-5514-67D107760A82]
     // </editor-fold> 
     public Voertuig voertuigOpPlaats (int plaats) throws ArrayIndexOutOfBoundsException {
-        if (plaats >= 0 && plaats < voertuigen.size() -1)
+        if (plaats >= 0 && plaats < voertuigen.size())
         {
             return voertuigen.get(plaats);
         }
         else
-            throw new ArrayIndexOutOfBoundsException("Zo veel voertuigen zijn er niet.");
+            throw new ArrayIndexOutOfBoundsException("Zoveel voertuigen zijn er niet.");
     }
 
     /**
