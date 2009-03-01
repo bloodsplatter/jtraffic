@@ -18,8 +18,8 @@ public class Auto extends Voertuig {
      * @param X de X-coördinaat
      * @param Y de Y-coördinaat
      */
-    public Auto(int X, int Y) {
-        super(X, Y);
+    public Auto(int X, int Y,char Kleur) {
+        super(X, Y,Kleur);
         grootte = 2;
     }
 
@@ -27,7 +27,7 @@ public class Auto extends Voertuig {
      * Constructor
      */
     public Auto() {
-        super(0,0);
+        super(0,0,' ');
         grootte = 2;
     }
 

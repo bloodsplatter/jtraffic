@@ -14,6 +14,9 @@ public class Ai {
     private int MaxStack = 6;
     private int Thisstack = 0;
     private int MaxLoops = 20;
+    private Voertuig rootvrt[] = new Voertuig[MaxStack];
+    private Voertuig movesvrt[] = new Voertuig[40];
+    private int move = 0;
 
     public Ai(Level lvl) {
         this.lvl = lvl;
@@ -24,14 +27,16 @@ public class Ai {
         Voertuig tmpvt;
         int loops = 0;
         mainvt = lvl.voertuigOpPlaats(0);
-        while((mainvt.getX() >= 0) && (loops < MaxLoops)){
-        tmpvt = lvl.voertuigOpPositie((mainvt.getX() - 1), mainvt.getY());
-        if (tmpvt != null) {
-            setProbleem(tmpvt, mainvt.getX() - 1, mainvt.getY(), mainvt);
-        } else {
-            mainvt.NaarLinks();
-            lvl.Print();
-        }
+        while ((mainvt.getX() >= 0) && (loops < MaxLoops)) {
+            tmpvt = lvl.voertuigOpPositie((mainvt.getX() - 1), mainvt.getY());
+            if (tmpvt != null) {
+                rootvrt[0] = mainvt;
+                setProbleem(tmpvt, mainvt.getX() - 1, mainvt.getY(), 0);
+            } else {
+                movesvrt[move++] = mainvt;
+                mainvt.NaarLinks();
+                lvl.Print();
+            }
         }
         // Gewonnen
         System.out.println("Done!");
@@ -40,30 +45,49 @@ public class Ai {
 
     }
 
-    private Boolean setProbleem(Voertuig tmpvt, int FreeposX, int FreeposY, Voertuig rootvt) throws InterruptedException {
+    private Boolean setProbleem(Voertuig tmpvt, int FreeposX, int FreeposY, int choise) throws InterruptedException {
         // Chek this stack & max stack
+
         if (Thisstack < MaxStack) {
             Thisstack++;
             // 2 mogelijkheden normaal / links rechts // up / down
             Voertuig nwvrt;
             Boolean isOpgelost = false;
-            if (tmpvt.getOrientatie() == Orientatie.Verticaal) {
-                // chek up/down
 
+            if (tmpvt.getOrientatie() == Orientatie.Verticaal) {
+                // check up/down
+
+                // Chek of hij move's aan het reversen is,
+                // zoja, voer de ai uit met omgekeerde choise prioriteit
+                // Door deze opnieuw op te gooien maar dan met voorkeur voor choise 1
+                if ((move - Thisstack) > 0 && movesvrt[move - Thisstack] != null && movesvrt[move - Thisstack].hashCode() == tmpvt.hashCode()) {
+                    setProbleem(tmpvt, FreeposX, FreeposY, 1);
+                }
+                
                 //Chek of oplossing mogelijk is
-                if ((FreeposY - tmpvt.getGrootte()) >= 0) {
+                if ((FreeposY - tmpvt.getGrootte()) >= 0 && (choise == 0)) {
                     // Oplosing naar boven is mogelijk haalbaar...
                     while (lvl.voertuigOpPositie(FreeposX, FreeposY) != null) {
 
                         nwvrt = lvl.voertuigOpPositie(tmpvt.getX(), tmpvt.getY() - 1);
                         if (nwvrt != null) {
-                            if (rootvt.hashCode() == nwvrt.hashCode()) {
-                                break;
+                            if (ChekRootTree(nwvrt)) {
+                                Thisstack--;
+                                rootvrt[Thisstack] = null;
+                                return false;
                             }
-                            if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() - 1, tmpvt) == false) {
-                                break;
+                            if (ChekEndlessLoop(nwvrt)) {
+                                if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() - 1, 1) == false) {
+                                    break;
+                                }
+                            } else {
+                                rootvrt[Thisstack] = tmpvt;
+                                if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() - 1, 0) == false) {
+                                    break;
+                                }
                             }
                         } else {
+                            movesvrt[move++] = tmpvt;
                             tmpvt.NaarBoven();
                             lvl.Print();
                         }
@@ -76,19 +100,29 @@ public class Ai {
                     }
 
                 }
-                if ((FreeposY + tmpvt.getGrootte() <= lvl.getVeld().getHoogte()) && isOpgelost == false) {
+                if ((FreeposY + tmpvt.getGrootte() < lvl.getVeld().getHoogte()) && isOpgelost == false) {
                     // Oplossing naar onder is mogelijk haalbaar...
                     while (lvl.voertuigOpPositie(FreeposX, FreeposY) != null) {
 
                         nwvrt = lvl.voertuigOpPositie(tmpvt.getX(), tmpvt.getY() + tmpvt.getGrootte());
                         if (nwvrt != null) {
-                            if (rootvt.hashCode() == nwvrt.hashCode()) {
-                                break;
+                            if (ChekRootTree(nwvrt)) {
+                                Thisstack--;
+                                rootvrt[Thisstack] = null;
+                                return false;
                             }
-                            if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() + tmpvt.getGrootte(), tmpvt) == false) {
-                                break;
+                            if (ChekEndlessLoop(nwvrt)) {
+                                if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() + tmpvt.getGrootte(), 1) == false) {
+                                    break;
+                                }
+                            } else {
+                                rootvrt[Thisstack] = tmpvt;
+                                if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() + tmpvt.getGrootte(), 0) == false) {
+                                    break;
+                                }
                             }
                         } else {
+                            movesvrt[move++] = tmpvt;
                             tmpvt.NaarBeneden();
                             lvl.Print();
                         }
@@ -99,20 +133,37 @@ public class Ai {
             if (tmpvt.getOrientatie() == Orientatie.Horizontaal) {
                 // chek up/down
 
-                //Chek of oplossing mogelijk is
-                if ((FreeposX - tmpvt.getGrootte()) >= 0) {
+                // Chek of hij move's aan het reversen is,
+                // zoja, voer de ai uit met omgekeerde choise prioriteit
+                // Door deze opnieuw op te gooien maar dan met voorkeur voor choise 1
+                if ((move - Thisstack) > 0 && movesvrt[move - Thisstack] != null && movesvrt[move - Thisstack].hashCode() == tmpvt.hashCode()) {
+                    setProbleem(tmpvt, FreeposX, FreeposY, 1);
+                }
+
+                //Check of oplossing mogelijk is
+                if ((FreeposX - tmpvt.getGrootte()) >= 0 && (choise == 0)) {
                     // Oplosing naar boven is mogelijk haalbaar...
                     while (lvl.voertuigOpPositie(FreeposX, FreeposY) != null) {
 
                         nwvrt = lvl.voertuigOpPositie(tmpvt.getX() - 1, tmpvt.getY());
                         if (nwvrt != null) {
-                            if (rootvt.hashCode() == nwvrt.hashCode()) {
-                                break;
+                            if (ChekRootTree(nwvrt)) {
+                                Thisstack--;
+                                rootvrt[Thisstack] = null;
+                                return false;
                             }
-                            if (setProbleem(nwvrt, tmpvt.getX() - 1, tmpvt.getY(), tmpvt) == false) {
-                                break;
+                            if (ChekEndlessLoop(nwvrt)) {
+                                if (setProbleem(nwvrt, tmpvt.getX() - 1, tmpvt.getY(), 1) == false) {
+                                    break;
+                                }
+                            } else {
+                                rootvrt[Thisstack] = tmpvt;
+                                if (setProbleem(nwvrt, tmpvt.getX() - 1, tmpvt.getY(), 0) == false) {
+                                    break;
+                                }
                             }
                         } else {
+                            movesvrt[move++] = tmpvt;
                             tmpvt.NaarLinks();
                             lvl.Print();
                         }
@@ -129,13 +180,23 @@ public class Ai {
 
                         nwvrt = lvl.voertuigOpPositie(tmpvt.getX() + tmpvt.getGrootte(), tmpvt.getY());
                         if (nwvrt != null) {
-                            if (rootvt.hashCode() == nwvrt.hashCode()) {
-                                break;
+                            if (ChekRootTree(nwvrt)) {
+                                Thisstack--;
+                                rootvrt[Thisstack] = null;
+                                return false;
                             }
-                            if (setProbleem(nwvrt, tmpvt.getX() + tmpvt.getGrootte(), tmpvt.getY(), tmpvt) == false) {
-                                break;
+                            if (ChekEndlessLoop(nwvrt)) {
+                                if (setProbleem(nwvrt, tmpvt.getX() + tmpvt.getGrootte(), tmpvt.getY(), 1) == false) {
+                                    break;
+                                }
+                            } else {
+                                rootvrt[Thisstack] = tmpvt;
+                                if (setProbleem(nwvrt, tmpvt.getX() + tmpvt.getGrootte(), tmpvt.getY(), 0) == false) {
+                                    break;
+                                }
                             }
                         } else {
+                            movesvrt[move++] = tmpvt;
                             tmpvt.NaarRechts();
                             lvl.Print();
                         }
@@ -144,6 +205,7 @@ public class Ai {
                 }
             }
             Thisstack--;
+            rootvrt[Thisstack] = null;
             return true;
         } else {
             return false;
@@ -152,5 +214,33 @@ public class Ai {
     }
 
     private void ControleBeweging(Voertuig tmpvt) {
+    }
+
+    private boolean ChekRootTree(Voertuig tmpvrt) {
+        if (move > 0) {
+            if (rootvrt[Thisstack - 1].hashCode() == tmpvrt.hashCode()) {
+                return true;
+
+            } else {
+                return false;
+
+            }
+        } else {
+            return false;
+        }
+    }
+
+    private boolean ChekEndlessLoop(Voertuig tmpvrt) {
+        int teller = 0;
+        while (teller < Thisstack) {
+            //tmpvrt
+            if (rootvrt[teller].hashCode() == tmpvrt.hashCode()) {
+                return true;
+            } else {
+                teller++;
+            }
+        }
+
+        return false;
     }
 }

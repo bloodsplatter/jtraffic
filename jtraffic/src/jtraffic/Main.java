@@ -5,6 +5,7 @@
 
 package jtraffic;
 import RushHour.*;
+import java.io.IOException;
 
 /**
  *
@@ -15,19 +16,19 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         // TODO code application logic here
         Level lvl = new Level();
 
         Speelveld splvld = new Speelveld();
-        splvld.setBreedte(6);
+        splvld.setBreedte(8);
         splvld.setHoogte(6);
         lvl.setVeld(splvld);
 
 
 
         Vrachtwagen vrt2 = new Vrachtwagen(Orientatie.Horizontaal);
-        vrt2.setX(3);
+        vrt2.setX(5);
         vrt2.setY(3);
         vrt2.setKleur('X');
         lvl.voegVoertuigToe(vrt2);
@@ -57,11 +58,13 @@ public class Main {
         lvl.voegVoertuigToe(vrt5);
 
         Vrachtwagen vrt6 = new Vrachtwagen(Orientatie.Verticaal);
-        vrt6.setX(4);
-        vrt6.setY(0);
+        vrt6.setX(3);
+        vrt6.setY(1);
         vrt6.setKleur('E');
         lvl.voegVoertuigToe(vrt6);
         
+        lvl.Print();
+        System.in.read();
         lvl.Print();
         Ai ai = new Ai(lvl);
         ai.run();
