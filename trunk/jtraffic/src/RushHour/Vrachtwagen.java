@@ -14,9 +14,11 @@ public class Vrachtwagen extends Voertuig {
      * Maakt een vrachtwagen op de opgegeven locatie
      * @param X de X-coördinaat
      * @param Y de Y-coördinaat
+     * @param Kleur de kleur van de wagen
      */
-    public Vrachtwagen(int X, int Y) {
-        super(X, Y);
+    public Vrachtwagen(int X, int Y, char Kleur) {
+        super(X, Y, Kleur);
+        super.setOrientatie(Orientatie.Horizontaal);
         super.setOrientatie(Orientatie.Horizontaal);
         grootte = 3;
     }
@@ -34,7 +36,7 @@ public class Vrachtwagen extends Voertuig {
      * Maakt een vrachtwagen
      */
     public Vrachtwagen() {
-        super(0,0);
+        super(0,0,' ');
         grootte = 3;
     }
 

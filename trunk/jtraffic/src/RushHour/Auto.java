@@ -10,8 +10,8 @@ public class Auto extends Voertuig {
     private int grootte;
 
     /**
-     * Maakt een auto met de opgegeven oriëntatie
-     * @param orientatie de gewenste oriëntatie
+     *
+     * @param orientatie
      */
     public Auto(Orientatie orientatie) {
         super(orientatie);
@@ -22,9 +22,10 @@ public class Auto extends Voertuig {
      * Maak een auto op de opgegeven locatie aan
      * @param X de X-coördinaat
      * @param Y de Y-coördinaat
+     * @param Kleur de kleur van de wagen
      */
-    public Auto(int X, int Y) {
-        super(X, Y);
+    public Auto(int X, int Y,char Kleur) {
+        super(X, Y,Kleur);
         grootte = 2;
     }
 
@@ -32,7 +33,18 @@ public class Auto extends Voertuig {
      * Constructor
      */
     public Auto() {
-        super(0,0);
+        super(0,0,' ');
+        grootte = 2;
+    }
+
+    /**
+     * Constructor
+     * @param x X-coördinaat
+     * @param y Y-coördinaat
+     */
+    public Auto(int x, int y)
+    {
+        super(x,y,' ');
         grootte = 2;
     }
 
