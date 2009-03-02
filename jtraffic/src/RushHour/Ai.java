@@ -18,10 +18,18 @@ public class Ai {
     private Voertuig movesvrt[] = new Voertuig[40];
     private int move = 0;
 
+    /**
+     * Constructor
+     * @param lvl de level die opgelost moet worden
+     */
     public Ai(Level lvl) {
         this.lvl = lvl;
     }
 
+    /**
+     *
+     * @throws java.lang.InterruptedException
+     */
     public void run() throws InterruptedException {
         Voertuig mainvt;
         Voertuig tmpvt;

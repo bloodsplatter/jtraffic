@@ -16,6 +16,7 @@ public class Vrachtwagen extends Voertuig {
      * Maakt een vrachtwagen op de opgegeven locatie
      * @param X de X-coördinaat
      * @param Y de Y-coördinaat
+     * @param Kleur de kleur van de wagen
      */
     public Vrachtwagen(int X, int Y, char Kleur) {
         super(X, Y, Kleur);

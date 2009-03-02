@@ -28,7 +28,7 @@ public abstract class Voertuig {
 
     private char k;
 
-    private Level lvl;
+    private Level level;
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.B2EA278E-3163-DF9B-812E-995D2AAD641C]
     // </editor-fold> 
@@ -44,7 +44,6 @@ public abstract class Voertuig {
 
     /**
      * Geparameteriseerde constructor
-     * @param grootte de grootte van het voertuig
      * @param orientatie de orientatie van het voertuig
      */
     public Voertuig(Orientatie orientatie)
@@ -58,6 +57,7 @@ public abstract class Voertuig {
      * Geparameteriseerde constructor
      * @param X de horizontale positie van het voertuig in het speelveld
      * @param Y de verticale positie van het voertuig in het speelveld
+     * @param kleur
      */
     public Voertuig(int X, int Y,char kleur)
     {
@@ -102,12 +102,23 @@ public abstract class Voertuig {
     }
 
     /**
-     *
-     * @param lvl
+     * Geeft de level waartoe het voertuig behoort
+     * @return de level waartoe het voertuig behoort
      */
-    public void setLevel(Level lvl){
-        this.lvl = lvl;
+    public Level getLevel() {
+        return level;
     }
+
+    /**
+     * Stelt de level in waartoe het voertuig behoort
+     * @param level de level waartoe het voertuig behoort
+     */
+    public void setLevel(Level level) {
+        this.level = level;
+    }
+
+
+
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.7A395978-B5D0-D622-8763-2D9F108B672A]
     // </editor-fold> 
@@ -143,7 +154,11 @@ public abstract class Voertuig {
         this.y = val;
     }
 
-        public char getKleur() {
+    /**
+     * Geeft de kleur van het voertuig
+     * @return de kleur van het voertuig
+     */
+    public char getKleur() {
         return k;
     }
 
@@ -152,7 +167,7 @@ public abstract class Voertuig {
     // </editor-fold> 
     /**
      * Stelt de Y-coördinaat in
-     * @param val de Y-coördinaat
+     * @param kleur
      */
     public void setKleur(char kleur) {
         // TODO hier moeten nog checks uitgevoerd worden.
@@ -165,7 +180,6 @@ public abstract class Voertuig {
      */
     public boolean NaarBoven() {
         // TODO hier moeten nog checks uitgevoerd worden.
-        // Chek lvl.is object op ???
         this.y -= 1;
 
         return true;
@@ -215,6 +229,10 @@ public abstract class Voertuig {
         this.y = Y;
     }
 
+    /**
+     * Geeft de grote van het voertuig
+     * @return de grootte van het voertuig
+     */
     public abstract int getGrootte();
 }
 
