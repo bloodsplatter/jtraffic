@@ -48,7 +48,7 @@ public class Ai {
     private Boolean setProbleem(Voertuig tmpvt, int FreeposX, int FreeposY, int choise) throws InterruptedException {
         // Chek this stack & max stack
 
-        if (Thisstack < MaxStack) {
+        if (Thisstack < (MaxStack - 1)) {
             Thisstack++;
             // 2 mogelijkheden normaal / links rechts // up / down
             Voertuig nwvrt;
@@ -60,10 +60,11 @@ public class Ai {
                 // Chek of hij move's aan het reversen is,
                 // zoja, voer de ai uit met omgekeerde choise prioriteit
                 // Door deze opnieuw op te gooien maar dan met voorkeur voor choise 1
-                if ((move - Thisstack) > 0 && movesvrt[move - Thisstack] != null && movesvrt[move - Thisstack].hashCode() == tmpvt.hashCode()) {
+                if (CheckMoveLoop()) {
+                    rootvrt[Thisstack] = tmpvt;
                     setProbleem(tmpvt, FreeposX, FreeposY, 1);
                 }
-                
+
                 //Chek of oplossing mogelijk is
                 if ((FreeposY - tmpvt.getGrootte()) >= 0 && (choise == 0)) {
                     // Oplosing naar boven is mogelijk haalbaar...
@@ -136,7 +137,8 @@ public class Ai {
                 // Chek of hij move's aan het reversen is,
                 // zoja, voer de ai uit met omgekeerde choise prioriteit
                 // Door deze opnieuw op te gooien maar dan met voorkeur voor choise 1
-                if ((move - Thisstack) > 0 && movesvrt[move - Thisstack] != null && movesvrt[move - Thisstack].hashCode() == tmpvt.hashCode()) {
+                if (CheckMoveLoop()) {
+                    rootvrt[Thisstack] = tmpvt;
                     setProbleem(tmpvt, FreeposX, FreeposY, 1);
                 }
 
@@ -228,6 +230,40 @@ public class Ai {
         } else {
             return false;
         }
+    }
+
+    private boolean CheckMoveLoop() {
+        boolean IsTree = false;
+        if (move > 0) {
+            int teller = move - 1;
+            int tellerp = 0;
+
+            boolean FoundX = false;
+            while (teller >= 0 && (movesvrt[teller].hashCode() != rootvrt[tellerp].hashCode())) {
+                teller--;
+            }
+            if (movesvrt[teller].hashCode() == rootvrt[tellerp].hashCode()) {
+                    if (tellerp == 0 && FoundX == false) {
+                        IsTree = true;
+                    }
+                    while (tellerp < (Thisstack) && teller < (move - 1)){
+                        if (movesvrt[teller].hashCode() == rootvrt[tellerp].hashCode()) {
+                            if (movesvrt[teller + 1].hashCode() != rootvrt[tellerp].hashCode()) {
+                                tellerp++;
+                            }
+                        }else{
+                            IsTree = false;
+                        }
+                        teller++;
+                    }
+            }
+            if(tellerp == 0){
+                IsTree = false;
+            }
+
+        }
+
+        return IsTree;
     }
 
     private boolean ChekEndlessLoop(Voertuig tmpvrt) {
