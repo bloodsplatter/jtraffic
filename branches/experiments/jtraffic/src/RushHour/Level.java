@@ -115,7 +115,11 @@ public class Level {
             voertuigen.add(voertuig);
     }
 
-        public void Print() throws InterruptedException {
+    /**
+     * Drukt een level af
+     * @throws java.lang.InterruptedException
+     */
+    public void Print() throws InterruptedException {
         Thread.sleep(500);
 
         int hoogtem = this.veld.getHoogte() + 2;

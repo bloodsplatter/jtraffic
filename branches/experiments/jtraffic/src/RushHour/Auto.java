@@ -8,6 +8,10 @@ package RushHour;
 public class Auto extends Voertuig {
     private int grootte;
 
+    /**
+     *
+     * @param orientatie
+     */
     public Auto(Orientatie orientatie) {
         super(orientatie);
         grootte = 2;
@@ -17,6 +21,7 @@ public class Auto extends Voertuig {
      * Maak een auto op de opgegeven locatie aan
      * @param X de X-coördinaat
      * @param Y de Y-coördinaat
+     * @param Kleur de kleur van de wagen
      */
     public Auto(int X, int Y,char Kleur) {
         super(X, Y,Kleur);
