@@ -8,6 +8,8 @@ import java.util.logging.Logger;
  *  <p style="margin-top: 0">
  *        Een level
  *      </p>
+ * @author bloodsplatter
+ * @version 2009.03.03
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB]
@@ -23,6 +25,7 @@ public class Level {
     // #[regen=yes,id=DCE.F0552C0C-0429-8133-D01A-6AFD160DF257]
     // </editor-fold> 
     private ArrayList<Voertuig> voertuigen;
+    private ArrayList<Voertuig> origineel;
     private String naam;
 
     /**
@@ -50,6 +53,7 @@ public class Level {
      */
     public Level() {
         this.voertuigen = new ArrayList<Voertuig>();
+        this.origineel = voertuigen;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -72,6 +76,16 @@ public class Level {
      */
     public void setVeld(Speelveld val) {
         this.veld = val;
+    }
+
+    public void maakSnapshot()
+    {
+        origineel = voertuigen;
+    }
+
+    public void reset()
+    {
+        voertuigen = origineel;
     }
 
     /**
