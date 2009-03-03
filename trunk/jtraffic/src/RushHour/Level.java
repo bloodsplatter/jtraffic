@@ -1,16 +1,13 @@
 package RushHour;
 
-import java.util.*;
+import java.util.ArrayList;
 import java.util.Iterator;
-
-
+import java.util.logging.Logger;
 
 /**
  *  <p style="margin-top: 0">
  *        Een level
  *      </p>
- * @author bloodsplatter
- * @version 2009.03.03
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB]
@@ -26,8 +23,24 @@ public class Level {
     // #[regen=yes,id=DCE.F0552C0C-0429-8133-D01A-6AFD160DF257]
     // </editor-fold> 
     private ArrayList<Voertuig> voertuigen;
-
     private String naam;
+
+    /**
+     * Geeft de naam van de level
+     * @return de naam van de level
+     */
+    public String getNaam() {
+        return naam;
+    }
+
+    /**
+     * Stelt de naam van de level in
+     * @param naam de gewenste naam van de level
+     */
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.D3AA990C-E595-4085-FF55-7F09B5CE95F2]
@@ -62,24 +75,6 @@ public class Level {
     }
 
     /**
-     * Geeft de naam van de level
-     * @return de naam van de level
-     */
-    public String getNaam() {
-        return naam;
-    }
-
-    /**
-     * Stelt de naam van de level in
-     * @param naam de gewenste naam van de level
-     */
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
-    
-
-    /**
      *  <p style="margin-top: 0">
      *        Geeft een voertuig uit de lijst
      *      </p>
@@ -90,13 +85,12 @@ public class Level {
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.4AA52795-976D-7625-5514-67D107760A82]
     // </editor-fold> 
-    public Voertuig voertuigOpPlaats (int plaats) throws ArrayIndexOutOfBoundsException {
-        if (plaats >= 0 && plaats < voertuigen.size())
-        {
+    public Voertuig voertuigOpPlaats(int plaats) throws ArrayIndexOutOfBoundsException {
+        if (plaats >= 0 && plaats < voertuigen.size() - 1) {
             return voertuigen.get(plaats);
-        }
-        else
+        } else {
             throw new ArrayIndexOutOfBoundsException("Zo veel voertuigen zijn er niet.");
+        }
     }
 
     /**
@@ -106,16 +100,13 @@ public class Level {
      * @return null als het voertuig niet gevonden is, anders het voertuig zelf
      * @see RushHour.Voertuig
      */
-    public Voertuig voertuigOpPositie(int X, int Y)
-    {
+    public Voertuig voertuigOpPositie(int X, int Y) {
         Voertuig voertuig = null;
         Voertuig tmvoertuig = null;
         Iterator<Voertuig> iterator = voertuigen.iterator();
-        while (iterator.hasNext())
-        {
+        while (iterator.hasNext()) {
             tmvoertuig = iterator.next();
-            if ((tmvoertuig.getX() == X && tmvoertuig.getY() == Y) || (tmvoertuig.getOrientatie() == Orientatie.Horizontaal && tmvoertuig.getX() + 1 == X && tmvoertuig.getY() == Y) || (tmvoertuig.getOrientatie() == Orientatie.Verticaal && tmvoertuig.getX() == X && tmvoertuig.getY() + 1 == Y)  || (tmvoertuig.getGrootte() == 3 && tmvoertuig.getOrientatie() == Orientatie.Horizontaal && tmvoertuig.getX() + 2 == X && tmvoertuig.getY() == Y) || (tmvoertuig.getGrootte() == 3 && tmvoertuig.getOrientatie() == Orientatie.Verticaal && tmvoertuig.getX() == X && tmvoertuig.getY() + 2 == Y))
-            {
+            if ((tmvoertuig.getX() == X && tmvoertuig.getY() == Y) || (tmvoertuig.getOrientatie() == Orientatie.Horizontaal && tmvoertuig.getX() + 1 == X && tmvoertuig.getY() == Y) || (tmvoertuig.getOrientatie() == Orientatie.Verticaal && tmvoertuig.getX() == X && tmvoertuig.getY() + 1 == Y) || (tmvoertuig.getGrootte() == 3 && tmvoertuig.getOrientatie() == Orientatie.Horizontaal && tmvoertuig.getX() + 2 == X && tmvoertuig.getY() == Y) || (tmvoertuig.getGrootte() == 3 && tmvoertuig.getOrientatie() == Orientatie.Verticaal && tmvoertuig.getX() == X && tmvoertuig.getY() + 2 == Y)) {
                 voertuig = tmvoertuig;
                 break;
             }
@@ -131,28 +122,21 @@ public class Level {
      * Voegt een voertuig aan de level toe
      * @param voertuig het voertuig dat toegevoegd moet worden
      */
-    public void voegVoertuigToe (Voertuig voertuig) {
-        if (!voertuigen.contains(voertuig))
+    public void voegVoertuigToe(Voertuig voertuig) {
+        if (!voertuigen.contains(voertuig)) {
             voertuig.setLevel(this);
-            voertuigen.add(voertuig);
+        }
+        voertuigen.add(voertuig);
     }
 
-    /**
-     * Geeft het aantal voertuigen in de level terug
-     * @return het aantal voertuigen in de level
-     */
-    public int aantalVoertuigen()
-    {
-        return voertuigen.size();
-    }
-
-    /**
-     * Drukt een level af
-     * @throws java.lang.InterruptedException
-     */
-    public void Print() throws InterruptedException {
-        Thread.sleep(500);
-
+    @Override
+    public String toString() {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Level.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        StringBuilder strout = new StringBuilder();
         int hoogtem = this.veld.getHoogte() + 2;
         int breetem = this.veld.getBreedte() + 2;
         char dispmatrx[][] = new char[hoogtem][breetem * 2];
@@ -167,10 +151,10 @@ public class Level {
                     dispmatrx[i][j + 1] = ' ';
                 } else if (j == 0) {
                     dispmatrx[i][j] = '|';
-                    dispmatrx[i][j+1] = ' ';
-                } else if (j == breetem*2 -2){
+                    dispmatrx[i][j + 1] = ' ';
+                } else if (j == breetem * 2 - 2) {
                     dispmatrx[i][j] = ' ';
-                    dispmatrx[i][j+1] = '|';
+                    dispmatrx[i][j + 1] = '|';
                 } else {
                     dispmatrx[i][j] = ' ';
                     dispmatrx[i][j + 1] = ' ';
@@ -184,41 +168,41 @@ public class Level {
 
         Iterator<Voertuig> itr = voertuigen.iterator();
         Voertuig tmpvrt;
-        while(itr.hasNext()){
+        while (itr.hasNext()) {
             tmpvrt = itr.next();
-            if(tmpvrt.getOrientatie() == Orientatie.Horizontaal){
+            if (tmpvrt.getOrientatie() == Orientatie.Horizontaal) {
 
                 dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
                 dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)+ 2] = tmpvrt.getKleur();
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2) + 2] = tmpvrt.getKleur();
                 dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 3)] = tmpvrt.getKleur();
-                if( tmpvrt.getGrootte() == 3){
+                if (tmpvrt.getGrootte() == 3) {
                     dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 4)] = tmpvrt.getKleur();
                     dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 5)] = tmpvrt.getKleur();
                 }
-            }else if(tmpvrt.getOrientatie() == Orientatie.Verticaal){
+            } else if (tmpvrt.getOrientatie() == Orientatie.Verticaal) {
 
                 dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
                 dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
-                dispmatrx[(1 + tmpvrt.getY()+1)][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
-                dispmatrx[(1 + tmpvrt.getY()+1)][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
-                if( tmpvrt.getGrootte() == 3){
-                    dispmatrx[(1 + tmpvrt.getY()+2)][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
-                    dispmatrx[(1 + tmpvrt.getY()+2)][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
+                dispmatrx[(1 + tmpvrt.getY() + 1)][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
+                dispmatrx[(1 + tmpvrt.getY() + 1)][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
+                if (tmpvrt.getGrootte() == 3) {
+                    dispmatrx[(1 + tmpvrt.getY() + 2)][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
+                    dispmatrx[(1 + tmpvrt.getY() + 2)][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
                 }
             }
 
         }
 
-        System.out.append("\n\n\n\n\n\n");
+        strout.append("\n\n\n\n\n\n");
         for (int i = 0; i < hoogtem; i++) {
             for (int j = 0; j < breetem * 2; j++) {
-                System.out.append(dispmatrx[i][j]);
+                strout.append(dispmatrx[i][j]);
             }
-            System.out.append('\n');
+            strout.append('\n');
         }
 
+        return strout.toString();
     }
-
 }
 
