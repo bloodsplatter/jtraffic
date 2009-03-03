@@ -80,7 +80,10 @@ public class Level {
 
     public void maakSnapshot()
     {
-        origineel = voertuigen;
+        origineel.clear();
+        for (Voertuig voertuig : voertuigen) {
+            origineel.add(voertuig.geefKopie());
+        }
     }
 
     public void reset()
