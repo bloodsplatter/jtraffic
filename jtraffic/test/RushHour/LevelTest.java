@@ -34,7 +34,8 @@ public class LevelTest {
     public void testGetNaam() {
         System.out.println("getNaam");
         Level instance = new Level();
-        String expResult = "";
+        instance.setNaam("Testlevel");
+        String expResult = "Testlevel";
         String result = instance.getNaam();
 
         try {
@@ -50,25 +51,9 @@ public class LevelTest {
     @Test
     public void testSetNaam() {
         System.out.println("setNaam");
-        String naam = "";
+        String naam = "Testlevel";
         Level instance = new Level();
         instance.setNaam(naam);
-    }
-
-    /**
-     * Test of toString method, of class Level.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Level instance = new Level();
-        String expResult = "";
-        String result = instance.toString();
-        try {
-            assertEquals(expResult, result);
-        } catch (Exception e) {
-            fail("toString returned " + result);
-        }
     }
 
     /**
@@ -85,7 +70,7 @@ public class LevelTest {
         try {
             assertEquals(expResult, result);
         } catch (Exception e) {
-            fail("Test failed");
+            fail("Test failed\nActual size:"+String.valueOf(instance.aantalVoertuigen()));
         }
     }
 
