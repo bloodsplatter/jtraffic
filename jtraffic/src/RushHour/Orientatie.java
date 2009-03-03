@@ -5,6 +5,8 @@ package RushHour;
  *  <p style="margin-top: 0">
  *        De ori&#235;ntatie van het voertuig
  *      </p>
+ * @author bloodsplatter
+ * @version 2009.03.03
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.7BD18BE3-D016-7E1D-4A25-9ABDF1547C5D]

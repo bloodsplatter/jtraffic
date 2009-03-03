@@ -5,6 +5,8 @@ package RushHour;
  *  <p style="margin-top: 0">
  *        Een speelveld
  *      </p>
+ * @author bloodsplatter
+ * @version 2009.03.03
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651]

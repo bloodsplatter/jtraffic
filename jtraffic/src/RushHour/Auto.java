@@ -5,13 +5,14 @@ package RushHour;
  * Een auto
  * @author bloodsplatter
  * @see RushHour.Voertuig
+ * @version 2009.03.03
  */
 public class Auto extends Voertuig {
     private int grootte;
 
     /**
-     *
-     * @param orientatie
+     * Constructor
+     * @param orientatie de oriëntatie van het voertuig
      */
     public Auto(Orientatie orientatie) {
         super(orientatie);

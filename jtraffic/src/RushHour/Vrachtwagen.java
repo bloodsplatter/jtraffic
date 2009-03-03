@@ -6,6 +6,7 @@ package RushHour;
  * Een vrachtwagen
  * @author bloodsplatter
  * @see RushHour.Voertuig
+ * @version 2009.03.03
  */
 public class Vrachtwagen extends Voertuig {
     private int grootte;
