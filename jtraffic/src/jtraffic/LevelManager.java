@@ -12,6 +12,7 @@ import java.util.ArrayList;
 /**
  * Beheert de levels
  * @author bloodsplatter
+ * @version 2009.03.03
  */
 public class LevelManager {
     private static boolean initialized = false;
