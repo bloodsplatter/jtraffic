@@ -63,9 +63,9 @@ public class Main {
         vrt6.setKleur('E');
         lvl.voegVoertuigToe(vrt6);
         
-        lvl.Print();
+        System.out.println(lvl.toString());
         System.in.read();
-        lvl.Print();
+        System.out.println(lvl.toString());
         Ai ai = new Ai(lvl);
         ai.run();
         
