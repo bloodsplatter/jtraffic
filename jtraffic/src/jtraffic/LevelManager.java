@@ -19,6 +19,11 @@ public class LevelManager {
     private static String appDir = System.getProperty("user.dir");
     private static final String fileName = "levels.dat";
 
+    /**
+     * Laad de level lijst of maakt een lege lijst aan
+     * @throws java.io.IOException
+     * @throws java.lang.ClassNotFoundException
+     */
     public static void Initialize() throws IOException, ClassNotFoundException
     {
         if (!initialized)
@@ -47,7 +52,11 @@ public class LevelManager {
         }
     }
 
-    public static void Save() throws Exception
+    /**
+     * Sla de levellijst op
+     * @throws java.lang.Exception gooit een exception als<br/>de klasse nog niet geïnitialiseerd is
+     */
+    public static void opslaan() throws Exception
     {
         if (!initialized)
             throw new Exception("Class is not initialized");
@@ -58,5 +67,18 @@ public class LevelManager {
         oos.writeObject(oos);
         oos.close();
         fos.close();
+    }
+
+    /**
+     * Voeg een level toe aan de lijst
+     * @param level de level die toegevoegd moet worden
+     * @throws java.lang.Exception gooit een exception als<br/>de klasse nog niet geïnitialiseerd is
+     */
+    public static void voegLevelToe(Level level) throws Exception
+    {
+        if (!initialized)
+           throw new Exception("Class is not initialized");
+
+        levels.add(level);
     }
 }
