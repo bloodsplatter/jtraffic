@@ -54,7 +54,7 @@ public class HighScores {
      * @param hsr de high score om toe te voegen
      * @throws java.lang.Exception
      */
-    public static void AddHighScore(HighScoreRecord hsr) throws Exception
+    public static void voegHighScoreToe(HighScoreRecord hsr) throws Exception
     {
         if(!initialized)
             throw new Exception("Class must be initialised first");
@@ -70,9 +70,28 @@ public class HighScores {
      * @param score de score die behaald is
      * @throws java.lang.Exception
      */
-    public static void AddHighScore(String playerNaam, Level level,int score) throws Exception
+    public static void voegHighScoreToe(String playerNaam, Level level,int score) throws Exception
     {
         HighScoreRecord hsr = new HighScoreRecord(score, level.getNaam(), playerNaam);
-        AddHighScore(hsr);
+        voegHighScoreToe(hsr);
+    }
+
+
+    /**
+     * Slaagt de high scores op
+     * @throws java.io.IOException
+     * @throws java.lang.Exception een exception wordt gegooid als<br/>de klasse nog niet geïnitialiseerd is
+     */
+    public static void opslaan() throws IOException, Exception
+    {
+        if (!initialized)
+            throw new Exception("Class must be initialised first");
+
+        File bestand = new File(appDir + "\\" + fileName);
+        FileOutputStream fos = new FileOutputStream(bestand);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(highScoreTable);
+        oos.close();
+        fos.close();
     }
 }
