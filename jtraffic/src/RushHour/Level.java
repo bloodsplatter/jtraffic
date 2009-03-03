@@ -59,10 +59,18 @@ public class Level {
         this.veld = val;
     }
 
+    /**
+     * Geeft de naam van de level
+     * @return de naam van de level
+     */
     public String getNaam() {
         return naam;
     }
 
+    /**
+     * Stelt de naam van de level in
+     * @param naam de gewenste naam van de level
+     */
     public void setNaam(String naam) {
         this.naam = naam;
     }
