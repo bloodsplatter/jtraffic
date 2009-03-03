@@ -2,6 +2,7 @@ package RushHour;
 
 import java.util.*;
 import java.util.Iterator;
+import java.util.logging.Logger;
 
 
 
@@ -115,13 +116,14 @@ public class Level {
             voertuigen.add(voertuig);
     }
 
-    /**
-     * Drukt een level af
-     * @throws java.lang.InterruptedException
-     */
-    public void Print() throws InterruptedException {
-        Thread.sleep(500);
-
+    @Override
+        public String toString() {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Level.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        StringBuilder strout = new StringBuilder();
         int hoogtem = this.veld.getHoogte() + 2;
         int breetem = this.veld.getBreedte() + 2;
         char dispmatrx[][] = new char[hoogtem][breetem * 2];
@@ -179,14 +181,15 @@ public class Level {
 
         }
 
-        System.out.append("\n\n\n\n\n\n");
+        strout.append("\n\n\n\n\n\n");
         for (int i = 0; i < hoogtem; i++) {
             for (int j = 0; j < breetem * 2; j++) {
-                System.out.append(dispmatrx[i][j]);
+                strout.append(dispmatrx[i][j]);
             }
-            System.out.append('\n');
+            strout.append('\n');
         }
 
+        return strout.toString();
     }
 
 }

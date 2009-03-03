@@ -1,6 +1,6 @@
 /*
  * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * and open the template in the editor.System.out.println
  */
 package RushHour;
 
@@ -43,7 +43,7 @@ public class Ai {
             } else {
                 movesvrt[move++] = mainvt;
                 mainvt.NaarLinks();
-                lvl.Print();
+                System.out.println(lvl.toString());
             }
         }
         // Gewonnen
@@ -98,7 +98,7 @@ public class Ai {
                         } else {
                             movesvrt[move++] = tmpvt;
                             tmpvt.NaarBoven();
-                            lvl.Print();
+                            System.out.println(lvl.toString());
                         }
                     }
 
@@ -133,7 +133,7 @@ public class Ai {
                         } else {
                             movesvrt[move++] = tmpvt;
                             tmpvt.NaarBeneden();
-                            lvl.Print();
+                            System.out.println(lvl.toString());
                         }
                     }
 
@@ -175,7 +175,7 @@ public class Ai {
                         } else {
                             movesvrt[move++] = tmpvt;
                             tmpvt.NaarLinks();
-                            lvl.Print();
+                            System.out.println(lvl.toString());
                         }
                     }
                     // Controleer nu of het is opgelost of hij is terug
@@ -208,7 +208,7 @@ public class Ai {
                         } else {
                             movesvrt[move++] = tmpvt;
                             tmpvt.NaarRechts();
-                            lvl.Print();
+                            System.out.println(lvl.toString());
                         }
                     }
 
