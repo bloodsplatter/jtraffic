@@ -9,6 +9,8 @@ import java.util.Iterator;
  *  <p style="margin-top: 0">
  *        Een level
  *      </p>
+ * @author bloodsplatter
+ * @version 2009.03.03
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB]
