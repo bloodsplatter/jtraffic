@@ -8,6 +8,7 @@ import java.io.*;
 /**
  * Beheerd de high scores
  * @author bloodsplatter
+ * @version 2009.03.03
  */
 public class HighScores {
     private static String appDir = System.getProperty("user.dir");

@@ -1,13 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package jtraffic;
 
 /**
- *
+ * Een record uit de high score tabel
  * @author bloodsplatter
+ * @version 2009.03.03
  */
 public class HighScoreRecord {
     private int stappen;
