@@ -236,6 +236,11 @@ public abstract class Voertuig {
      * @return de grootte van het voertuig
      */
     public abstract int getGrootte();
-    
+
+    /**
+     * Geeft een kopie van het voertuig
+     * @return een kopie van het voertuig
+     */
+    public abstract Voertuig geefKopie();
 }
 

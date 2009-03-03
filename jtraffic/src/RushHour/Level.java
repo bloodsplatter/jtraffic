@@ -94,6 +94,15 @@ public class Level {
     }
 
     /**
+     * Geeft het aantal voertuigen in de level
+     * @return het aantal voertuigen in de level
+     */
+    public int aantalVoertuigen()
+    {
+        return this.voertuigen.size();
+    }
+
+    /**
      * Zoekt een voertuig op een bepaalde positie
      * @param X de X-coördinaat van het voertuig
      * @param Y de Y-coördinaat van het voertuig
