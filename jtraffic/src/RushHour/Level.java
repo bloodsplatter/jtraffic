@@ -89,7 +89,7 @@ public class Level {
     // #[regen=yes,id=DCE.4AA52795-976D-7625-5514-67D107760A82]
     // </editor-fold> 
     public Voertuig voertuigOpPlaats (int plaats) throws ArrayIndexOutOfBoundsException {
-        if (plaats >= 0 && plaats < voertuigen.size() -1)
+        if (plaats >= 0 && plaats < voertuigen.size())
         {
             return voertuigen.get(plaats);
         }
@@ -133,6 +133,15 @@ public class Level {
         if (!voertuigen.contains(voertuig))
             voertuig.setLevel(this);
             voertuigen.add(voertuig);
+    }
+
+    /**
+     * Geeft het aantal voertuigen in de level terug
+     * @return het aantal voertuigen in de level
+     */
+    public int aantalVoertuigen()
+    {
+        return voertuigen.size();
     }
 
     /**
