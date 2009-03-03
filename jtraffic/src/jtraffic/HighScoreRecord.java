@@ -87,7 +87,7 @@ public class HighScoreRecord {
 
     @Override
     public String toString() {
-        return String.format("|%1$4d|%2$c|%3$c|",String.valueOf(stappen),levelnaam,spelernaam);
+        return String.format("|%1$4d|%2$s|%3$s|",stappen,levelnaam,spelernaam);
     }
 
     

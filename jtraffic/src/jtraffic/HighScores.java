@@ -65,9 +65,9 @@ public class HighScores {
 
     /**
      * Voegt een high score toe aan de tabel
-     * @param playerNaam
-     * @param level
-     * @param score
+     * @param playerNaam naam van de speler die de score behaalde
+     * @param level de level waar de score behaald is
+     * @param score de score die behaald is
      * @throws java.lang.Exception
      */
     public static void AddHighScore(String playerNaam, Level level,int score) throws Exception
