@@ -57,4 +57,11 @@ public class Auto extends Voertuig {
         return grootte;
     }
 
+    
+    public Voertuig geefKopie() {
+        Auto ret = new Auto(this.getX(), this.getY(), this.getKleur());
+        ret.setOrientatie(this.getOrientatie());
+        return ret;
+    }
+
 }

@@ -49,4 +49,11 @@ public class Vrachtwagen extends Voertuig {
         return grootte;
     }
 
+    
+    public Voertuig geefKopie() {
+        Vrachtwagen ret = new Vrachtwagen(this.getX(), this.getY(), this.getKleur());
+        ret.setOrientatie(this.getOrientatie());
+        return ret;
+    }
+
 }
