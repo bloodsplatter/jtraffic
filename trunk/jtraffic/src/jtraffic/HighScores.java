@@ -13,7 +13,7 @@ public class HighScores {
     private static String appDir = System.getProperty("user.dir");
     private static ArrayList<HighScoreRecord> highScoreTable;
     private final static String fileName = "highscores.dat";
-    private static boolean initialised = false;
+    private static boolean initialized = false;
 
     /**
      * Initialiseerd de High Scores
@@ -22,7 +22,7 @@ public class HighScores {
      */
     public static void Initialize() throws IOException, ClassNotFoundException
     {
-        if (!initialised)
+        if (!initialized)
         {
             File bestand = new File(appDir + "\\" + fileName);
             if (!bestand.exists())
@@ -34,16 +34,16 @@ public class HighScores {
                 oos.writeObject(highScoreTable);
                 oos.close();
                 fos.close();
-                initialised = true;
+                initialized = true;
             }
             else
             {
-                FileInputStream fos = new FileInputStream(bestand);
-                ObjectInputStream ois = new ObjectInputStream(fos);
+                FileInputStream fis = new FileInputStream(bestand);
+                ObjectInputStream ois = new ObjectInputStream(fis);
                 highScoreTable = (ArrayList<HighScoreRecord>)ois.readObject();
                 ois.close();
-                fos.close();
-                initialised = true;
+                fis.close();
+                initialized = true;
             }
         }
     }
@@ -56,7 +56,7 @@ public class HighScores {
      */
     public static void AddHighScore(HighScoreRecord hsr) throws Exception
     {
-        if(!initialised)
+        if(!initialized)
             throw new Exception("Class must be initialised first");
 
         highScoreTable.add(hsr);

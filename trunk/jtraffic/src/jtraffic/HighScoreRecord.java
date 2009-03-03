@@ -90,5 +90,4 @@ public class HighScoreRecord {
         return String.format("|%1$4d|%2$s|%3$s|",stappen,levelnaam,spelernaam);
     }
 
-    
 }
