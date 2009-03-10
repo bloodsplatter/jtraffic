@@ -1,8 +1,14 @@
 package jtraffic;
 
 import RushHour.Level;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.io.*;
+import java.util.Iterator;
 
 /**
  * Beheerd de high scores
@@ -47,14 +53,48 @@ public class HighScores {
     /**
      * Voegt een high score toe aan de tabel
      * @param hsr de high score om toe te voegen
-     * @throws java.lang.Exception
+     * @throws java.lang.Exception een foutmelding wordt opgegooid als<br/>de klasse nog niet geïnitialiseerd is
      */
     public static void voegHighScoreToe(HighScoreRecord hsr) throws Exception {
         if (!initialized) {
             throw new Exception("Class must be initialised first");
         }
 
-        highScoreTable.add(hsr);
+        if (highScoreTable.size() <= 10)
+            highScoreTable.add(hsr);
+        else
+        {
+            sorteerOpScore();
+            Iterator<HighScoreRecord> hsrIterator = highScoreTable.iterator();
+            while (hsrIterator.hasNext())
+            {
+                HighScoreRecord current = hsrIterator.next();
+                if (current.getSteps() <= hsr.getSteps())
+                {
+                    highScoreTable.remove(highScoreTable.size()-1);
+                    highScoreTable.add(hsr);
+                    sorteerOpScore();
+                }
+            }
+        }
+    }
+
+    /**
+     * Verwijderd een HighScoreRecord uit de tabel
+     * @param hsr de record die verwijderd moet worden
+     * @throws java.lang.Exception een foutmelding wordt opgegooid als<br/>de klasse nog niet geïnitialiseerd is
+     */
+    public static void verwijderHighScore(HighScoreRecord hsr) throws Exception
+    {
+        if (!initialized)
+        {
+            throw new Exception("Class must be initialised first");
+        }
+
+        if (highScoreTable.contains(hsr))
+        {
+            highScoreTable.remove(hsr);
+        }
     }
 
     /**
@@ -62,7 +102,7 @@ public class HighScores {
      * @param playerNaam naam van de speler die de score behaalde
      * @param level de level waar de score behaald is
      * @param score de score die behaald is
-     * @throws java.lang.Exception
+     * @throws java.lang.Exception een foutmelding wordt opgegooid als<br/>de klasse nog niet geïnitialiseerd is
      */
     public static void voegHighScoreToe(String playerNaam, Level level, int score) throws Exception {
         HighScoreRecord hsr = new HighScoreRecord(score, level.getNaam(), playerNaam);
@@ -72,7 +112,7 @@ public class HighScores {
     /**
      * Slaagt de high scores op
      * @throws java.io.IOException
-     * @throws java.lang.Exception een exception wordt gegooid als<br/>de klasse nog niet geïnitialiseerd is
+     * @throws java.lang.Exception een foutmelding wordt opgegooid als<br/>de klasse nog niet geïnitialiseerd is
      */
     public static void opslaan() throws IOException, Exception {
         if (!initialized) {
