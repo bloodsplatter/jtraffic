@@ -60,7 +60,7 @@ public class LevelManager {
     public static void opslaan() throws Exception
     {
         if (!initialized)
-            throw new Exception("Class is not initialized");
+            throw new Exception("Klasse is niet geïnitialiseerd");
 
         File bestand = new File(appDir + "\\" + fileName);
         FileOutputStream fos = new FileOutputStream(bestand);
@@ -78,8 +78,21 @@ public class LevelManager {
     public static void voegLevelToe(Level level) throws Exception
     {
         if (!initialized)
-           throw new Exception("Class is not initialized");
+           throw new Exception("Klasse is niet geïnitialiseerd");
 
         levels.add(level);
+    }
+
+    /**
+     * Verwijderd de opgegeven level
+     * @param level de level om te verwijderen
+     * @throws java.lang.Exception een foutmelding wordt opgegooid als<br/>de klasse nog niet geïnitialiseerd is
+     */
+    public static void verwijderLevel(Level level) throws Exception
+    {
+        if (!initialized)
+           throw new Exception("Klasse is niet geïnitialiseerd");
+
+        levels.remove(level);
     }
 }
