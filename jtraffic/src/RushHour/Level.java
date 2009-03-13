@@ -53,7 +53,10 @@ public class Level {
      */
     public Level() {
         this.voertuigen = new ArrayList<Voertuig>();
-        this.origineel = voertuigen;
+        origineel = new ArrayList<Voertuig>(voertuigen.size());
+        for (Voertuig voertuig : voertuigen) {
+            origineel.add(voertuig);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -80,7 +83,7 @@ public class Level {
 
     public void maakSnapshot()
     {
-        origineel.clear();
+        origineel = new ArrayList<Voertuig>(voertuigen.size());
         for (Voertuig voertuig : voertuigen) {
             origineel.add(voertuig.geefKopie());
         }
@@ -88,7 +91,10 @@ public class Level {
 
     public void reset()
     {
-        voertuigen = origineel;
+        voertuigen = new ArrayList<Voertuig>(origineel.size());
+        for (Voertuig voertuig : origineel) {
+            voertuigen.add(voertuig);
+        }
     }
 
     /**
