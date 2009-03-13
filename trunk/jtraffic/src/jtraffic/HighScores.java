@@ -159,4 +159,13 @@ public class HighScores {
             numbers[j] = copyNumber;
         }
     }
+
+    /**
+     * Geeft aan of de klasse al geïnitialiseerd is
+     * @return true als de klasse geïnitialiseerd is, anders false
+     */
+    public static boolean isInitialized()
+    {
+        return initialized;
+    }
 }
