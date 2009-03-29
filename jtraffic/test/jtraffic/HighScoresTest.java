@@ -1,6 +1,8 @@
 
 package jtraffic;
 
+import RushHour.HighScoreRecord;
+import RushHour.HighScores;
 import RushHour.Level;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
