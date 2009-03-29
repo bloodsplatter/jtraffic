@@ -1,4 +1,4 @@
-package jtraffic;
+package RushHour;
 
 /**
  * Een record uit de high score tabel

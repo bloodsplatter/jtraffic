@@ -1,4 +1,4 @@
-package jtraffic;
+package RushHour;
 
 import RushHour.Level;
 import java.io.File;
