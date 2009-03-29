@@ -60,20 +60,15 @@ public class HighScores {
             throw new Exception("Class must be initialised first");
         }
 
-        if (highScoreTable.size() <= 10)
+        if (highScoreTable.size() <= 10) {
             highScoreTable.add(hsr);
-        else
-        {
-            sorteerOpScore();
+        } else {
             Iterator<HighScoreRecord> hsrIterator = highScoreTable.iterator();
-            while (hsrIterator.hasNext())
-            {
+            while (hsrIterator.hasNext()) {
                 HighScoreRecord current = hsrIterator.next();
-                if (current.getSteps() <= hsr.getSteps())
-                {
-                    highScoreTable.remove(highScoreTable.size()-1);
+                if (current.getSteps() <= hsr.getSteps()) {
+                    highScoreTable.remove(highScoreTable.size() - 1);
                     highScoreTable.add(hsr);
-                    sorteerOpScore();
                 }
             }
         }
@@ -84,15 +79,12 @@ public class HighScores {
      * @param hsr de record die verwijderd moet worden
      * @throws java.lang.Exception een foutmelding wordt opgegooid als<br/>de klasse nog niet geïnitialiseerd is
      */
-    public static void verwijderHighScore(HighScoreRecord hsr) throws Exception
-    {
-        if (!initialized)
-        {
+    public static void verwijderHighScore(HighScoreRecord hsr) throws Exception {
+        if (!initialized) {
             throw new Exception("Class must be initialised first");
         }
 
-        if (highScoreTable.contains(hsr))
-        {
+        if (highScoreTable.contains(hsr)) {
             highScoreTable.remove(hsr);
         }
     }
@@ -128,44 +120,34 @@ public class HighScores {
     }
 
     /**
-     * Sorteert de tabel op spelernaam
-     */
-    public static void sorteerOpNaam() {
-        HighScoreRecord a[] = new HighScoreRecord[highScoreTable.size()];
-        for (int i = 0; i < a.length; i++) {
-            HighScoreRecord copy = a[i];
-            int j = i;
-            while (j > 0 && copy.getSpelernaam().compareToIgnoreCase(a[j - 1].getSpelernaam()) > 0) {
-                a[j] = a[j - 1];
-                j--;
-            }
-            a[j] = copy;
-        }
-    }
-
-    /**
-     * Sorteert de tabel op score
-     */
-    public static void sorteerOpScore() {
-        HighScoreRecord numbers[] = new HighScoreRecord[highScoreTable.size()];
-        numbers = (HighScoreRecord[])highScoreTable.toArray();
-        for (int i = 0; i < numbers.length; i++) {
-            HighScoreRecord copyNumber = numbers[i];
-            int j = i;
-            while (j > 0 && copyNumber.getSteps() < numbers[j - 1].getSteps()) {
-                numbers[j] = numbers[j - 1];
-                j--;
-            }
-            numbers[j] = copyNumber;
-        }
-    }
-
-    /**
      * Geeft aan of de klasse al geïnitialiseerd is
      * @return true als de klasse geïnitialiseerd is, anders false
      */
-    public static boolean isInitialized()
-    {
+    public static boolean isInitialized() {
         return initialized;
+    }
+
+    /**
+     * Vraagt een record op een plaats op
+     * @param plaats de plaats van het record
+     * @return null als de klasse nog niet geïnitialiseerd is<br/>of de locatie niet geldig is.<br/>anderes het record
+     */
+    public static HighScoreRecord highScoreOpNummer(int plaats) {
+        if (initialized) {
+            if (plaats >= 0 && plaats < highScoreTable.size())
+                return highScoreTable.get(plaats);
+        }
+        return null;
+    }
+
+    /**
+     * Verwijdert alle highscores
+     */
+    public static void verwijderAlleHighScores()
+    {
+        if(initialized)
+        {
+             highScoreTable = new ArrayList<HighScoreRecord>(10);
+        }
     }
 }
