@@ -5,7 +5,7 @@ package RushHour;
  * @author bloodsplatter
  * @version 2009.03.03
  */
-public class HighScoreRecord {
+public class HighScoreRecord implements Comparable {
     private int stappen;
     private String levelnaam;
     private String spelernaam;
@@ -83,7 +83,15 @@ public class HighScoreRecord {
 
     @Override
     public String toString() {
-        return String.format("|%1$4d|%2$s|%3$s|",stappen,levelnaam,spelernaam);
+        return String.format("%1$4d %2$s %3$s",stappen,levelnaam,spelernaam);
     }
 
+    public int compareTo(Object o) {
+        if (o instanceof HighScoreRecord)
+        {
+            HighScoreRecord hsr = (HighScoreRecord)o;
+            return hsr.getSteps() - this.getSteps();
+        } else
+            return 0;
+    }
 }

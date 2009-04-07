@@ -1,5 +1,5 @@
 
-package jtraffic;
+package RushHour;
 
 import RushHour.HighScoreRecord;
 import RushHour.HighScores;
