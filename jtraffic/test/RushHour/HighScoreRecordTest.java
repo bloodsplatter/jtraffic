@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package jtraffic;
+package RushHour;
 
 import RushHour.HighScoreRecord;
 import org.junit.AfterClass;
