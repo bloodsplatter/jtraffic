@@ -5,7 +5,8 @@
 
 package RushHour;
 
-import RushHour.HighScoreRecord;
+import java.util.ArrayList;
+import java.util.Collections;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -35,7 +36,7 @@ public class HighScoreRecordTest {
     public void testToString() {
         System.out.println("toString");
         HighScoreRecord instance = new HighScoreRecord(5, "Testlevel", "Jonas");
-        String expResult = "|   5|Testlevel|Jonas|";
+        String expResult = "   5 Testlevel Jonas";
         String result = instance.toString();
         try {
             assertEquals(expResult, result);
@@ -45,4 +46,26 @@ public class HighScoreRecordTest {
         
     }
 
+    /**
+     * Test of compareTo method, of class HighScoreRecord.
+     */
+    @Test
+    public void testCompareTo()
+    {
+        System.out.println("compareTo");
+        ArrayList<HighScoreRecord> highScores = new ArrayList<HighScoreRecord>(2);
+        HighScoreRecord instance = new HighScoreRecord(5, "Testlevel", "Jonas");
+        HighScoreRecord secondInstance = new HighScoreRecord(10, "Testlevel", "Jonas");
+        highScores.add(instance);
+        highScores.add(secondInstance);
+
+        Collections.sort(highScores);
+        HighScoreRecord compareTo = highScores.get(0);
+        try {
+            assertEquals(compareTo,instance);
+        } catch (Exception e)
+        {
+            fail("Exception: " + e.toString() + "\nReturn value:\n"+compareTo.toString());
+        }
+    }
 }
