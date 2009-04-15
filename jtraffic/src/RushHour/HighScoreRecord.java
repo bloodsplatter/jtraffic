@@ -90,7 +90,7 @@ public class HighScoreRecord implements Comparable {
         if (o instanceof HighScoreRecord)
         {
             HighScoreRecord hsr = (HighScoreRecord)o;
-            return hsr.getSteps() - this.getSteps();
+            return this.getSteps() - hsr.getSteps();
         } else
             return 0;
     }
