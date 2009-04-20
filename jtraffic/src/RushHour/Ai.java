@@ -15,7 +15,8 @@ public class Ai {
     private int Thisstack = 0;
     private int MaxLoops = 20;
     private Voertuig rootvrt[] = new Voertuig[MaxStack];
-    private Voertuig movesvrt[] = new Voertuig[40];
+    private AiMove movesvrt[] = new AiMove[40];
+    private int movesrichtig[] = new int[40];
     private int move = 0;
 
     /**
@@ -41,7 +42,7 @@ public class Ai {
                 rootvrt[0] = mainvt;
                 setProbleem(tmpvt, mainvt.getX() - 1, mainvt.getY(), 0);
             } else {
-                movesvrt[move++] = mainvt;
+                movesvrt[move++] = new AiMove(mainvt,4);
                 mainvt.NaarLinks();
                 System.out.println(lvl.toString());
             }
@@ -96,7 +97,7 @@ public class Ai {
                                 }
                             }
                         } else {
-                            movesvrt[move++] = tmpvt;
+                            movesvrt[move++] = new AiMove(tmpvt,1);
                             tmpvt.NaarBoven();
                             System.out.println(lvl.toString());
                         }
@@ -131,7 +132,7 @@ public class Ai {
                                 }
                             }
                         } else {
-                            movesvrt[move++] = tmpvt;
+                            movesvrt[move++] = new AiMove(tmpvt,3);
                             tmpvt.NaarBeneden();
                             System.out.println(lvl.toString());
                         }
@@ -173,7 +174,7 @@ public class Ai {
                                 }
                             }
                         } else {
-                            movesvrt[move++] = tmpvt;
+                            movesvrt[move++] = new AiMove(tmpvt,4);
                             tmpvt.NaarLinks();
                             System.out.println(lvl.toString());
                         }
@@ -206,7 +207,7 @@ public class Ai {
                                 }
                             }
                         } else {
-                            movesvrt[move++] = tmpvt;
+                            movesvrt[move++] = new AiMove(tmpvt,2);
                             tmpvt.NaarRechts();
                             System.out.println(lvl.toString());
                         }
@@ -223,7 +224,30 @@ public class Ai {
 
     }
 
-    private void ControleBeweging(Voertuig tmpvt) {
+    public void CleanupMoves() {
+
+    }
+
+    public void ShowMoves() {
+        int teller = 0;
+        while (teller < (move)){
+            switch (movesvrt[teller].getRichting()){
+                case 1:
+                    movesvrt[teller].getVoertuig().NaarBoven();
+                    break;
+                case 2:
+                    movesvrt[teller].getVoertuig().NaarRechts();
+                    break;
+                case 3:
+                    movesvrt[teller].getVoertuig().NaarBeneden();
+                    break;
+                case 4:
+                    movesvrt[teller].getVoertuig().NaarLinks();
+                    break;
+                }
+                System.out.println(lvl.toString());
+            teller++;
+        }
     }
 
     private boolean ChekRootTree(Voertuig tmpvrt) {
@@ -247,16 +271,16 @@ public class Ai {
             int tellerp = 0;
 
             boolean FoundX = false;
-            while (teller >= 0 && (movesvrt[teller].hashCode() != rootvrt[tellerp].hashCode())) {
+            while (teller >= 0 && (movesvrt[teller].getVoertuig().hashCode() != rootvrt[tellerp].hashCode())) {
                 teller--;
             }
-            if (movesvrt[teller].hashCode() == rootvrt[tellerp].hashCode()) {
+            if (movesvrt[teller].getVoertuig().hashCode() == rootvrt[tellerp].hashCode()) {
                     if (tellerp == 0 && FoundX == false) {
                         IsTree = true;
                     }
                     while (tellerp < (Thisstack) && teller < (move - 1)){
-                        if (movesvrt[teller].hashCode() == rootvrt[tellerp].hashCode()) {
-                            if (movesvrt[teller + 1].hashCode() != rootvrt[tellerp].hashCode()) {
+                        if (movesvrt[teller].getVoertuig().hashCode() == rootvrt[tellerp].hashCode()) {
+                            if (movesvrt[teller + 1].getVoertuig().hashCode() != rootvrt[tellerp].hashCode()) {
                                 tellerp++;
                             }
                         }else{
