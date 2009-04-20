@@ -2,6 +2,7 @@ package jtraffic;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
+import java.util.Scanner;
 
 /**
  * Een tekstueel menu
@@ -94,7 +95,7 @@ public class Menu {
         {
             decoration = decoration.concat("-");
         }
-        decoration += "+";
+        decoration += "+\n";
 
         sb.insert(0, decoration);
         sb.append(decoration);
@@ -106,11 +107,21 @@ public class Menu {
      * Voert de actie die bij een menu item hoort uit
      * @param index de index van het menu item
      */
-    public void selectItem(int index)
+    public boolean selecteerItem(int index)
     {
-        menuItems.get(index).doAction();
+        if (index > 0 && index < menuItems.size())
+        {
+            menuItems.get(index).select();
+            return true;
+        }
+
+        return false;
     }
 
+    /**
+     * Maakt een schatting van de minimumbreedte van het menu
+     * @return de minimumbreedte
+     */
     private int minimumBreedte() {
         int ret = 0;
         int length = 0;
@@ -126,5 +137,35 @@ public class Menu {
         }
 
         return ret + 2;
+    }
+
+    /**
+     * Constructor
+     */
+    public Menu() {
+        this.titel = "Menu";
+        this.menuItems = new ArrayList<MenuItem>();
+    }
+
+    /**
+     * Constructor met titel
+     * @param titel de titel van het menu
+     */
+    public Menu(String titel) {
+        this.titel = titel;
+        this.menuItems = new ArrayList<MenuItem>();
+    }
+
+    /**
+     * Toon het menu
+     */
+    @SuppressWarnings("empty-statement")
+    public void toon()
+    {
+        System.out.println(this.titel);
+        System.out.println(this.toString());
+        System.out.println("Kies een optie:");
+        Scanner scanner = new Scanner(System.in);
+        while (!this.selecteerItem(scanner.nextInt()-1));
     }
 }
