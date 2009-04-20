@@ -7,10 +7,11 @@ import java.util.Scanner;
 /**
  * Een tekstueel menu
  * @author bloodsplatter
- * @version 2009.04.18
+ * @version 2009.04.20
  */
 public class Menu {
 
+    private boolean isOpen = false;
     private String titel;
     private ArrayList<MenuItem> menuItems;
 
@@ -109,7 +110,7 @@ public class Menu {
      */
     public boolean selecteerItem(int index)
     {
-        if (index > 0 && index < menuItems.size())
+        if (index >= 0 && index < menuItems.size())
         {
             menuItems.get(index).select();
             return true;
@@ -162,6 +163,7 @@ public class Menu {
     @SuppressWarnings("empty-statement")
     public void toon()
     {
+        this.isOpen = true;
         System.out.println(this.titel);
         System.out.println(this.toString());
         System.out.println("Kies een optie:");

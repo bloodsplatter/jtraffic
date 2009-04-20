@@ -1,17 +1,16 @@
 package jtraffic;
 
 import java.util.Scanner;
-import java.util.regex.*;
 
 /**
  * Een item in een menu
  * @author bloodsplatter
- * @version 2009.04.18
- */
+ * @version 2009.04.20 */
 public abstract class MenuItem {
 
     protected String naam;
     protected boolean confirms;
+    protected Menu parent;
 
     /**
      * Geeft de naam van het menu item
@@ -40,9 +39,10 @@ public abstract class MenuItem {
      * Constructor
      * @param naam de naam van het menu item
      */
-    public MenuItem(String naam, boolean confirms) {
+    public MenuItem(Menu parent, String naam, boolean confirms) {
         this.naam = naam;
         this.confirms = confirms;
+        this.parent = parent;
     }
 
     /**
