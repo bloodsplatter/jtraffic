@@ -182,9 +182,13 @@ public abstract class Voertuig {
      */
     public boolean NaarBoven() {
         // TODO hier moeten nog checks uitgevoerd worden.
-        this.y -= 1;
+        if(this.getOrientatie() == orientatie.Verticaal && ( this.y > 0)){
+            this.y -= 1;
 
-        return true;
+            return true;
+        }else{
+            return false;
+        }
     }
     /**
      * Beweeg het voertuig 1 positie naar beneden
@@ -192,8 +196,12 @@ public abstract class Voertuig {
      */
     public boolean NaarBeneden() {
         // TODO hier moeten nog checks uitgevoerd worden.
-        this.y += 1;
-        return true;
+        if(this.getOrientatie() == orientatie.Verticaal && ((this.y + this.getGrootte()) < this.level.getVeld().getHoogte())){
+            this.y += 1;
+            return true;
+        }else{
+            return false;
+        }
     }
     /**
      * Beweeg het voertuig 1 positie naar links
@@ -201,8 +209,13 @@ public abstract class Voertuig {
      */
     public boolean NaarLinks() {
         // TODO hier moeten nog checks uitgevoerd worden.
-        this.x -= 1;
-        return true;
+        if(this.getOrientatie() == orientatie.Horizontaal && ( this.y > 0)){
+            this.x -= 1;
+            return true;
+        }else{
+            return false;
+        }
+            
     }
     /**
      * Beweeg het voertuig 1 positie naar rechts
@@ -210,8 +223,12 @@ public abstract class Voertuig {
      */
     public boolean NaarRechts() {
         // TODO hier moeten nog checks uitgevoerd worden.
-        this.x += 1;
-        return true;
+        if(this.getOrientatie() == orientatie.Horizontaal && ((this.x + this.getGrootte()) < this.level.getVeld().getBreedte())){
+            this.x += 1;
+            return true;
+        }else{
+            return false;
+        }
     }
 
 
@@ -225,10 +242,16 @@ public abstract class Voertuig {
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.B1AD730E-66D4-8101-094D-90D4ACA88853]
     // </editor-fold> 
-    public void setPositie (int X, int Y) {
+    public boolean setPositie (int X, int Y) {
         // TODO hier moeten nog checks uitgevoerd worden.
-        this.x = X;
-        this.y = Y;
+        if(((this.y + this.getGrootte()) < this.level.getVeld().getHoogte()) && this.y > 0 && ((this.x + this.getGrootte()) < this.level.getVeld().getBreedte()) && this.x > 0){
+            this.x = X;
+            this.y = Y;
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
     /**
