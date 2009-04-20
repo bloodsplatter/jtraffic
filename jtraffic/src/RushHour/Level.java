@@ -213,5 +213,21 @@ public class Level {
 
         return strout.toString();
     }
+
+    /**
+     * Zoek het eerste voertuig met de opgegeven kleur
+     * @param kleur de kleur die het voertuig moet hebben
+     * @return null als er geen voertuig gevonden is, anders het Voertuig object.
+     * @see RushHour.Voertuig
+     */
+    public Voertuig voertuigMetKleur(char kleur)
+    {
+        for (Voertuig voertuig : voertuigen) {
+            if (voertuig.getKleur() == kleur)
+                return voertuig;
+        }
+
+        return null;
+    }
 }
 
