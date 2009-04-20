@@ -58,12 +58,16 @@ public class Main {
         vrt6.setY(1);
         vrt6.setKleur('E');
         lvl.voegVoertuigToe(vrt6);
-        
+
+        lvl.maakSnapshot();
+
         System.out.println(lvl.toString());
         System.in.read();
         System.out.println(lvl.toString());
         Ai ai = new Ai(lvl);
         ai.run();
-        
+
+        lvl.reset();
+        System.out.println(lvl.toString());
     }
 }
