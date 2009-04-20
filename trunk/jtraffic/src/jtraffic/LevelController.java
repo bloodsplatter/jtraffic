@@ -3,6 +3,9 @@ package jtraffic;
 import RushHour.Level;
 import RushHour.Voertuig;
 import RushHour.Beweging;
+import RushHour.HighScoreRecord;
+import RushHour.HighScores;
+import java.util.logging.Logger;
 import java.util.regex.*;
 
 /**
@@ -13,6 +16,7 @@ import java.util.regex.*;
 public class LevelController {
 
     private Level level;
+    private int stappen = 0;
     private final Pattern menuPattern = Pattern.compile("^:\\[mM\\]$");
     private final Pattern colorPattern = Pattern.compile("^\\[a-zA-Z\\]$");
     private final Pattern directionPattern = Pattern.compile("^\\+\\[uUdDlLrR\\]$");
@@ -88,7 +92,7 @@ public class LevelController {
         {
             InGameMenu menu = new InGameMenu();
             menu.toon();
-        }
+        } else 
         if (colorPattern.matcher(input).find(0))
         {
             Voertuig voertuig = level.voertuigMetKleur((char)input.charAt(0));
@@ -99,17 +103,38 @@ public class LevelController {
                     int location = directionPattern.matcher(input).start() + 1;
                     char direction = input.charAt(location);
                     if (direction == 'u')
-                        voertuig.NaarBoven();
+                        stappen += voertuig.NaarBoven()?1:0;
                     if (direction == 'd')
-                        voertuig.NaarBeneden();
+                        stappen += voertuig.NaarBeneden()?1:0;
                     if (direction == 'r')
-                        voertuig.NaarRechts();
+                        stappen += voertuig.NaarRechts()?1:0;
                     if (direction == 'l')
-                        voertuig.NaarLinks();
+                        stappen += voertuig.NaarLinks()?1:0;
+
+                    if (isLevelUit())
+                    {
+                        System.out.println(String.format("Uw score:%1$d", stappen));
+                        System.out.print("\nNaam: ");
+                        String naam = System.console().readLine();
+                        try {
+                            HighScores.voegHighScoreToe(naam, level, stappen);
+                        } catch (Exception ex) {
+                            Logger.getLogger(LevelController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                        }
+                    }
                 }
             }
         } else
             System.out.println("Geen geldige invoer.");
+    }
+
+    /**
+     * Controleert oft het eerste voertuig de uitgang bereikt heeft
+     * @return true als de level uitgespeeld is, anders false
+     */
+    private boolean isLevelUit()
+    {
+        return (level.voertuigOpPlaats(0).getY() < 0 && level.voertuigOpPlaats(0).getX() == (level.getVeld().getHoogte() / 2) ) ;
     }
 
     /**
@@ -121,6 +146,14 @@ public class LevelController {
         public InGameMenu() {
             super("Pauze");
 
+
+            voegItemToe(new MenuItem("Terug naar spel", false) {
+
+                @Override
+                public void doAction() {
+                    return;
+                }
+            });
             // Afsluiten
             voegItemToe(new MenuItem("Afsluiten",true){
 
@@ -132,4 +165,5 @@ public class LevelController {
         }
 
     }
+
 }

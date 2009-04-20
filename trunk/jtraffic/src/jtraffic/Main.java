@@ -1,7 +1,9 @@
 
 package jtraffic;
 
-import java.util.Scanner;
+import RushHour.*;
+import java.io.IOException;
+import java.util.logging.Logger;
 
 /**
  * The main class
@@ -15,11 +17,24 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        try {
+            // initialisatie
+            LevelManager.Initialize();
+            HighScores.Initialize();
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            System.err.println("Kritieke fout.");
+            System.exit(-2);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            System.err.println("Kritieke fout.");
+            System.exit(-1);
+        }
+
         MainMenu mainMenu = new MainMenu();
-        mainMenu.toon();
-        Scanner scanner = new Scanner(System.in);
-        mainMenu.selecteerItem(scanner.nextInt());
+            while (true) {
+                mainMenu.toon();
+            }
     }
 
     /**
@@ -31,8 +46,20 @@ public class Main {
         {
             super("Hoofdmenu");
 
+            this.voegItemToe(new MenuItem(this,"Toon levels", false) {
+
+                @Override
+                public void doAction() {
+                    Level[] levelLijst = LevelManager.toArray();
+                    for (Level level : levelLijst) {
+                        System.out.println(level.toString());
+                    }
+                    System.out.println();
+                }
+            });
+
             // Afsluiten
-            this.voegItemToe(new MenuItem("Afsluiten", true) {
+            this.voegItemToe(new MenuItem(this,"Afsluiten", true) {
 
                 @Override
                 public void doAction() {

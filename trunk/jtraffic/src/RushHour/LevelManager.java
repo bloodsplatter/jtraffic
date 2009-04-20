@@ -1,6 +1,5 @@
 package RushHour;
 
-import RushHour.Level;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Beheert de levels
  * @author bloodsplatter
- * @version 2009.03.03
+ * @version 2009.04.20
  */
 public class LevelManager {
     private static boolean initialized = false;
@@ -94,5 +93,19 @@ public class LevelManager {
            throw new Exception("Klasse is niet geïnitialiseerd");
 
         levels.remove(level);
+    }
+
+    /**
+     * Geeft een array van levels
+     * @return een array met de levels in
+     */
+    public static Level[] toArray()
+    {
+        if (!initialized)
+            return null;
+        
+        Level[] array = new Level[levels.size()];
+        levels.toArray(array);
+        return array;
     }
 }
