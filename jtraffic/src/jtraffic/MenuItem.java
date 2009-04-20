@@ -1,5 +1,7 @@
-
 package jtraffic;
+
+import java.util.Scanner;
+import java.util.regex.*;
 
 /**
  * Een item in een menu
@@ -9,6 +11,7 @@ package jtraffic;
 public abstract class MenuItem {
 
     protected String naam;
+    protected boolean confirms;
 
     /**
      * Geeft de naam van het menu item
@@ -29,8 +32,33 @@ public abstract class MenuItem {
     public abstract void doAction();
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return naam;
+    }
+
+    /**
+     * Constructor
+     * @param naam de naam van het menu item
+     */
+    public MenuItem(String naam, boolean confirms) {
+        this.naam = naam;
+        this.confirms = confirms;
+    }
+
+    /**
+     * Selecteer dit menu
+     */
+    public void select() {
+        if (this.confirms) {
+            System.out.print("\nWeet u zeker dat u dit wilt doen (J/N)? [N] ");
+            Scanner scanner = new Scanner(System.in);
+            if (scanner.hasNext()) {
+                String input = scanner.next();
+                if (input.equalsIgnoreCase("j")) {
+                    this.doAction();
+                }
+            }
+        } else
+            this.doAction();
     }
 }
