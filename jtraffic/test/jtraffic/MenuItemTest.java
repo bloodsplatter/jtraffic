@@ -33,14 +33,13 @@ public class MenuItemTest {
     @Test
     public void testGetNaam() {
         System.out.println("getNaam");
-        MenuItem instance = new MenuItem() {
+        MenuItem instance = new MenuItem("Click action",false) {
 
             @Override
             public void doAction() {
                 System.out.println("An action ocurred.");
             }
         };
-        instance.setNaam("Click action");
         String expResult = "Click action";
         String result = instance.getNaam();
         try {
@@ -57,7 +56,7 @@ public class MenuItemTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        MenuItem instance = new MenuItem() {
+        MenuItem instance = new MenuItem("testnaam",false) {
 
             @Override
             public void doAction() {
