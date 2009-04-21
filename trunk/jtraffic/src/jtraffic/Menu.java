@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * Een tekstueel menu
  * @author bloodsplatter
- * @version 2009.04.20
+ * @version 2009.04.21
  */
 public class Menu {
 
@@ -169,5 +169,23 @@ public class Menu {
         System.out.println("Kies een optie:");
         Scanner scanner = new Scanner(System.in);
         while (!this.selecteerItem(scanner.nextInt()-1));
+    }
+
+    /**
+     * Wordt gebruikt als niet alleen het menu maar ook het aanroepende venster gesloten moet worden.
+     */
+    public void sluit()
+    {
+        if (this.isOpen)
+            isOpen = false;
+    }
+
+    /**
+     * Geeft aan of het onderliggende venster ook gesloten moet worden.
+     * @return true als het venster gesloten moet worden, anders false
+     */
+    public boolean isOpen()
+    {
+        return this.isOpen;
     }
 }

@@ -1,5 +1,6 @@
 package RushHour;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Logger;
@@ -8,11 +9,13 @@ import java.util.logging.Logger;
  *  <p style="margin-top: 0">
  *        Een level
  *      </p>
+ * @author bloodsplatter
+ * @version 2009.04.21
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB]
 // </editor-fold> 
-public class Level {
+public class Level implements Serializable {
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.5234BB41-70F2-FEE4-E9D6-C975C6805708]
@@ -140,11 +143,6 @@ public class Level {
 
     @Override
     public String toString() {
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Level.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
         StringBuilder strout = new StringBuilder();
         int hoogtem = this.veld.getHoogte() + 2;
         int breetem = this.veld.getBreedte() + 2;
@@ -203,7 +201,7 @@ public class Level {
 
         }
 
-        strout.append("\n\n\n\n\n\n");
+        strout.append("\n\n");
         for (int i = 0; i < hoogtem; i++) {
             for (int j = 0; j < breetem * 2; j++) {
                 strout.append(dispmatrx[i][j]);
@@ -223,7 +221,7 @@ public class Level {
     public Voertuig voertuigMetKleur(char kleur)
     {
         for (Voertuig voertuig : voertuigen) {
-            if (voertuig.getKleur() == kleur)
+            if (String.valueOf(voertuig.getKleur()).equalsIgnoreCase(String.valueOf(kleur)))
                 return voertuig;
         }
 
