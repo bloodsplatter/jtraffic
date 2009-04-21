@@ -3,6 +3,7 @@ package jtraffic;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /**
  * Een tekstueel menu
@@ -173,7 +174,12 @@ public class Menu {
         System.out.println(this.toString());
         System.out.println("Kies een optie:");
         Scanner scanner = new Scanner(System.in);
-        while (!this.selecteerItem(scanner.nextInt()-1));
+        String input = null;
+        while (input == null) {
+            input = scanner.findInLine(Pattern.compile("^[0-9]+$", Pattern.CASE_INSENSITIVE));
+        }
+        int keuze = Integer.valueOf(input);
+        this.selecteerItem(keuze);
     }
 
     /**
