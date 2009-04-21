@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Beheert de levels
  * @author bloodsplatter
- * @version 2009.04.20
+ * @version 2009.04.21
  */
 public class LevelManager {
     private static boolean initialized = false;
@@ -64,7 +64,7 @@ public class LevelManager {
         File bestand = new File(appDir + "\\" + fileName);
         FileOutputStream fos = new FileOutputStream(bestand);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(oos);
+        oos.writeObject(levels);
         oos.close();
         fos.close();
     }
@@ -72,12 +72,11 @@ public class LevelManager {
     /**
      * Voeg een level toe aan de lijst
      * @param level de level die toegevoegd moet worden
-     * @throws java.lang.Exception gooit een exception als<br/>de klasse nog niet geïnitialiseerd is
      */
-    public static void voegLevelToe(Level level) throws Exception
+    public static void voegLevelToe(Level level)
     {
         if (!initialized)
-           throw new Exception("Klasse is niet geïnitialiseerd");
+           return;
 
         levels.add(level);
     }
@@ -85,12 +84,11 @@ public class LevelManager {
     /**
      * Verwijderd de opgegeven level
      * @param level de level om te verwijderen
-     * @throws java.lang.Exception een foutmelding wordt opgegooid als<br/>de klasse nog niet geïnitialiseerd is
      */
-    public static void verwijderLevel(Level level) throws Exception
+    public static void verwijderLevel(Level level)
     {
         if (!initialized)
-           throw new Exception("Klasse is niet geïnitialiseerd");
+           return;
 
         levels.remove(level);
     }
@@ -107,5 +105,25 @@ public class LevelManager {
         Level[] array = new Level[levels.size()];
         levels.toArray(array);
         return array;
+    }
+
+    /**
+     * Geeft het aantal levels
+     * @return het aantal levels
+     */
+    public static int aantalLevels()
+    {
+        return initialized?levels.size():0;
+    }
+
+    /**
+     * Verwijdert alle levels
+     */
+    public static void verwijderAlleLevels()
+    {
+        if (!initialized)
+            return;
+
+        levels.clear();
     }
 }

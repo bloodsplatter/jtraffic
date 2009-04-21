@@ -3,23 +3,19 @@ package jtraffic;
 import RushHour.Level;
 import RushHour.Voertuig;
 import RushHour.Beweging;
-import RushHour.HighScoreRecord;
 import RushHour.HighScores;
 import java.util.logging.Logger;
-import java.util.regex.*;
+import java.io.*;
 
 /**
  * Een controller voor de speelveld klasse
  * @author bloodsplatter
- * @version 2009.04.20
+ * @version 2009.04.21
  */
 public class LevelController {
 
     private Level level;
     private int stappen = 0;
-    private final Pattern menuPattern = Pattern.compile("^:\\[mM\\]$");
-    private final Pattern colorPattern = Pattern.compile("^\\[a-zA-Z\\]$");
-    private final Pattern directionPattern = Pattern.compile("^\\+\\[uUdDlLrR\\]$");
 
     /**
      * Constructor
@@ -84,24 +80,38 @@ public class LevelController {
      */
     public void gebruikersInteractie()
     {
-        System.out.println("Geef u invoer in (kleur+u,d,l,r of :m voor menu):");
-        String input = System.console().readLine();
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        
+        while (true) {
+        this.printLevel();
+        System.out.println("\nGeef u invoer in (kleur+u,d,l,r of :m voor menu):");
+        String input = null;
+
+            try {
+                input = br.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(LevelController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
 
         // open menu
-        if (menuPattern.matcher(input).find(0))
+        if (input.startsWith(":m"))
         {
             InGameMenu menu = new InGameMenu();
             menu.toon();
+            if (!menu.isOpen())
+            {
+                sluitAf();
+                break;
+            }
+
         } else 
-        if (colorPattern.matcher(input).find(0))
+        if (input.matches("^[a-z]\\+[udlr]$"))
         {
             Voertuig voertuig = level.voertuigMetKleur((char)input.charAt(0));
             if (voertuig != null)
             {
-                if ( directionPattern.matcher(input).find(1))
-                {
-                    int location = directionPattern.matcher(input).start() + 1;
-                    char direction = input.charAt(location);
+                    char direction = input.charAt(2);
                     if (direction == 'u')
                         stappen += voertuig.NaarBoven()?1:0;
                     if (direction == 'd')
@@ -113,19 +123,13 @@ public class LevelController {
 
                     if (isLevelUit())
                     {
-                        System.out.println(String.format("Uw score:%1$d", stappen));
-                        System.out.print("\nNaam: ");
-                        String naam = System.console().readLine();
-                        try {
-                            HighScores.voegHighScoreToe(naam, level, stappen);
-                        } catch (Exception ex) {
-                            Logger.getLogger(LevelController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-                        }
+                        sluitAf();
+                        break;
                     }
-                }
             }
         } else
             System.out.println("Geen geldige invoer.");
+        }
     }
 
     /**
@@ -138,6 +142,21 @@ public class LevelController {
     }
 
     /**
+     * Om de level af te sluiten
+     */
+    private void sluitAf()
+    {
+        System.out.println(String.format("Uw score:%1$d", stappen));
+                        System.out.print("\nNaam: ");
+                        String naam = System.console().readLine();
+                        try {
+                            HighScores.voegHighScoreToe(naam, level, stappen);
+                        } catch (Exception ex) {
+                            Logger.getLogger(LevelController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                        }
+    }
+
+    /**
      * The in-game menu
      */
     private class InGameMenu extends Menu
@@ -147,7 +166,7 @@ public class LevelController {
             super("Pauze");
 
 
-            voegItemToe(new MenuItem("Terug naar spel", false) {
+            voegItemToe(new MenuItem(this,"Terug naar spel", false) {
 
                 @Override
                 public void doAction() {
@@ -155,11 +174,11 @@ public class LevelController {
                 }
             });
             // Afsluiten
-            voegItemToe(new MenuItem("Afsluiten",true){
+            voegItemToe(new MenuItem(this,"Afsluiten",true){
 
                 @Override
                 public void doAction() {
-                    System.out.println(this.toString());
+                    parent.sluit();
                 }
             });
         }

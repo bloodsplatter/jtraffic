@@ -12,6 +12,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import RushHour.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -47,17 +49,17 @@ public class LevelControllerTest {
     }
 
     /**
-     * Test of printLevel method, of class LevelController.
-     */
-    @Test
-    public void testPrintLevel() {
-    }
-
-    /**
      * Test of gebruikersInteractie method, of class LevelController.
      */
     @Test
     public void testGebruikersInteractie() {
+        System.out.print("gebruikersInteractie ");
+        Pattern dirPat = Pattern.compile("^[a-z]\\+[udlr]$", Pattern.CASE_INSENSITIVE);
+        System.out.println(dirPat.toString());
+        Matcher matcher = dirPat.matcher("g+u");
+
+        if (!matcher.find())
+            fail("RegEx did not match.");
     }
 
 }

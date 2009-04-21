@@ -7,13 +7,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 
 /**
  * Beheerd de high scores
  * @author bloodsplatter
- * @version 2009.03.03
+ * @version 2009.04.21
  */
 public class HighScores {
 
@@ -53,11 +52,10 @@ public class HighScores {
     /**
      * Voegt een high score toe aan de tabel
      * @param hsr de high score om toe te voegen
-     * @throws java.lang.Exception een foutmelding wordt opgegooid als<br/>de klasse nog niet geïnitialiseerd is
      */
-    public static void voegHighScoreToe(HighScoreRecord hsr) throws Exception {
+    public static void voegHighScoreToe(HighScoreRecord hsr){
         if (!initialized) {
-            throw new Exception("Class must be initialised first");
+            return;
         }
 
         if (highScoreTable.size() <= 10) {
@@ -78,11 +76,10 @@ public class HighScores {
     /**
      * Verwijderd een HighScoreRecord uit de tabel
      * @param hsr de record die verwijderd moet worden
-     * @throws java.lang.Exception een foutmelding wordt opgegooid als<br/>de klasse nog niet geïnitialiseerd is
      */
-    public static void verwijderHighScore(HighScoreRecord hsr) throws Exception {
+    public static void verwijderHighScore(HighScoreRecord hsr){
         if (!initialized) {
-            throw new Exception("Class must be initialised first");
+            return;
         }
 
         if (highScoreTable.contains(hsr)) {
@@ -95,9 +92,8 @@ public class HighScores {
      * @param playerNaam naam van de speler die de score behaalde
      * @param level de level waar de score behaald is
      * @param score de score die behaald is
-     * @throws java.lang.Exception een foutmelding wordt opgegooid als<br/>de klasse nog niet geïnitialiseerd is
      */
-    public static void voegHighScoreToe(String playerNaam, Level level, int score) throws Exception {
+    public static void voegHighScoreToe(String playerNaam, Level level, int score) {
         HighScoreRecord hsr = new HighScoreRecord(score, level.getNaam(), playerNaam);
         voegHighScoreToe(hsr);
     }
@@ -150,5 +146,16 @@ public class HighScores {
         {
              highScoreTable = new ArrayList<HighScoreRecord>(10);
         }
+    }
+
+    /**
+     * Geeft een array met alle HighScoreRecords
+     * @return een array met alle HighScoreRecords
+     */
+    public static HighScoreRecord[] toArray()
+    {
+        HighScoreRecord[] hsrs = new HighScoreRecord[highScoreTable.size()];
+        highScoreTable.toArray(hsrs);
+        return hsrs;
     }
 }

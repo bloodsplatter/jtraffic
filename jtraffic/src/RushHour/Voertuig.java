@@ -1,17 +1,19 @@
 package RushHour;
 
+import java.io.Serializable;
+
 
 /**
  *  <p style="margin-top: 0">
  *        Een voertuig op het speelveld
  *      </p>
  * @author bloodsplatter
- * @version 2009.03.03
+ * @version 2009.04.21
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.BCF3685A-9810-3D8C-7162-061D5F12D290]
 // </editor-fold> 
-public abstract class Voertuig {
+public abstract class Voertuig implements Serializable {
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.8CC65A05-13B2-4140-7E90-79D620DF863B]

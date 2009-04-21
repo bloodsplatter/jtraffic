@@ -33,7 +33,7 @@ public class MenuItemTest {
     @Test
     public void testGetNaam() {
         System.out.println("getNaam");
-        MenuItem instance = new MenuItem("Click action",false) {
+        MenuItem instance = new MenuItem(null,"Click action",false) {
 
             @Override
             public void doAction() {
@@ -56,7 +56,7 @@ public class MenuItemTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        MenuItem instance = new MenuItem("testnaam",false) {
+        MenuItem instance = new MenuItem(null,"testnaam",false) {
 
             @Override
             public void doAction() {

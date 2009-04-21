@@ -1,17 +1,19 @@
 package RushHour;
 
+import java.io.Serializable;
+
 
 /**
  *  <p style="margin-top: 0">
  *        Een speelveld
  *      </p>
  * @author bloodsplatter
- * @version 2009.03.03
+ * @version 2009.04.21
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651]
 // </editor-fold> 
-public class Speelveld {
+public class Speelveld implements Serializable {
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.D8BF197E-0238-5719-6267-E37DAA813A4D]
