@@ -1,4 +1,3 @@
-
 package jtraffic;
 
 import RushHour.*;
@@ -12,7 +11,6 @@ import java.util.logging.Logger;
  */
 public class Main {
 
-    
     /**
      * @param args the command line arguments
      */
@@ -32,22 +30,21 @@ public class Main {
         }
 
         MainMenu mainMenu = new MainMenu();
-            while (true) {
-                mainMenu.toon();
-            }
+        while (true) {
+            mainMenu.toon();
+        }
     }
 
     /**
      * MainMenu klasse
      */
-    private static class MainMenu extends Menu
-    {
-        public MainMenu()
-        {
+    private static class MainMenu extends Menu {
+
+        public MainMenu() {
             super("Hoofdmenu");
 
             // start
-            this.voegItemToe(new MenuItem(this,"Start spel", false) {
+            this.voegItemToe(new MenuItem(this, "Start spel", false) {
 
                 @Override
                 public void doAction() {
@@ -71,7 +68,7 @@ public class Main {
             });
 
             // Afsluiten
-            this.voegItemToe(new MenuItem(this,"Afsluiten", true) {
+            this.voegItemToe(new MenuItem(this, "Afsluiten", true) {
 
                 @Override
                 public void doAction() {
@@ -89,8 +86,7 @@ public class Main {
     /**
      * Het level selectie menu
      */
-    private static class LevelSelect extends Menu
-    {
+    private static class LevelSelect extends Menu {
 
         public LevelSelect() {
             super("Kies level");
@@ -116,6 +112,5 @@ public class Main {
                 }
             });
         }
-
     }
 }
