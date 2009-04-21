@@ -77,22 +77,27 @@ public class Menu {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        int breedte = this.minimumBreedte() + 2;
+        int breedte = this.minimumBreedte() + 5;
 
         int counter = 1;
         for (MenuItem menuItem : menuItems) {
-            String str = String.format("| %1$d) %2$s |", counter, menuItem.toString());
-            if (str.length() > breedte)
-                breedte = str.length();
+            String str = String.format("| %1$d) %2$s", counter, menuItem);
+            int len = breedte - str.length();
 
             sb.append(str);
+            while (len > 0)
+            {
+                sb.append(" ");
+                len--;
+            }
+            sb.append("|");
             sb.append('\n');
             counter++;
         }
 
         String decoration = "+";
 
-        for (int i = 0; i < breedte - 2; i++)
+        for (int i = 0; i <= breedte - 2; i++)
         {
             decoration = decoration.concat("-");
         }
@@ -137,7 +142,7 @@ public class Menu {
             }
         }
 
-        return ret + 2;
+        return ret;
     }
 
     /**
