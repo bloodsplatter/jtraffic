@@ -61,11 +61,12 @@ public class Main {
 
                 @Override
                 public void doAction() {
-                    System.out.println("Highscores\n");
+                    System.out.println("Highscores");
                     HighScoreRecord[] hsrs = HighScores.toArray();
                     for (HighScoreRecord hsr : hsrs) {
                         System.out.println(hsr.toString());
                     }
+                    System.out.println();
                 }
             });
 
@@ -74,6 +75,11 @@ public class Main {
 
                 @Override
                 public void doAction() {
+                    try {
+                        HighScores.opslaan();
+                    } catch (Exception ex) {
+                        Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.WARNING, "Could not save highscores", ex);
+                    }
                     System.exit(0);
                 }
             });

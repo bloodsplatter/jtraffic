@@ -1,11 +1,13 @@
 package RushHour;
 
+import java.io.Serializable;
+
 /**
  * Een record uit de high score tabel
  * @author bloodsplatter
- * @version 2009.03.03
+ * @version 2009.04.21
  */
-public class HighScoreRecord implements Comparable {
+public class HighScoreRecord implements Comparable, Serializable {
     private int stappen;
     private String levelnaam;
     private String spelernaam;

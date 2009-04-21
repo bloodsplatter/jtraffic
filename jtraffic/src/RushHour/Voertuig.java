@@ -184,7 +184,7 @@ public abstract class Voertuig implements Serializable {
      */
     public boolean NaarBoven() {
         // TODO hier moeten nog checks uitgevoerd worden.
-        if(this.getOrientatie() == orientatie.Verticaal && ( this.y > 0) && (level.voertuigOpPositie(this.x, this.y - 1) == null)){
+        if(this.getOrientatie() == orientatie.Verticaal && ( this.y > 0) && (level.voertuigOpPositie(this.x, this.y - 1) == null || level.voertuigOpPositie(this.x, this.y - 1) == this)){
             this.y -= 1;
 
             return true;
@@ -198,7 +198,7 @@ public abstract class Voertuig implements Serializable {
      */
     public boolean NaarBeneden() {
         // TODO hier moeten nog checks uitgevoerd worden.
-        if(this.getOrientatie() == orientatie.Verticaal && ((this.y + this.getGrootte()) < this.level.getVeld().getHoogte()) && level.voertuigOpPositie(this.x, this.y + 1) == null){
+        if(this.getOrientatie() == orientatie.Verticaal && ((this.y + this.getGrootte()) < this.level.getVeld().getHoogte()) && (level.voertuigOpPositie(this.x, this.y + 1) == null || level.voertuigOpPositie(this.x, this.y + 1) == this)){
             this.y += 1;
             return true;
         }else{
@@ -211,7 +211,7 @@ public abstract class Voertuig implements Serializable {
      */
     public boolean NaarLinks() {
         // TODO hier moeten nog checks uitgevoerd worden.
-        if(this.getOrientatie() == orientatie.Horizontaal && ( this.x > 0)  && level.voertuigOpPositie(this.x - 1, this.y) == null){
+        if(this.getOrientatie() == orientatie.Horizontaal && ( this.x >= ((this.getY()==level.getVeld().getHoogte()/2)?0:1))  && (level.voertuigOpPositie(this.x - 1, this.y) == null || level.voertuigOpPositie(this.x - 1, this.y) == this)){
             this.x -= 1;
             return true;
         }else{
@@ -225,7 +225,7 @@ public abstract class Voertuig implements Serializable {
      */
     public boolean NaarRechts() {
         // TODO hier moeten nog checks uitgevoerd worden.
-        if(this.getOrientatie() == orientatie.Horizontaal && ((this.x + this.getGrootte()) < this.level.getVeld().getBreedte())  && level.voertuigOpPositie(this.x + 1, this.y) == null){
+        if(this.getOrientatie() == orientatie.Horizontaal && ((this.x + this.getGrootte()) < this.level.getVeld().getBreedte())  && (level.voertuigOpPositie(this.x + 1, this.y) == null || level.voertuigOpPositie(this.x + 1, this.y) == this)){
             this.x += 1;
             return true;
         }else{
