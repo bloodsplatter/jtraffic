@@ -90,7 +90,7 @@ public class LevelController {
                 InGameMenu menu = new InGameMenu();
                 menu.toon();
                 if (!menu.isOpen()) {
-                    sluitAf();
+                    sluitAf(false);
                     break;
                 }
 
@@ -112,7 +112,7 @@ public class LevelController {
                     }
 
                     if (isLevelUit()) {
-                        sluitAf();
+                        sluitAf(true);
                         break;
                     }
                 }
@@ -132,18 +132,21 @@ public class LevelController {
 
     /**
      * Om de level af te sluiten
+     * @param houdScoreBij true om de score bij te houden, anders false
      */
-    private void sluitAf() {
-        System.out.println(String.format("Uw score:%1$d", stappen));
-        System.out.print("\nNaam: ");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String naam;
+    private void sluitAf(boolean houdScoreBij) {
+        if (houdScoreBij) {
+            System.out.println(String.format("Uw score:%1$d", stappen));
+            System.out.print("\nNaam: ");
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String naam;
 
-        try {
-            naam = br.readLine();
-            HighScores.voegHighScoreToe(naam, level, stappen);
-        } catch (Exception ex) {
-            Logger.getLogger(LevelController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            try {
+                naam = br.readLine();
+                HighScores.voegHighScoreToe(naam, level, stappen);
+            } catch (Exception ex) {
+                Logger.getLogger(LevelController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
         }
     }
 

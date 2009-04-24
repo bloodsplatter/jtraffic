@@ -1,8 +1,13 @@
 package jtraffic;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 /**
@@ -173,13 +178,18 @@ public class Menu {
         System.out.println(this.titel);
         System.out.println(this.toString());
         System.out.println("Kies een optie:");
-        Scanner scanner = new Scanner(System.in);
-        String input = null;
-        while (input == null) {
-            input = scanner.findInLine(Pattern.compile("^[0-9]+$", Pattern.CASE_INSENSITIVE));
+        String input = new String();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        while (input.isEmpty() && !input.matches("^[0-9]+$"))
+        {
+            try {
+                input = br.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(Menu.class.getName()).log(Level.WARNING, null, ex);
+            }
         }
         int keuze = Integer.valueOf(input);
-        this.selecteerItem(keuze);
+        this.selecteerItem(keuze - 1);
     }
 
     /**
