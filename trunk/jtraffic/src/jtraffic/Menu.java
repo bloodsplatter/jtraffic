@@ -180,7 +180,7 @@ public class Menu {
         System.out.println("Kies een optie:");
         String input = new String();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        while (input.isEmpty() && !input.matches("^[0-9]+$"))
+        while (input.isEmpty() || !input.matches("^[0-9]+$"))
         {
             try {
                 input = br.readLine();
