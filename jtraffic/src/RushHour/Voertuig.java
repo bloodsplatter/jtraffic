@@ -8,7 +8,7 @@ import java.io.Serializable;
  *        Een voertuig op het speelveld
  *      </p>
  * @author bloodsplatter
- * @version 2009.04.21
+ * @version 2009.04.27
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.BCF3685A-9810-3D8C-7162-061D5F12D290]
@@ -30,7 +30,7 @@ public abstract class Voertuig implements Serializable {
     // </editor-fold> 
     private int y;
 
-    private char k;
+    private Kleur kleur;
 
     private Level level;
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -63,12 +63,12 @@ public abstract class Voertuig implements Serializable {
      * @param Y de verticale positie van het voertuig in het speelveld
      * @param kleur
      */
-    public Voertuig(int X, int Y,char kleur)
+    public Voertuig(int X, int Y,Kleur kleur)
     {
         this.orientatie = Orientatie.Horizontaal;
         this.x = X;
         this.y = Y;
-        this.k = kleur;
+        this.kleur = kleur;
     }
 
 
@@ -162,8 +162,8 @@ public abstract class Voertuig implements Serializable {
      * Geeft de kleur van het voertuig
      * @return de kleur van het voertuig
      */
-    public char getKleur() {
-        return k;
+    public Kleur getKleur() {
+        return kleur;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -173,9 +173,14 @@ public abstract class Voertuig implements Serializable {
      * Stelt de Y-coördinaat in
      * @param kleur
      */
-    public void setKleur(char kleur) {
+    public void setKleur(Kleur kleur) {
         // TODO hier moeten nog checks uitgevoerd worden.
-        this.k = kleur;
+        this.kleur = kleur;
+    }
+
+    public char getKleurChar()
+    {
+        return this.kleur.toString().charAt(0);
     }
 
     /**

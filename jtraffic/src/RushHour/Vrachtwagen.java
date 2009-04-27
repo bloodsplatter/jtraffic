@@ -5,8 +5,7 @@ package RushHour;
 /**
  * Een vrachtwagen
  * @author bloodsplatter
- * @see RushHour.Voertuig
- * @version 2009.03.03
+ * @version 2009.04.27
  */
 public class Vrachtwagen extends Voertuig {
     private int grootte;
@@ -17,8 +16,8 @@ public class Vrachtwagen extends Voertuig {
      * @param Y de Y-coördinaat
      * @param Kleur de kleur van de wagen
      */
-    public Vrachtwagen(int X, int Y, char Kleur) {
-        super(X, Y, Kleur);
+    public Vrachtwagen(int X, int Y, Kleur kleur) {
+        super(X, Y, kleur);
         super.setOrientatie(Orientatie.Horizontaal);
         super.setOrientatie(Orientatie.Horizontaal);
         grootte = 3;
@@ -37,7 +36,7 @@ public class Vrachtwagen extends Voertuig {
      * Maakt een vrachtwagen
      */
     public Vrachtwagen() {
-        super(0,0,' ');
+        super(0,0,Kleur.Groen);
         grootte = 3;
     }
 

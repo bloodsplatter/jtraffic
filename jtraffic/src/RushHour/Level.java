@@ -9,7 +9,7 @@ import java.util.Iterator;
  *        Een level
  *      </p>
  * @author bloodsplatter
- * @version 2009.04.21
+ * @version 2009.04.27
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.A1990BC5-05D5-C36D-C599-846C8E6F96CB]
@@ -179,23 +179,23 @@ public class Level implements Serializable {
             tmpvrt = itr.next();
             if (tmpvrt.getOrientatie() == Orientatie.Horizontaal) {
 
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2) + 2] = tmpvrt.getKleur();
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 3)] = tmpvrt.getKleur();
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleurChar();
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleurChar();
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2) + 2] = tmpvrt.getKleurChar();
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 3)] = tmpvrt.getKleurChar();
                 if (tmpvrt.getGrootte() == 3) {
-                    dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 4)] = tmpvrt.getKleur();
-                    dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 5)] = tmpvrt.getKleur();
+                    dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 4)] = tmpvrt.getKleurChar();
+                    dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 5)] = tmpvrt.getKleurChar();
                 }
             } else if (tmpvrt.getOrientatie() == Orientatie.Verticaal) {
 
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
-                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
-                dispmatrx[(1 + tmpvrt.getY() + 1)][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
-                dispmatrx[(1 + tmpvrt.getY() + 1)][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleurChar();
+                dispmatrx[(1 + tmpvrt.getY())][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleurChar();
+                dispmatrx[(1 + tmpvrt.getY() + 1)][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleurChar();
+                dispmatrx[(1 + tmpvrt.getY() + 1)][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleurChar();
                 if (tmpvrt.getGrootte() == 3) {
-                    dispmatrx[(1 + tmpvrt.getY() + 2)][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleur();
-                    dispmatrx[(1 + tmpvrt.getY() + 2)][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleur();
+                    dispmatrx[(1 + tmpvrt.getY() + 2)][(2 + tmpvrt.getX() * 2)] = tmpvrt.getKleurChar();
+                    dispmatrx[(1 + tmpvrt.getY() + 2)][(2 + tmpvrt.getX() * 2 + 1)] = tmpvrt.getKleurChar();
                 }
             }
 
@@ -221,7 +221,7 @@ public class Level implements Serializable {
     public Voertuig voertuigMetKleur(char kleur)
     {
         for (Voertuig voertuig : voertuigen) {
-            if (String.valueOf(voertuig.getKleur()).equalsIgnoreCase(String.valueOf(kleur)))
+            if (String.valueOf(voertuig.getKleurChar()).equalsIgnoreCase(String.valueOf(kleur)))
                 return voertuig;
         }
 
