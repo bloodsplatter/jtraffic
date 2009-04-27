@@ -11,119 +11,115 @@ import java.util.ArrayList;
 /**
  * Beheert de levels
  * @author bloodsplatter
- * @version 2009.04.21
+ * @version 2009.04.27
  */
 public class LevelManager {
-    private static boolean initialized = false;
-    private static ArrayList<Level> levels;
-    private static String appDir = System.getProperty("user.dir");
-    private static final String fileName = "levels.dat";
+    private ArrayList<Level> levels;
+    private static LevelManager _instance = null;
 
     /**
-     * Laad de level lijst of maakt een lege lijst aan
-     * @throws java.io.IOException
-     * @throws java.lang.ClassNotFoundException
+     * Constructor
      */
-    public static void Initialize() throws IOException, ClassNotFoundException
+    protected LevelManager()
     {
-        if (!initialized)
+        this.levels = new ArrayList<Level>();
+        File dat = new File("levels.dat");
+        if (dat.exists())
         {
-            File bestand = new File(appDir + "\\" + fileName);
-            if (!bestand.exists())
-            {
-                bestand.createNewFile();
-                levels = new ArrayList<Level>(3);
-                FileOutputStream fos = new FileOutputStream(bestand);
-                ObjectOutputStream oos = new ObjectOutputStream(fos);
-                oos.writeObject(levels);
-                oos.close();
-                fos.close();
-                initialized = true;
-            }
-            else
-            {
-                FileInputStream fis = new FileInputStream(bestand);
+            try {
+                FileInputStream fis = new FileInputStream(dat);
                 ObjectInputStream ois = new ObjectInputStream(fis);
                 levels = (ArrayList<Level>)ois.readObject();
                 ois.close();
                 fis.close();
-                initialized = true;
+            } catch (ClassNotFoundException cnfe)
+            {
+                // they tampered with the data
+            } catch (Exception ex)
+            {
+                // should not happen
             }
         }
     }
 
     /**
-     * Sla de levellijst op
-     * @throws java.lang.Exception gooit een exception als<br/>de klasse nog niet geïnitialiseerd is
+     * Maakt een instance aan
      */
-    public static void opslaan() throws Exception
+    private static void createInstance()
     {
-        if (!initialized)
-            throw new Exception("Klasse is niet geïnitialiseerd");
+        if (_instance == null) _instance = new LevelManager();
+    }
 
-        File bestand = new File(appDir + "\\" + fileName);
-        FileOutputStream fos = new FileOutputStream(bestand);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(levels);
-        oos.close();
-        fos.close();
+    public static LevelManager getInstance()
+    {
+        if (_instance == null)
+            createInstance();
+
+        return _instance;
     }
 
     /**
-     * Voeg een level toe aan de lijst
-     * @param level de level die toegevoegd moet worden
-     */
-    public static void voegLevelToe(Level level)
-    {
-        if (!initialized)
-           return;
-
-        levels.add(level);
-    }
-
-    /**
-     * Verwijderd de opgegeven level
-     * @param level de level om te verwijderen
-     */
-    public static void verwijderLevel(Level level)
-    {
-        if (!initialized)
-           return;
-
-        levels.remove(level);
-    }
-
-    /**
-     * Geeft een array van levels
-     * @return een array met de levels in
-     */
-    public static Level[] toArray()
-    {
-        if (!initialized)
-            return null;
-        
-        Level[] array = new Level[levels.size()];
-        levels.toArray(array);
-        return array;
-    }
-
-    /**
-     * Geeft het aantal levels
+     * Geeft het aantal levels terug
      * @return het aantal levels
      */
-    public static int aantalLevels()
+    public int aantalLevels()
     {
-        return initialized?levels.size():0;
+        return levels.size();
     }
 
     /**
-     * Verwijdert alle levels
+     * Geeft een array met de levels
+     * @return een array met de levels
      */
-    public static void verwijderAlleLevels()
+    public Level[] toArray()
     {
-        if (!initialized)
-            return;
+        Level[] lvls = new Level[levels.size()];
+        levels.toArray(lvls);
+        return lvls;
+    }
 
-        levels.clear();
+    /**
+     * Voeg een level toe
+     * @param lvl de level om toe te voegen
+     */
+    public void voegLevelToe(Level lvl)
+    {
+        levels.add(lvl);
+    }
+
+    /**
+     * Geeft de level op een bepaalde index
+     * @param index de index van de level
+     * @return null als de index niet bestaat, anders de level op die index
+     */
+    public Level levelOpIndex(int index)
+    {
+        if (index >= 0 && index < levels.size())
+            return levels.get(index);
+        else
+            return null;
+    }
+
+
+    /**
+     * Sla de levels op
+     */
+    public void opslaan()
+    {
+        File dat = new File("levels.dat");
+        try
+        {
+            if (!dat.exists())
+                dat.createNewFile();
+
+            FileOutputStream fos = new FileOutputStream(dat);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(levels);
+            oos.close();
+            fos.close();
+        } catch (IOException ioe)
+        {
+            // should not happen
+        }
     }
 }
