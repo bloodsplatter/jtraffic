@@ -135,7 +135,7 @@ public class LevelController {
 
             try {
                 naam = br.readLine();
-                HighScores.voegHighScoreToe(naam, level, level.getAantalStappen());
+                HighScores.getInstance().voegHighScoreToe(level, naam);
             } catch (Exception ex) {
                 Logger.getLogger(LevelController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }

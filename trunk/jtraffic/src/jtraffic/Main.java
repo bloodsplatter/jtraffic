@@ -15,19 +15,6 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {
-            // initialisatie
-            LevelManager.Initialize();
-            HighScores.Initialize();
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            System.err.println("Kritieke fout.");
-            System.exit(-2);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            System.err.println("Kritieke fout.");
-            System.exit(-1);
-        }
 
         MainMenu mainMenu = new MainMenu();
         while (true) {
@@ -59,7 +46,7 @@ public class Main {
                 @Override
                 public void doAction() {
                     System.out.println("Highscores");
-                    HighScoreRecord[] hsrs = HighScores.toArray();
+                    HighScoreRecord[] hsrs = HighScores.getInstance().toArray();
                     for (HighScoreRecord hsr : hsrs) {
                         System.out.println(hsr.toString());
                     }
@@ -73,7 +60,7 @@ public class Main {
                 @Override
                 public void doAction() {
                     try {
-                        HighScores.opslaan();
+                        HighScores.getInstance().opslaan();
                     } catch (Exception ex) {
                         Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.WARNING, "Could not save highscores", ex);
                     }
@@ -91,7 +78,7 @@ public class Main {
         public LevelSelect() {
             super("Kies level");
 
-            Level[] levels = LevelManager.toArray();
+            Level[] levels = LevelManager.getInstance().toArray();
 
             for (final Level level : levels) {
                 this.voegItemToe(new MenuItem(this, level.getNaam(), false) {

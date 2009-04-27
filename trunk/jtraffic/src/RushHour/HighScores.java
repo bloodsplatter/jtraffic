@@ -23,7 +23,7 @@ public class HighScores {
     /**
      * Constructor
      */
-    private HighScores () throws Exception
+    private HighScores ()
     {
         this.highScores = new ArrayList<HighScoreRecord>();
         File dat = new File("highscores.dat");
@@ -50,7 +50,7 @@ public class HighScores {
                 // also should not happen
             } catch (ClassNotFoundException cnfe)
             {
-                throw new Exception("highscores.dat has been tampered with!");
+                // they fucked up the binary data
             }
         }
     }
@@ -58,7 +58,7 @@ public class HighScores {
     /**
      * Maakt een instance aan
      */
-    private synchronized static void createInstance() throws Exception
+    private synchronized static void createInstance()
     {
         if (_instance == null) _instance = new HighScores();
     }
@@ -67,7 +67,7 @@ public class HighScores {
      * Geeft een instantie van de klasse
      * @return de instantie van de klasse
      */
-    public static HighScores getInstance() throws Exception
+    public static HighScores getInstance()
     {
         if (_instance == null)
             createInstance();
@@ -144,5 +144,14 @@ public class HighScores {
         oos.writeObject(highScores);
         oos.close();
         fos.close();
+    }
+
+    /**
+     * Geeft het aantal HighScoreRecords
+     * @return het aantal HighScoreRecords
+     */
+    public int aantalHighScoreRecords()
+    {
+        return highScores.size();
     }
 }
