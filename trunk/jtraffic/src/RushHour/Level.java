@@ -3,7 +3,6 @@ package RushHour;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.logging.Logger;
 
 /**
  *  <p style="margin-top: 0">
@@ -27,6 +26,7 @@ public class Level implements Serializable {
     // </editor-fold> 
     private ArrayList<Voertuig> voertuigen;
     private String naam;
+    private int stappen = 0;
 
     /**
      * Geeft de naam van de level
@@ -227,5 +227,39 @@ public class Level implements Serializable {
 
         return null;
     }
-}
 
+    /**
+     * Voegt een extra stap toe
+     */
+    public void voegStapToe()
+    {
+        stappen++;
+    }
+
+    /**
+     * Vraagt het aantal stappen op dat al gezet is
+     * @return het aantal stappen
+     */
+    public int getAantalStappen()
+    {
+        return this.stappen;
+    }
+
+    /**
+     * Zet het aantal stappen op 0
+     */
+    public void zetStappenOpNul()
+    {
+        stappen = 0;
+    }
+
+    /**
+     * Controleert of de level uitgespeeld is
+     * @return true als de level uitgespeeld is, anders false
+     */
+    public boolean isLevelUit()
+    {
+        // TODO add checks here
+        return true;
+    }
+}
