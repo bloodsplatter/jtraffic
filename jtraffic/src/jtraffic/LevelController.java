@@ -15,7 +15,6 @@ import java.io.*;
 public class LevelController {
 
     private Level level;
-    private int stappen = 0;
 
     /**
      * Constructor
@@ -23,6 +22,7 @@ public class LevelController {
      */
     public LevelController(Level level) {
         this.level = level;
+        level.zetStappenOpNul();
     }
 
     /**
@@ -98,20 +98,20 @@ public class LevelController {
                 Voertuig voertuig = level.voertuigMetKleur((char) input.charAt(0));
                 if (voertuig != null) {
                     char direction = input.charAt(2);
-                    if (direction == 'u') {
-                        stappen += voertuig.NaarBoven() ? 1 : 0;
+                    if (direction == 'u' && voertuig.NaarBoven()) {
+                        level.voegStapToe();
                     }
-                    if (direction == 'd') {
-                        stappen += voertuig.NaarBeneden() ? 1 : 0;
+                    if (direction == 'd' && voertuig.NaarBeneden()) {
+                        level.voegStapToe();
                     }
-                    if (direction == 'r') {
-                        stappen += voertuig.NaarRechts() ? 1 : 0;
+                    if (direction == 'r' && voertuig.NaarRechts()) {
+                        level.voegStapToe();
                     }
-                    if (direction == 'l') {
-                        stappen += voertuig.NaarLinks() ? 1 : 0;
+                    if (direction == 'l' && voertuig.NaarLinks()) {
+                        level.voegStapToe();
                     }
 
-                    if (isLevelUit()) {
+                    if (level.isLevelUit()) {
                         sluitAf(true);
                         break;
                     }
@@ -123,27 +123,19 @@ public class LevelController {
     }
 
     /**
-     * Controleert oft het eerste voertuig de uitgang bereikt heeft
-     * @return true als de level uitgespeeld is, anders false
-     */
-    private boolean isLevelUit() {
-        return (level.voertuigOpPlaats(0).getX() < 0 && level.voertuigOpPlaats(0).getY() == (level.getVeld().getHoogte() / 2));
-    }
-
-    /**
      * Om de level af te sluiten
      * @param houdScoreBij true om de score bij te houden, anders false
      */
     private void sluitAf(boolean houdScoreBij) {
         if (houdScoreBij) {
-            System.out.println(String.format("Uw score:%1$d", stappen));
+            System.out.println(String.format("Uw score:%1$d", level.getAantalStappen()));
             System.out.print("\nNaam: ");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String naam;
 
             try {
                 naam = br.readLine();
-                HighScores.voegHighScoreToe(naam, level, stappen);
+                HighScores.voegHighScoreToe(naam, level, level.getAantalStappen());
             } catch (Exception ex) {
                 Logger.getLogger(LevelController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
