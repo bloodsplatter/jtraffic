@@ -8,7 +8,7 @@ import java.io.Serializable;
  *        Een speelveld
  *      </p>
  * @author bloodsplatter
- * @version 2009.04.21
+ * @version 2009.05.08
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.9EE21979-4ACE-BA23-CA09-ECB3544CD651]

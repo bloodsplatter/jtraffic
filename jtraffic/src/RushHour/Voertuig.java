@@ -8,7 +8,7 @@ import java.io.Serializable;
  *        Een voertuig op het speelveld
  *      </p>
  * @author bloodsplatter
- * @version 2009.04.27
+ * @version 2009.05.08
  */
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.BCF3685A-9810-3D8C-7162-061D5F12D290]
@@ -43,34 +43,7 @@ public abstract class Voertuig implements Serializable {
         y = 0;
         x = 0;
         this.orientatie = Orientatie.Horizontaal;
-        
     }
-
-    /**
-     * Geparameteriseerde constructor
-     * @param orientatie de orientatie van het voertuig
-     */
-    public Voertuig(Orientatie orientatie)
-    {
-        this.orientatie = orientatie;
-        x = 0;
-        y = 0;
-    }
-
-    /**
-     * Geparameteriseerde constructor
-     * @param X de horizontale positie van het voertuig in het speelveld
-     * @param Y de verticale positie van het voertuig in het speelveld
-     * @param kleur
-     */
-    public Voertuig(int X, int Y,Kleur kleur)
-    {
-        this.orientatie = Orientatie.Horizontaal;
-        this.x = X;
-        this.y = Y;
-        this.kleur = kleur;
-    }
-
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.D74C6A0A-85DE-DA78-E7BC-E20D445D17F3]

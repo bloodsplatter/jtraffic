@@ -4,7 +4,7 @@ package RushHour;
 /**
  * Een auto
  * @author bloodsplatter
- * @version 2009.04.27
+ * @version 2009.05.08
  */
 public class Auto extends Voertuig {
     private int grootte;
@@ -14,7 +14,8 @@ public class Auto extends Voertuig {
      * @param orientatie de oriëntatie van het voertuig
      */
     public Auto(Orientatie orientatie) {
-        super(orientatie);
+        super();
+        super.setOrientatie(orientatie);
         grootte = 2;
     }
 
@@ -25,7 +26,10 @@ public class Auto extends Voertuig {
      * @param Kleur de kleur van de wagen
      */
     public Auto(int X, int Y,Kleur kleur) {
-        super(X, Y,kleur);
+        super();
+        super.setX(X);
+        super.setY(Y);
+        super.setKleur(kleur);
         grootte = 2;
     }
 
@@ -33,18 +37,8 @@ public class Auto extends Voertuig {
      * Constructor
      */
     public Auto() {
-        super(0,0,Kleur.Groen);
-        grootte = 2;
-    }
-
-    /**
-     * Constructor
-     * @param x X-coördinaat
-     * @param y Y-coördinaat
-     */
-    public Auto(int x, int y)
-    {
-        super(x,y,Kleur.Groen);
+        super();
+        super.setKleur(Kleur.Rood);
         grootte = 2;
     }
 

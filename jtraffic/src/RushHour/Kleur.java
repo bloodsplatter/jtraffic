@@ -12,6 +12,11 @@ package RushHour;
  */
 public enum Kleur {
     Rood,
-    Groen,
-    Blauw
+    LichtGroen,
+    DonkerGroen,
+    Roos,
+    Paars,
+    Zwart,
+    Blauw,
+    Geel
 }

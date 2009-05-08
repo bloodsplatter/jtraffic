@@ -8,36 +8,22 @@ package RushHour;
  * @version 2009.04.27
  */
 public class Vrachtwagen extends Voertuig {
-    private int grootte;
-
-    /**
-     * Maakt een vrachtwagen op de opgegeven locatie
-     * @param X de X-coördinaat
-     * @param Y de Y-coördinaat
-     * @param Kleur de kleur van de wagen
-     */
-    public Vrachtwagen(int X, int Y, Kleur kleur) {
-        super(X, Y, kleur);
-        super.setOrientatie(Orientatie.Horizontaal);
-        super.setOrientatie(Orientatie.Horizontaal);
-        grootte = 3;
-    }
+    private int grootte = 3;
 
     /**
      * Maakt een vrachtwagen met de opgegeven oriëntatie
      * @param orientatie de gewenste oriëntatie
      */
     public Vrachtwagen(Orientatie orientatie) {
-        super(orientatie);
-        grootte = 3;
+        super();
+        super.setOrientatie(orientatie);
     }
 
     /**
      * Maakt een vrachtwagen
      */
     public Vrachtwagen() {
-        super(0,0,Kleur.Groen);
-        grootte = 3;
+        super();
     }
 
     /**
@@ -50,7 +36,9 @@ public class Vrachtwagen extends Voertuig {
 
     
     public Voertuig geefKopie() {
-        Vrachtwagen ret = new Vrachtwagen(this.getX(), this.getY(), this.getKleur());
+        Vrachtwagen ret = new Vrachtwagen();
+        ret.setPositie(this.getX(), this.getY());
+        ret.setKleur(this.getKleur());
         ret.setOrientatie(this.getOrientatie());
         return ret;
     }
