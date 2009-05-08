@@ -5,10 +5,9 @@
 
 package TrafficSwing.views;
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import RushHour.*;
+import TrafficSwing.util.ResourceManager;
 
 /**
  * De view voor de Speelveldklasse
@@ -20,9 +19,15 @@ public class SpeelveldView extends JLabel {
     private final int IMGHEIGHT = 586;
     private final int IMGWIDTH = 527;
     protected ImageIcon img;
-    
+
+    /**
+     * Constructor
+     */
     public SpeelveldView()
     {
-        
+        super();
+        img = ResourceManager.getInstance().getBord();
+        super.setSize(IMGWIDTH,IMGHEIGHT);
+        super.setIcon(img);
     }
 }
