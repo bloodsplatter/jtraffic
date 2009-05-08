@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author bloodsplatter
  * @version 2009.04.21
  */
-public class HighScoreRecord implements Comparable, Serializable {
+public class HighScoreRecord implements Comparable<HighScoreRecord>, Serializable {
     private int stappen;
     private String levelnaam;
     private String spelernaam;
@@ -88,12 +88,14 @@ public class HighScoreRecord implements Comparable, Serializable {
         return String.format("%1$4d %2$s %3$s",stappen,levelnaam,spelernaam);
     }
 
-    public int compareTo(Object o) {
-        if (o instanceof HighScoreRecord)
-        {
-            HighScoreRecord hsr = (HighScoreRecord)o;
-            return this.getSteps() - hsr.getSteps();
-        } else
-            return 0;
+    /**
+     * Vergelijking
+     * @param o te vergelijken HighScoreRecord
+     * @return de compare waarde
+     */
+    public int compareTo(HighScoreRecord o) {
+        return o.getSteps() - this.getSteps();
     }
+
+    
 }
