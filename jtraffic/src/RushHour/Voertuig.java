@@ -45,6 +45,12 @@ public abstract class Voertuig implements Serializable {
         this.orientatie = Orientatie.Horizontaal;
     }
 
+    public Voertuig(Orientatie orientatie)
+    {
+        super();
+        this.orientatie = orientatie;
+    }
+
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.D74C6A0A-85DE-DA78-E7BC-E20D445D17F3]
     // </editor-fold> 
