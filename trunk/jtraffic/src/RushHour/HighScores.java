@@ -154,4 +154,19 @@ public class HighScores {
     {
         return highScores.size();
     }
+
+    /**
+     * Haalt de highscorerecord op de opgegeven plaats op
+     * @param index de index van het highscorerecord
+     * @return de gevonden highscorerecord of anders null
+     */
+    public HighScoreRecord highScoreRecordOpPlaats(int index)
+    {
+        if (index >= 0 && index < highScores.size())
+        {
+            return highScores.get(index);
+        } else
+            return null;
+
+    }
 }

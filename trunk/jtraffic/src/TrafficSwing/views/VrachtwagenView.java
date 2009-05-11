@@ -8,12 +8,12 @@ import RushHour.*;
 import TrafficSwing.util.ResourceManager;
 
 /**
- * De view klasse voor Auto
+ * De view klasse voor Vrachtwagen
  * @author bloodsplatter
- * @version 2009.05.08
+ * @version 2009.05.11
  */
-public class AutoView extends JPanel {
-    protected Auto auto;
+public class VrachtwagenView extends JPanel {
+    protected Vrachtwagen vrachtwagen;
     protected ImageIcon img;
     //left or up
     protected JButton dirButton;
@@ -26,22 +26,22 @@ public class AutoView extends JPanel {
      * @param orientatie de oriëntatie van de auto
      * @param kleur de kleur van de auto
      */
-    public AutoView(Orientatie orientatie,Kleur kleur)
+    public VrachtwagenView(Orientatie orientatie,Kleur kleur)
     {
         super(new BorderLayout());
-        auto = new Auto(orientatie);
-        auto.setKleur(kleur);
-        img = ResourceManager.getInstance().getAfbeeldingVoorVoertuig(auto);
+        vrachtwagen = new Vrachtwagen(orientatie);
+        vrachtwagen.setKleur(kleur);
+        img = ResourceManager.getInstance().getAfbeeldingVoorVoertuig(vrachtwagen);
         super.add(new JLabel(img), BorderLayout.CENTER);
         
-        if (auto.getOrientatie() == Orientatie.Horizontaal)
+        if (vrachtwagen.getOrientatie() == Orientatie.Horizontaal)
         {
             // knop naar links
             dirButton = new JButton(ResourceManager.getInstance().getPijl(ResourceManager.PIJL_LINKS));
             dirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    auto.NaarLinks();
+                    vrachtwagen.NaarLinks();
                 }
             });
             dirButton.setVisible(false);
@@ -52,7 +52,7 @@ public class AutoView extends JPanel {
             odirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    auto.NaarRechts();
+                    vrachtwagen.NaarRechts();
                 }
             });
             odirButton.setVisible(false);
@@ -64,7 +64,7 @@ public class AutoView extends JPanel {
             dirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    auto.NaarBoven();
+                    vrachtwagen.NaarBoven();
                 }
             });
             dirButton.setVisible(false);
@@ -75,7 +75,7 @@ public class AutoView extends JPanel {
             odirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    auto.NaarBeneden();
+                    vrachtwagen.NaarBeneden();
                 }
             });
             odirButton.setVisible(false);

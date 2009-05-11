@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package TrafficSwing.views;
 
@@ -16,8 +12,8 @@ import TrafficSwing.util.ResourceManager;
  */
 public class SpeelveldView extends JLabel {
     protected Speelveld speelveld = new Speelveld(6, 6);
-    private final int IMGHEIGHT = 586;
-    private final int IMGWIDTH = 527;
+    public final static int IMAGE_HEIGHT = 586;
+    public final static int IMAGE_WIDTH = 527;
     protected ImageIcon img;
 
     /**
@@ -27,7 +23,7 @@ public class SpeelveldView extends JLabel {
     {
         super();
         img = ResourceManager.getInstance().getBord();
-        super.setSize(IMGWIDTH,IMGHEIGHT);
+        super.setSize(IMAGE_WIDTH,IMAGE_HEIGHT);
         super.setIcon(img);
     }
 }
