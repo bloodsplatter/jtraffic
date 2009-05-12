@@ -36,12 +36,22 @@ public class Application extends JFrame {
         JMenu fileMenu = new JMenu("Bestand");
         mainMenuBar.add(fileMenu);
 
+
         fileMenu.add(new JPopupMenu.Separator());
         JMenuItem closeItem = new JMenuItem("Afsluiten...");
         closeItem.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 
+            }
+        });
+
+        JMenuItem highScores = new JMenuItem("High Scores");
+        mainMenuBar.add(highScores);
+        highScores.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                new HighScoreView();
             }
         });
 
