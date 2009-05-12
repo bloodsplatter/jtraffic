@@ -10,17 +10,10 @@ import TrafficSwing.util.ResourceManager;
 /**
  * De view klasse voor Vrachtwagen
  * @author bloodsplatter
- * @version 2009.05.11
+ * @version 2009.05.12
  */
-public class VrachtwagenView extends JPanel {
-    protected Vrachtwagen vrachtwagen;
-    protected ImageIcon img;
-    //left or up
-    protected JButton dirButton;
-    // right or down
-    protected JButton odirButton;
+public class VrachtwagenView extends VoertuigView {
     
-
     /**
      * Constructor
      * @param orientatie de oriëntatie van de auto
@@ -28,20 +21,21 @@ public class VrachtwagenView extends JPanel {
      */
     public VrachtwagenView(Orientatie orientatie,Kleur kleur)
     {
-        super(new BorderLayout());
-        vrachtwagen = new Vrachtwagen(orientatie);
-        vrachtwagen.setKleur(kleur);
-        img = ResourceManager.getInstance().getAfbeeldingVoorVoertuig(vrachtwagen);
+        super();
+        voertuig = new Vrachtwagen(orientatie);
+        voertuig.setKleur(kleur);
+        img = ResourceManager.getInstance().getAfbeeldingVoorVoertuig(voertuig);
         super.add(new JLabel(img), BorderLayout.CENTER);
+        super.positie = new Point(voertuig.getX(), voertuig.getY());
         
-        if (vrachtwagen.getOrientatie() == Orientatie.Horizontaal)
+        if (voertuig.getOrientatie() == Orientatie.Horizontaal)
         {
             // knop naar links
             dirButton = new JButton(ResourceManager.getInstance().getPijl(ResourceManager.PIJL_LINKS));
             dirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    vrachtwagen.NaarLinks();
+                    voertuig.NaarLinks();
                 }
             });
             dirButton.setVisible(false);
@@ -52,7 +46,7 @@ public class VrachtwagenView extends JPanel {
             odirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    vrachtwagen.NaarRechts();
+                    voertuig.NaarRechts();
                 }
             });
             odirButton.setVisible(false);
@@ -64,7 +58,7 @@ public class VrachtwagenView extends JPanel {
             dirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    vrachtwagen.NaarBoven();
+                    voertuig.NaarBoven();
                 }
             });
             dirButton.setVisible(false);
@@ -75,7 +69,7 @@ public class VrachtwagenView extends JPanel {
             odirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    vrachtwagen.NaarBeneden();
+                    voertuig.NaarBeneden();
                 }
             });
             odirButton.setVisible(false);
@@ -105,4 +99,23 @@ public class VrachtwagenView extends JPanel {
         });
     }
     
+    /**
+     * 
+     * @return de onderliggende vrachtwagen
+     */
+    public Vrachtwagen getVrachtwagen()
+    {
+        return (Vrachtwagen)super.voertuig;
+    }
+
+    /**
+     * Creëert een view voor een opgegeven vrachtwagen
+     * @param vrachtwagen de vrachtwagen waarvan je een view wilt
+     * @return de view van de opgegeven vrachtwagen
+     */
+    public static VrachtwagenView createView(Vrachtwagen vrachtwagen)
+    {
+        VrachtwagenView vv = new VrachtwagenView(vrachtwagen.getOrientatie(), vrachtwagen.getKleur());
+        return vv;
+    }
 }

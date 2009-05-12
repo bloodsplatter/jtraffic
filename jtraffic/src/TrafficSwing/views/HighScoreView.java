@@ -9,7 +9,7 @@ import java.awt.event.*;
 /**
  * De viewklasse voor de high scores
  * @author bloodsplatter
- * @version 2009.05.11
+ * @version 2009.05.12
  */
 public class HighScoreView extends SideView {
     protected HighScoresTableModel hstm;
@@ -23,7 +23,7 @@ public class HighScoreView extends SideView {
      */
     public HighScoreView()
     {
-        super();
+        super(new BorderLayout());
         frame.setTitle("High Scores");
         initTable();
 
@@ -33,6 +33,8 @@ public class HighScoreView extends SideView {
         bottomPane.add(okButton);
 
         super.add(bottomPane,BorderLayout.SOUTH);
+        frame.add(this);
+        frame.pack();
         frame.setVisible(true);
     }
 
@@ -43,5 +45,10 @@ public class HighScoreView extends SideView {
         tabel.setFillsViewportHeight(true);
         scrollPane = new JScrollPane(tabel);
         super.add(scrollPane,BorderLayout.CENTER);
+    }
+
+    @Override
+    public boolean kanSluiten() {
+        return super.kanSluiten();
     }
 }

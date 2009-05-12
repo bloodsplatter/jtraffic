@@ -26,4 +26,13 @@ public class SpeelveldView extends JLabel {
         super.setSize(IMAGE_WIDTH,IMAGE_HEIGHT);
         super.setIcon(img);
     }
+
+    /**
+     * Geeft het speelveld
+     * @return
+     */
+    public Speelveld getSpeelVeld()
+    {
+        return speelveld;
+    }
 }

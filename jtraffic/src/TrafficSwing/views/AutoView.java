@@ -12,14 +12,7 @@ import TrafficSwing.util.ResourceManager;
  * @author bloodsplatter
  * @version 2009.05.12
  */
-public class AutoView extends View{
-    protected Auto auto;
-    protected ImageIcon img;
-    //left or up
-    protected JButton dirButton;
-    // right or down
-    protected JButton odirButton;
-    
+public class AutoView extends VoertuigView {
 
     /**
      * Constructor
@@ -28,20 +21,21 @@ public class AutoView extends View{
      */
     public AutoView(Orientatie orientatie,Kleur kleur)
     {
-        super(new BorderLayout());
-        auto = new Auto(orientatie);
-        auto.setKleur(kleur);
-        img = ResourceManager.getInstance().getAfbeeldingVoorVoertuig(auto);
+        super();
+        voertuig = new Auto(orientatie);
+        voertuig.setKleur(kleur);
+        img = ResourceManager.getInstance().getAfbeeldingVoorVoertuig(voertuig);
         super.add(new JLabel(img), BorderLayout.CENTER);
+        super.positie = new Point(voertuig.getX(), voertuig.getY());
         
-        if (auto.getOrientatie() == Orientatie.Horizontaal)
+        if (voertuig.getOrientatie() == Orientatie.Horizontaal)
         {
             // knop naar links
             dirButton = new JButton(ResourceManager.getInstance().getPijl(ResourceManager.PIJL_LINKS));
             dirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    auto.NaarLinks();
+                    voertuig.NaarLinks();
                 }
             });
             dirButton.setVisible(false);
@@ -52,7 +46,7 @@ public class AutoView extends View{
             odirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    auto.NaarRechts();
+                    voertuig.NaarRechts();
                 }
             });
             odirButton.setVisible(false);
@@ -64,7 +58,7 @@ public class AutoView extends View{
             dirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    auto.NaarBoven();
+                    voertuig.NaarBoven();
                 }
             });
             dirButton.setVisible(false);
@@ -75,7 +69,7 @@ public class AutoView extends View{
             odirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    auto.NaarBeneden();
+                    voertuig.NaarBeneden();
                 }
             });
             odirButton.setVisible(false);
@@ -105,18 +99,23 @@ public class AutoView extends View{
         });
     }
 
-    @Override
-    public void sluitRequest() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    /**
+     * Geeft de onderliggende auto
+     * @return de onderliggende Auto
+     */
+    public Auto getAuto()
+    {
+        return (Auto)super.voertuig;
     }
 
-    @Override
-    public boolean kanSluiten() {
-        return true;
-    }
-
-    @Override
-    public void sluit() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    /**
+     * Creëert een view voor de opgegeven auto
+     * @param auto de auto waarvan je een view wilt
+     * @return de view voor de opgegeven auto
+     */
+    public static AutoView createAutoView(Auto auto)
+    {
+        AutoView av = new AutoView(auto.getOrientatie(), auto.getKleur());
+        return av;
     }
 }
