@@ -1,34 +1,56 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package TrafficSwing.views;
 
+import RushHour.*;
+import javax.swing.*;
+import java.util.*;
+
 /**
- *
+ * De view klasse van de level
  * @author Chris
  * @version 2009.05.12
  */
 public class LevelView extends View {
+    protected Level level;
+    protected SpeelveldView speelveld;
+    protected List<VoertuigView> voertuigLijst;
+    
+    protected JLabel scoreLabel;
+    protected JLabel naamLabel;
 
-    @Override
-    public void sluitRequest() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public LevelView(Level level)
+    {
+        this.level = level;
+        speelveld = new SpeelveldView();
+        
+        // creëert views voor alle auto's
+        for (Voertuig voertuig : level.getVoertuigen()) {
+            if (voertuig instanceof Auto)
+            {
+                voertuigLijst.add(AutoView.createAutoView((Auto)voertuig));
+            } else if (voertuig instanceof Vrachtwagen)
+            {
+                voertuigLijst.add(VrachtwagenView.createView((Vrachtwagen)voertuig));
+            }
+        }
     }
 
     @Override
     public boolean kanSluiten() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        /* TODO
+         * Controlleer of de level nog bezig is, want dan moeten we eerst waarschuwen,
+         * als de gebruiker dan nog wilt afsluiten kunnen we de huidige score opvragen.
+         * Dan pas kan er veilig afgesloten worden.
+         */
+        return false;
     }
 
     @Override
-    public void sluit() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void updateUI() {
+        // bereken hier alle posities, stel alle labels in
+
+        super.updateUI();
     }
-
-
-
 
 
 }

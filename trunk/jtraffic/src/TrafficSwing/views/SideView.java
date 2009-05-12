@@ -17,22 +17,25 @@ public abstract class SideView extends View {
 
     public SideView()
     {
-        frame = new JFrame("");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
+        super();
+        init();
     }
 
-    @Override
-    public void sluitRequest() {
+    private void init()
+    {
+        frame = new JFrame("");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
+
+    public SideView(LayoutManager lm)
+    {
+        super(lm);
+        init();
     }
 
     @Override
     public boolean kanSluiten() {
         return true;
-    }
-
-    @Override
-    public void sluit() {
     }
 
 }

@@ -262,4 +262,15 @@ public class Level implements Serializable {
         // TODO add checks here
         return (voertuigOpPlaats(0).getX() < 0 && voertuigOpPlaats(0).getY() == (getVeld().getHoogte() / 2));
     }
+
+    /**
+     * Geeft een array met alle voertuigen van de level
+     * @return alle voertuigen van de level
+     */
+    public Voertuig[] getVoertuigen()
+    {
+        Voertuig[] voertuigen = new Voertuig[this.voertuigen.size()];
+        this.voertuigen.toArray(voertuigen);
+        return voertuigen;
+    }
 }
