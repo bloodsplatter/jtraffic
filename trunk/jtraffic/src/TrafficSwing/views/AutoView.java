@@ -10,9 +10,9 @@ import TrafficSwing.util.ResourceManager;
 /**
  * De view klasse voor Auto
  * @author bloodsplatter
- * @version 2009.05.08
+ * @version 2009.05.12
  */
-public class AutoView extends JPanel {
+public class AutoView extends View{
     protected Auto auto;
     protected ImageIcon img;
     //left or up
@@ -104,5 +104,19 @@ public class AutoView extends JPanel {
             }
         });
     }
-    
+
+    @Override
+    public void sluitRequest() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean kanSluiten() {
+        return true;
+    }
+
+    @Override
+    public void sluit() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
