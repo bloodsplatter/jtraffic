@@ -11,7 +11,7 @@ import java.awt.event.*;
  * @author bloodsplatter
  * @version 2009.05.11
  */
-public class HighScoreView extends JPanel {
+public class HighScoreView extends SideView {
     protected HighScoresTableModel hstm;
     protected JTable tabel;
     protected JScrollPane scrollPane;
@@ -23,7 +23,8 @@ public class HighScoreView extends JPanel {
      */
     public HighScoreView()
     {
-        super(new BorderLayout());
+        super();
+        frame.setTitle("High Scores");
         initTable();
 
         bottomPane = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -32,6 +33,7 @@ public class HighScoreView extends JPanel {
         bottomPane.add(okButton);
 
         super.add(bottomPane,BorderLayout.SOUTH);
+        frame.setVisible(true);
     }
 
     protected void initTable()
