@@ -36,9 +36,24 @@ public class Application extends JFrame {
         JMenu fileMenu = new JMenu("Bestand");
         mainMenuBar.add(fileMenu);
 
+        JMenuItem startItem = new JMenuItem("Nieuw spel");
+        fileMenu.add(startItem);
+        startItem.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                // Simulatie van een simpele lvl voor debug redenen
+                Level lvl = new Level();
+                Auto auto1 = new Auto(2, 2,Kleur.Geel);
+                auto1.setOrientatie(Orientatie.Horizontaal);
+                lvl.voegVoertuigToe(auto1);
+                LevelView lvllw = new LevelView(lvl);
+            }
+        });
 
         fileMenu.add(new JPopupMenu.Separator());
+
         JMenuItem closeItem = new JMenuItem("Afsluiten...");
+        fileMenu.add(closeItem);
         closeItem.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {

@@ -2,6 +2,7 @@
 package TrafficSwing.views;
 
 import RushHour.*;
+import java.awt.Point;
 import javax.swing.*;
 import java.util.*;
 
@@ -33,6 +34,7 @@ public class LevelView extends View {
                 voertuigLijst.add(VrachtwagenView.createView((Vrachtwagen)voertuig));
             }
         }
+        updateUI();
     }
 
     @Override
@@ -48,8 +50,14 @@ public class LevelView extends View {
     @Override
     public void updateUI() {
         // bereken hier alle posities, stel alle labels in
+        for (VoertuigView voertuigview : voertuigLijst) {
+            voertuigview.setPositie(transformeerPunt(voertuigview.positie));
+        }
 
         super.updateUI();
+    }
+    private Point transformeerPunt(Point point){
+        return new Point((point.x * 10) + 10,(point.y*10) + 10 );
     }
 
 
