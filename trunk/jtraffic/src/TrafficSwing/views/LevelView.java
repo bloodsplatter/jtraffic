@@ -50,10 +50,11 @@ public class LevelView extends View {
     @Override
     public void updateUI() {
         // bereken hier alle posities, stel alle labels in
-        for (VoertuigView voertuigview : voertuigLijst) {
-            voertuigview.setPositie(transformeerPunt(voertuigview.positie));
+        if(voertuigLijst != null){
+            for (VoertuigView voertuigview : voertuigLijst) {
+                voertuigview.setPositie(transformeerPunt(voertuigview.positie));
+            }
         }
-
         super.updateUI();
     }
     private Point transformeerPunt(Point point){
