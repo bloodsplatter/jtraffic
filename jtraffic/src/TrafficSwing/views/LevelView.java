@@ -73,7 +73,7 @@ public class LevelView extends View {
     }
 
     protected Point transformeerPunt(Point point){
-        return new Point((point.x * 10) + 10,(point.y*10) + 10 );
+        return new Point(50 + (point.x * 72), 71 + (point.y * 72));
     }
 
     /**
