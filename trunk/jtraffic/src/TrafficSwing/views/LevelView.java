@@ -2,27 +2,40 @@
 package TrafficSwing.views;
 
 import RushHour.*;
-import java.awt.Point;
+import TrafficSwing.resources.*;
+import TrafficSwing.*;
+import javax.imageio.*;
+import java.io.*;
+import java.awt.*;
+import java.awt.image.*;
 import javax.swing.*;
 import java.util.*;
 
 /**
  * De view klasse van de level
- * @author Chris
- * @version 2009.05.13
+ * @author Chris, bloodsplatter
+ * @version 2009.05.15
  */
 public class LevelView extends View {
     protected Level level;
-    protected SpeelveldView speelveld;
-    protected List<VoertuigView> voertuigLijst;
+    protected BufferedImage speelveld;
+    protected java.util.List<VoertuigView> voertuigLijst;
     
     protected JLabel scoreLabel;
     protected JLabel naamLabel;
 
     public LevelView(Level level)
     {
+        try {
+            speelveld = ImageIO.read(ResourceManager.getInstance().getBord());
+        } catch (IOException e)
+        {
+            JOptionPane.showMessageDialog(Application.getInstance(), e);
+        }
         this.level = level;
-        speelveld = new SpeelveldView();
+        scoreLabel = new JLabel("Aantal stappen: 0",SwingConstants.CENTER);
+        naamLabel = new JLabel(level.getNaam(), SwingConstants.CENTER);
+        voertuigLijst = new ArrayList<VoertuigView>();
         
         // creëert views voor alle auto's
         for (Voertuig voertuig : level.getVoertuigen()) {
@@ -34,6 +47,7 @@ public class LevelView extends View {
                 voertuigLijst.add(VrachtwagenView.createView((Vrachtwagen)voertuig));
             }
         }
+
         updateUI();
     }
 
@@ -57,7 +71,8 @@ public class LevelView extends View {
         }
         super.updateUI();
     }
-    private Point transformeerPunt(Point point){
+
+    protected Point transformeerPunt(Point point){
         return new Point((point.x * 10) + 10,(point.y*10) + 10 );
     }
 
@@ -69,4 +84,13 @@ public class LevelView extends View {
     {
         return this.level;
     }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        g.drawImage(speelveld, 50, 10, null);
+
+    }
+
+
 }

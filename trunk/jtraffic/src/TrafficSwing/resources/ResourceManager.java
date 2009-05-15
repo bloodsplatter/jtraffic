@@ -1,7 +1,8 @@
-package TrafficSwing.util;
+package TrafficSwing.resources;
 
 import RushHour.*;
 import javax.swing.*;
+import java.net.*;
 
 /**
  * Resouce manager
@@ -53,7 +54,7 @@ public class ResourceManager {
         if (voertuig instanceof Auto) {
             Auto auto = (Auto) voertuig;
             if (kleur == Kleur.Rood && auto.getOrientatie() == Orientatie.Horizontaal)
-                return new ImageIcon(this.getClass().getResource("redcarEW.gif"));
+                return new ImageIcon(this.getClass().getResource(resname+"redcarEW.gif"));
 
             if (kleur == Kleur.LichtGroen)
                 resname += "A";
@@ -68,7 +69,7 @@ public class ResourceManager {
             else
                 resname += "G";
 
-
+            resname +="car";
         } else if (voertuig instanceof Vrachtwagen)
         {
             if (kleur == Kleur.Geel)
@@ -90,9 +91,9 @@ public class ResourceManager {
      * Geeft de afbeelding van het speelbord
      * @return
      */
-    public ImageIcon getBord()
+    public URL getBord()
     {
-        return new ImageIcon(this.getClass().getResource("board.png"));
+        return this.getClass().getResource("board.png");
     }
 
     /**

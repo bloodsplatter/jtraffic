@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import RushHour.*;
-import TrafficSwing.util.ResourceManager;
+import TrafficSwing.resources.ResourceManager;
 
 /**
  * De view klasse voor Auto

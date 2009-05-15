@@ -56,15 +56,7 @@ public class Application extends JFrame {
                 auto1.setOrientatie(Orientatie.Horizontaal);
                 lvl.voegVoertuigToe(auto1);
                 LevelView lvllw = new LevelView(lvl);
-            }
-        });
-
-        JMenuItem highScores = new JMenuItem("High Scores");
-        mainMenuBar.add(highScores);
-        highScores.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                hsv.setVisible(true);
+                setView(lvllw);
             }
         });
 
@@ -74,9 +66,6 @@ public class Application extends JFrame {
     protected static JPanel DEFAULT_PANEL()
     {
         JPanel panel = new JPanel(new BorderLayout());
-        JLabel instructionLabel = new JLabel("Klik op een optie om te beginnen");
-        instructionLabel.setFont(new Font("Arial",Font.PLAIN,16));
-        panel.add(instructionLabel,BorderLayout.NORTH);
         JPanel menuPanel = new JPanel(new GridLayout(3, 0));
 
         JButton newGame = new JButton("Nieuw Spel");
@@ -151,8 +140,12 @@ public class Application extends JFrame {
             {
                 JOptionPane.showMessageDialog(this, "Deze optie is nu niet beschikbaar.","Fout!",JOptionPane.ERROR_MESSAGE);
             }
-        } else
-            throw new UnsupportedOperationException("Er is geen view geladen");
+        } else if (cp instanceof JPanel)
+        {
+            super.getContentPane().removeAll();
+            super.getContentPane().add(view);
+            view.updateUI();
+        }
     }
 
     /**
