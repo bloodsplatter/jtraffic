@@ -118,10 +118,4 @@ public class AutoView extends VoertuigView {
         AutoView av = new AutoView(auto.getOrientatie(), auto.getKleur());
         return av;
     }
-
-    @Override
-    public boolean sluit() {
-        this.setVisible(false);
-        return true;
-    }
 }

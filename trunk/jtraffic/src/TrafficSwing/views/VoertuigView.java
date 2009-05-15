@@ -10,7 +10,7 @@ import RushHour.Voertuig;
  * @author bloodsplatter
  * @version 2009.05.13
  */
-public abstract class VoertuigView extends View {
+public abstract class VoertuigView extends JPanel {
     protected Voertuig voertuig;
     protected ImageIcon img;
     //left or up
@@ -25,11 +25,6 @@ public abstract class VoertuigView extends View {
     public VoertuigView()
     {
         super(new BorderLayout());
-    }
-
-    @Override
-    public boolean sluit() {
-        return true;
     }
 
     /**
