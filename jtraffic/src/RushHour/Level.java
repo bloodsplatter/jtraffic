@@ -19,13 +19,13 @@ public class Level implements Serializable {
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.5234BB41-70F2-FEE4-E9D6-C975C6805708]
     // </editor-fold> 
-    private Speelveld veld;
+    private Speelveld veld = new Speelveld(6,6);
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.F0552C0C-0429-8133-D01A-6AFD160DF257]
     // </editor-fold> 
     private ArrayList<Voertuig> voertuigen;
-    private String naam;
+    private String naam = "";
     private int stappen = 0;
 
     /**

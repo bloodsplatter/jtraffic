@@ -8,6 +8,7 @@ import javax.imageio.*;
 import java.io.*;
 import java.awt.*;
 import java.awt.image.*;
+import java.awt.geom.*;
 import javax.swing.*;
 import java.util.*;
 
@@ -20,9 +21,9 @@ public class LevelView extends View {
     protected Level level;
     protected BufferedImage speelveld;
     protected java.util.List<VoertuigView> voertuigLijst;
-    
-    protected JLabel scoreLabel;
-    protected JLabel naamLabel;
+    public static final int BORD_BREEDTE = 527;
+    public static final int BORD_HOOGTE = 586;
+    private final Rectangle viewSize = new Rectangle(new Dimension(BORD_BREEDTE, BORD_HOOGTE));
 
     public LevelView(Level level)
     {
@@ -33,8 +34,6 @@ public class LevelView extends View {
             JOptionPane.showMessageDialog(Application.getInstance(), e);
         }
         this.level = level;
-        scoreLabel = new JLabel("Aantal stappen: 0",SwingConstants.CENTER);
-        naamLabel = new JLabel(level.getNaam(), SwingConstants.CENTER);
         voertuigLijst = new ArrayList<VoertuigView>();
         
         // creëert views voor alle auto's
@@ -48,7 +47,7 @@ public class LevelView extends View {
             }
         }
 
-        updateUI();
+        super.setSize(LevelView.BORD_BREEDTE,LevelView.BORD_HOOGTE);
     }
 
     @Override
@@ -58,7 +57,7 @@ public class LevelView extends View {
          * als de gebruiker dan nog wilt afsluiten kunnen we de huidige score opvragen.
          * Dan pas kan er veilig afgesloten worden.
          */
-        return false;
+        return true;
     }
 
     @Override
@@ -88,9 +87,9 @@ public class LevelView extends View {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        g.drawImage(speelveld, 50, 10, null);
-
+        g.drawImage(speelveld, 0, 0, null);
+        FontMetrics fm = g.getFontMetrics();
+        Rectangle2D stringSize = fm.getStringBounds(level.getNaam(), g);
+        g.drawString(level.getNaam(), viewSize.width / 2 - (int)stringSize.getWidth() / 2, viewSize.height - 30);
     }
-
-
 }

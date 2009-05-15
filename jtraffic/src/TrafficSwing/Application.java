@@ -28,8 +28,9 @@ public class Application extends JFrame {
         initMenuBar();
         super.getContentPane().add(Application.DEFAULT_PANEL());
         hsv = new HighScoreView();
-        super.setSize(800,600);
-        debug();
+        //debug();
+        super.setPreferredSize(new Dimension(800, 600));
+        pack();
     }
 
     protected void debug()
@@ -55,8 +56,19 @@ public class Application extends JFrame {
                 Auto auto1 = new Auto(2, 2,Kleur.Geel);
                 auto1.setOrientatie(Orientatie.Horizontaal);
                 lvl.voegVoertuigToe(auto1);
+                lvl.setNaam("Testlevel");
                 LevelView lvllw = new LevelView(lvl);
                 setView(lvllw);
+            }
+        });
+        fileMenu.add(new JPopupMenu.Separator());
+
+        JMenuItem hoofdMenu = new JMenuItem("Hoofdmenu");
+        fileMenu.add(hoofdMenu);
+        hoofdMenu.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                setDefaultPanel();
             }
         });
 
@@ -127,25 +139,46 @@ public class Application extends JFrame {
 
     public void setView(View view)
     {
-        Component cp = super.getContentPane().getComponent(0);
+        Component cp = super.getContentPane();
         if (cp instanceof View)
         {
 
             View v = (View)cp;
             if (view.sluit())
             {
-                super.getContentPane().removeAll();
-                super.getContentPane().add(view);
+                super.setContentPane(view);
+                view.updateUI();
+                super.pack();
             } else
             {
                 JOptionPane.showMessageDialog(this, "Deze optie is nu niet beschikbaar.","Fout!",JOptionPane.ERROR_MESSAGE);
             }
         } else if (cp instanceof JPanel)
         {
-            super.getContentPane().removeAll();
-            super.getContentPane().add(view);
+            super.setContentPane(view);
             view.updateUI();
+            if (view instanceof LevelView)
+                super.setPreferredSize(calculateSize(new Dimension(LevelView.BORD_BREEDTE, LevelView.BORD_HOOGTE)));
+            
+            pack();
         }
+    }
+
+    public void setDefaultPanel()
+    {
+        if (getContentPane() instanceof View)
+        {
+            View v = (View)getContentPane();
+            if (v.sluit())
+            {
+                setContentPane(DEFAULT_PANEL());
+            } else
+                JOptionPane.showMessageDialog(this, "Kan hoofdmenu nu niet tonen.","Fout",JOptionPane.ERROR_MESSAGE);
+        } else
+            setContentPane(DEFAULT_PANEL());
+
+        super.setPreferredSize(new Dimension(800, 600));
+        pack();
     }
 
     /**
@@ -155,5 +188,15 @@ public class Application extends JFrame {
     {
         if (!hsv.isVisible())
             hsv.setVisible(true);
+    }
+
+    private Dimension calculateSize(Dimension d)
+    {
+        super.setPreferredSize(d);
+        int extrah = super.getContentPane().getSize().height - d.width;
+        int extraw = super.getContentPane().getSize().width - d.width;
+        d.height += extrah;
+        d.width += extraw + 10;
+        return d;
     }
 }

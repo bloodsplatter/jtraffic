@@ -118,10 +118,4 @@ public class VrachtwagenView extends VoertuigView {
         VrachtwagenView vv = new VrachtwagenView(vrachtwagen.getOrientatie(), vrachtwagen.getKleur());
         return vv;
     }
-
-    @Override
-    public boolean sluit() {
-            this.setVisible(false);
-            return true;
-    }
 }

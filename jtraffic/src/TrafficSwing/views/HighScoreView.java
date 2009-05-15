@@ -40,35 +40,8 @@ public class HighScoreView extends JFrame {
         bottomPane.add(okButton);
 
         super.add(bottomPane,BorderLayout.SOUTH);
-        debug();
         super.add(scrollPane,BorderLayout.CENTER);
         super.pack();
-    }
-
-    /**
-     * Adds a debug menu to the menubar
-     */
-    private void debug()
-    {
-        JMenuBar menuBar;
-        if (super.getJMenuBar() == null)
-        {
-            menuBar = new JMenuBar();
-            super.setJMenuBar(menuBar);
-        }
-        else
-            menuBar = super.getJMenuBar();
-
-        JMenu debugMenu = new JMenu("Debug");
-        menuBar.add(debugMenu);
-        JMenuItem addHighScore = new JMenuItem("Voeg high score toe");
-        debugMenu.add(addHighScore);
-        addHighScore.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                voegHighScoreToe();
-            }
-        });
     }
 
     protected void initTable()
