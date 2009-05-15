@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * The main Swing Application
  * @author bloodsplatter
- * @version 2009.05.12
+ * @version 2009.05.13
  */
 public class Application extends JFrame {
     protected static Application _instance;
@@ -88,6 +88,21 @@ public class Application extends JFrame {
 
     /**
      *
+     * @return geeft de huidige level terug
+     * @exception UnsupportedOperationException
+     */
+    public Level getHuidigeLevel() throws UnsupportedOperationException
+    {
+        if (super.getContentPane().getComponent(0) instanceof LevelView)
+        {
+            return ((LevelView)super.getContentPane().getComponent(0)).getLevel();
+        }
+        else
+            throw new UnsupportedOperationException("Er draait nu geen level");
+    }
+
+    /**
+     * De Application instance opvragen
      * @return de Application instance
      */
     public static Application getInstance()
@@ -96,5 +111,24 @@ public class Application extends JFrame {
             createInstance();
 
         return _instance;
+    }
+
+    public void setView(View view)
+    {
+        Component cp = super.getContentPane().getComponent(0);
+        if (cp instanceof View)
+        {
+
+            View v = (View)cp;
+            if (view.sluit())
+            {
+                super.getContentPane().removeAll();
+                super.getContentPane().add(view);
+            } else
+            {
+                JOptionPane.showMessageDialog(this, "Deze optie is nu niet beschikbaar.","Fout!",JOptionPane.ERROR_MESSAGE);
+            }
+        } else
+            throw new UnsupportedOperationException("Er is geen view geladen");
     }
 }

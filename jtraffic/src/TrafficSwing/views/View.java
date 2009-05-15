@@ -21,5 +21,5 @@ public abstract class View extends JPanel {
         super(lm);
     }
 
-    public abstract boolean kanSluiten();
+    public abstract boolean sluit();
 }

@@ -8,7 +8,7 @@ import RushHour.Voertuig;
 /**
  * De basisview voor voertuigen
  * @author bloodsplatter
- * @version 2009.05.12
+ * @version 2009.05.13
  */
 public abstract class VoertuigView extends View {
     protected Voertuig voertuig;
@@ -28,7 +28,7 @@ public abstract class VoertuigView extends View {
     }
 
     @Override
-    public boolean kanSluiten() {
+    public boolean sluit() {
         return true;
     }
 

@@ -10,7 +10,7 @@ import TrafficSwing.util.ResourceManager;
 /**
  * De view klasse voor Vrachtwagen
  * @author bloodsplatter
- * @version 2009.05.12
+ * @version 2009.05.13
  */
 public class VrachtwagenView extends VoertuigView {
     
@@ -117,5 +117,11 @@ public class VrachtwagenView extends VoertuigView {
     {
         VrachtwagenView vv = new VrachtwagenView(vrachtwagen.getOrientatie(), vrachtwagen.getKleur());
         return vv;
+    }
+
+    @Override
+    public boolean sluit() {
+            this.setVisible(false);
+            return true;
     }
 }

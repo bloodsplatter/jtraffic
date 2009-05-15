@@ -10,7 +10,7 @@ import TrafficSwing.util.ResourceManager;
 /**
  * De view klasse voor Auto
  * @author bloodsplatter
- * @version 2009.05.12
+ * @version 2009.05.13
  */
 public class AutoView extends VoertuigView {
 
@@ -117,5 +117,11 @@ public class AutoView extends VoertuigView {
     {
         AutoView av = new AutoView(auto.getOrientatie(), auto.getKleur());
         return av;
+    }
+
+    @Override
+    public boolean sluit() {
+        this.setVisible(false);
+        return true;
     }
 }

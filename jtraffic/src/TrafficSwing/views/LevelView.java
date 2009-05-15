@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * De view klasse van de level
  * @author Chris
- * @version 2009.05.12
+ * @version 2009.05.13
  */
 public class LevelView extends View {
     protected Level level;
@@ -38,7 +38,7 @@ public class LevelView extends View {
     }
 
     @Override
-    public boolean kanSluiten() {
+    public boolean sluit() {
         /* TODO
          * Controlleer of de level nog bezig is, want dan moeten we eerst waarschuwen,
          * als de gebruiker dan nog wilt afsluiten kunnen we de huidige score opvragen.
@@ -60,5 +60,12 @@ public class LevelView extends View {
         return new Point((point.x * 10) + 10,(point.y*10) + 10 );
     }
 
-
+    /**
+     * Geeft de onderliggende level
+     * @return de onderliggende level
+     */
+    public Level getLevel()
+    {
+        return this.level;
+    }
 }
