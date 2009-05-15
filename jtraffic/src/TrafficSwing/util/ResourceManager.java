@@ -11,7 +11,6 @@ import javax.swing.*;
 public class ResourceManager {
 
     protected static ResourceManager _instance;
-    protected ClassLoader cl;
     public static final String PIJL_LINKS = "Links";
     public static final String PIJL_RECHTS = "Rechts";
     public static final String PIJL_BENEDEN = "Beneden";
@@ -21,7 +20,6 @@ public class ResourceManager {
      * Constructor
      */
     protected ResourceManager() {
-        cl = this.getClass().getClassLoader();
     }
 
     /**
@@ -55,7 +53,7 @@ public class ResourceManager {
         if (voertuig instanceof Auto) {
             Auto auto = (Auto) voertuig;
             if (kleur == Kleur.Rood && auto.getOrientatie() == Orientatie.Horizontaal)
-                return new ImageIcon(cl.getResource("redcarEW.gif"));
+                return new ImageIcon(this.getClass().getResource("redcarEW.gif"));
 
             if (kleur == Kleur.LichtGroen)
                 resname += "A";
@@ -85,7 +83,7 @@ public class ResourceManager {
         resname += (voertuig.getOrientatie() == Orientatie.Horizontaal)?"EW":"NW";
         resname += ".gif";
 
-        return new ImageIcon(cl.getResource(resname));
+        return new ImageIcon(this.getClass().getResource(resname));
     }
 
     /**
@@ -94,7 +92,7 @@ public class ResourceManager {
      */
     public ImageIcon getBord()
     {
-        return new ImageIcon(cl.getResource("board.png"));
+        return new ImageIcon(this.getClass().getResource("board.png"));
     }
 
     /**
@@ -105,13 +103,13 @@ public class ResourceManager {
     public ImageIcon getPijl(String optie)
     {
         if (optie.equals(PIJL_LINKS))
-            return new ImageIcon(cl.getResource("arrowW.png"));
+            return new ImageIcon(this.getClass().getResource("arrowW.png"));
         if (optie.equals(PIJL_RECHTS))
-            return new ImageIcon(cl.getResource("arrowE.png"));
+            return new ImageIcon(this.getClass().getResource("arrowE.png"));
         if (optie.equals(PIJL_BOVEN))
-            return new ImageIcon(cl.getResource("arrowN.png"));
+            return new ImageIcon(this.getClass().getResource("arrowN.png"));
         if (optie.equals(PIJL_BENEDEN))
-            return new ImageIcon(cl.getResource("arrowS.png"));
+            return new ImageIcon(this.getClass().getResource("arrowS.png"));
 
         return new ImageIcon();
     }

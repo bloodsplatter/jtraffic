@@ -9,7 +9,7 @@ import java.awt.event.*;
 /**
  * De viewklasse voor de high scores
  * @author bloodsplatter
- * @version 2009.05.14
+ * @version 2009.05.15
  */
 public class HighScoreView extends JFrame {
     protected HighScoresTableModel hstm;
@@ -25,6 +25,7 @@ public class HighScoreView extends JFrame {
     {
         super("High Scores");
         super.setLayout(new BorderLayout());
+        super.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         initTable();
 
         bottomPane = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -33,7 +34,7 @@ public class HighScoreView extends JFrame {
         okButton.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                
+                setVisible(false);
             }
         });
         bottomPane.add(okButton);
@@ -42,7 +43,6 @@ public class HighScoreView extends JFrame {
         debug();
         super.add(scrollPane,BorderLayout.CENTER);
         super.pack();
-        super.setVisible(true);
     }
 
     /**
@@ -73,9 +73,9 @@ public class HighScoreView extends JFrame {
 
     protected void initTable()
     {
-        hstm = new HighScoresTableModel();
-        tabel = new JTable(hstm);
+        tabel = new JTable(new HighScoresTableModel());
         tabel.setFillsViewportHeight(true);
+        tabel.setAutoCreateRowSorter(true);
         scrollPane = new JScrollPane(tabel);
         super.add(scrollPane,BorderLayout.CENTER);
     }
