@@ -12,11 +12,10 @@ import javax.swing.table.*;
  */
 public class HighScoresTableModel implements TableModel {
     protected final String[] columnNames = {"Aantal stappen","Spelernaam","Levelnaam"};
-    protected List<TableModelListener> listeners;
 
     public HighScoresTableModel()
     {
-        listeners = new ArrayList<TableModelListener>();
+        
     }
 
     public int getRowCount() {
@@ -38,7 +37,7 @@ public class HighScoresTableModel implements TableModel {
         switch (columnIndex)
         {
             case 0:
-                return int.class;
+                return new Integer(0).getClass();
             default:
                 return "".getClass();
         }
@@ -71,17 +70,11 @@ public class HighScoresTableModel implements TableModel {
     }
 
     public void addTableModelListener(TableModelListener l) {
-        if (!listeners.contains(l))
-        {
-            listeners.add(l);
-        }
+        
     }
 
     public void removeTableModelListener(TableModelListener l) {
-        if (listeners.contains(l))
-        {
-            listeners.remove(l);
-        }
+        
     }
 
 }

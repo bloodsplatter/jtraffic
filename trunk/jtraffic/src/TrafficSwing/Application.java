@@ -11,11 +11,12 @@ import java.util.*;
 /**
  * The main Swing Application
  * @author bloodsplatter
- * @version 2009.05.13
+ * @version 2009.05.15
  */
 public class Application extends JFrame {
-    protected static Application _instance;
+    protected static Application _instance = null;
     protected JMenuBar mainMenuBar;
+    protected HighScoreView hsv;
 
     /**
      * Constructor
@@ -26,7 +27,15 @@ public class Application extends JFrame {
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initMenuBar();
         super.getContentPane().add(Application.DEFAULT_PANEL());
+        hsv = new HighScoreView();
         super.setSize(800,600);
+        debug();
+    }
+
+    protected void debug()
+    {
+        HighScoreRecord hsr = new HighScoreRecord(5, "Testlevel", "Testspeler");
+        HighScores.getInstance().voegHighScoreToe(hsr);
     }
 
     protected void initMenuBar()
@@ -50,23 +59,12 @@ public class Application extends JFrame {
             }
         });
 
-        fileMenu.add(new JPopupMenu.Separator());
-
-        JMenuItem closeItem = new JMenuItem("Afsluiten...");
-        fileMenu.add(closeItem);
-        closeItem.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                
-            }
-        });
-
         JMenuItem highScores = new JMenuItem("High Scores");
         mainMenuBar.add(highScores);
         highScores.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                new HighScoreView();
+                hsv.setVisible(true);
             }
         });
 
@@ -75,8 +73,33 @@ public class Application extends JFrame {
 
     protected static JPanel DEFAULT_PANEL()
     {
-        JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        panel.add(new JLabel("Selecteer een optie om te beginnen."));
+        JPanel panel = new JPanel(new BorderLayout());
+        JLabel instructionLabel = new JLabel("Klik op een optie om te beginnen");
+        instructionLabel.setFont(new Font("Arial",Font.PLAIN,16));
+        panel.add(instructionLabel,BorderLayout.NORTH);
+        JPanel menuPanel = new JPanel(new GridLayout(3, 0));
+
+        JButton newGame = new JButton("Nieuw Spel");
+        newGame.setFont(new Font("Arial", Font.BOLD, 36));
+        newGame.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(Application.getInstance(), "Dit is nog niet ingebouwd","Ontwikkeling",JOptionPane.WARNING_MESSAGE);
+            }
+        });
+        menuPanel.add(newGame);
+
+        JButton highScores = new JButton("High Scores");
+        highScores.setFont(new Font("Arial", Font.BOLD, 36));
+        highScores.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                Application.getInstance().toonHighScores();
+            }
+        });
+        menuPanel.add(highScores);
+
+        panel.add(menuPanel,BorderLayout.CENTER);
         return panel;
     }
 
@@ -130,5 +153,14 @@ public class Application extends JFrame {
             }
         } else
             throw new UnsupportedOperationException("Er is geen view geladen");
+    }
+
+    /**
+     * Toont het HighScoreView
+     */
+    public void toonHighScores()
+    {
+        if (!hsv.isVisible())
+            hsv.setVisible(true);
     }
 }
