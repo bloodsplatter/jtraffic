@@ -21,11 +21,10 @@ public class AutoView extends VoertuigView {
      * @param orientatie de oriëntatie van de auto
      * @param kleur de kleur van de auto
      */
-    public AutoView(Orientatie orientatie,Kleur kleur)
+    public AutoView(Auto auto)
     {
         super();
-        voertuig = new Auto(orientatie);
-        voertuig.setKleur(kleur);
+        voertuig = auto;
         img = ResourceManager.getInstance().getAfbeeldingVoorVoertuig(voertuig);
         super.add(new JLabel(img), BorderLayout.CENTER);
         
@@ -37,7 +36,9 @@ public class AutoView extends VoertuigView {
 
                 public void actionPerformed(ActionEvent e) {
                     if (voertuig.NaarLinks())
+                    {
                         setBounds(voertuig.getX(), voertuig.getY(), getSize().width, getSize().height);
+                    }
                 }
             });
             dirButton.setVisible(false);
@@ -49,7 +50,9 @@ public class AutoView extends VoertuigView {
 
                 public void actionPerformed(ActionEvent e) {
                     if (voertuig.NaarRechts())
+                    {
                         setBounds(voertuig.getX(), voertuig.getY(), getSize().width, getSize().height);
+                    }
                 }
             });
             odirButton.setVisible(false);
@@ -85,8 +88,6 @@ public class AutoView extends VoertuigView {
         super.addMouseListener(new MouseListener() {
 
              public void mouseClicked(MouseEvent e) {
-                odirButton.setVisible(!odirButton.isVisible());
-                dirButton.setVisible(!dirButton.isVisible());
             }
 
             public void mousePressed(MouseEvent e) {
@@ -96,9 +97,19 @@ public class AutoView extends VoertuigView {
             }
 
             public void mouseEntered(MouseEvent e) {
+                if (!knoppenZichtbaar())
+                {
+                    odirButton.setVisible(true);
+                    dirButton.setVisible(true);
+                }
             }
 
             public void mouseExited(MouseEvent e) {
+                if (knoppenZichtbaar())
+                {
+                    odirButton.setVisible(false);
+                    dirButton.setVisible(false);
+                }
             }
         });
         this.setBounds(voertuig.getX(), voertuig.getY(), (voertuig.getOrientatie()==Orientatie.Horizontaal)?IMAGE_WIDTH:IMAGE_HEIGHT, (voertuig.getOrientatie()==Orientatie.Verticaal)?IMAGE_WIDTH:IMAGE_HEIGHT);
@@ -114,13 +125,22 @@ public class AutoView extends VoertuigView {
     }
 
     /**
+     * Steld de auto in om te weergeven
+     * @param auto
+     */
+    public void setAuto(Auto auto)
+    {
+        voertuig = auto;
+    }
+
+    /**
      * Creëert een view voor de opgegeven auto
      * @param auto de auto waarvan je een view wilt
      * @return de view voor de opgegeven auto
      */
     public static AutoView createAutoView(Auto auto)
     {
-        AutoView av = new AutoView(auto.getOrientatie(), auto.getKleur());
+        AutoView av = new AutoView(auto);
         av.setPositie(new Point(auto.getX(),auto.getY()));
         return av;
     }
