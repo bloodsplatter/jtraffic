@@ -13,6 +13,8 @@ import TrafficSwing.resources.ResourceManager;
  * @version 2009.05.13
  */
 public class VrachtwagenView extends VoertuigView {
+    public static final int IMAGE_WIDTH = 215;
+    public static final int IMAGE_HEIGHT = 72;
     
     /**
      * Constructor
@@ -26,7 +28,6 @@ public class VrachtwagenView extends VoertuigView {
         voertuig.setKleur(kleur);
         img = ResourceManager.getInstance().getAfbeeldingVoorVoertuig(voertuig);
         super.add(new JLabel(img), BorderLayout.CENTER);
-        super.positie = new Point(voertuig.getX(), voertuig.getY());
         
         if (voertuig.getOrientatie() == Orientatie.Horizontaal)
         {
@@ -79,6 +80,8 @@ public class VrachtwagenView extends VoertuigView {
         super.addMouseListener(new MouseListener() {
 
             public void mouseClicked(MouseEvent e) {
+                odirButton.setVisible(!odirButton.isVisible());
+                dirButton.setVisible(!dirButton.isVisible());
             }
 
             public void mousePressed(MouseEvent e) {
@@ -88,15 +91,12 @@ public class VrachtwagenView extends VoertuigView {
             }
 
             public void mouseEntered(MouseEvent e) {
-                odirButton.setVisible(true);
-                dirButton.setVisible(true);
             }
 
             public void mouseExited(MouseEvent e) {
-                odirButton.setVisible(false);
-                dirButton.setVisible(false);
             }
         });
+        this.setBounds(0, 0, (voertuig.getOrientatie()==Orientatie.Horizontaal)?IMAGE_WIDTH:IMAGE_HEIGHT, (voertuig.getOrientatie()==Orientatie.Verticaal)?IMAGE_WIDTH:IMAGE_HEIGHT);
     }
     
     /**
@@ -116,6 +116,7 @@ public class VrachtwagenView extends VoertuigView {
     public static VrachtwagenView createView(Vrachtwagen vrachtwagen)
     {
         VrachtwagenView vv = new VrachtwagenView(vrachtwagen.getOrientatie(), vrachtwagen.getKleur());
+        vv.setPositie(new Point(vrachtwagen.getX(), vrachtwagen.getY()));
         return vv;
     }
 }

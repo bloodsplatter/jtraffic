@@ -17,7 +17,6 @@ public abstract class VoertuigView extends JPanel {
     protected JButton dirButton;
     // right or down
     protected JButton odirButton;
-    protected Point positie;
 
     /**
      * Constructor
@@ -25,6 +24,8 @@ public abstract class VoertuigView extends JPanel {
     public VoertuigView()
     {
         super(new BorderLayout());
+        super.setVisible(true);
+        super.setBackground(null);
     }
 
     /**
@@ -41,7 +42,7 @@ public abstract class VoertuigView extends JPanel {
      * @return
      */
     public Point getPositie() {
-        return positie;
+        return new Point(voertuig.getX(), voertuig.getY());
     }
 
     /**
@@ -49,8 +50,13 @@ public abstract class VoertuigView extends JPanel {
      * @param positie
      */
     public void setPositie(Point positie) {
-        this.positie = positie;
+        voertuig.setX(positie.x);
+        voertuig.setY(positie.y);
     }
 
-
+    public void verbergKnoppen()
+    {
+        odirButton.setVisible(false);
+        dirButton.setVisible(false);
+    }
 }
