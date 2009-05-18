@@ -84,6 +84,10 @@ public class LevelManager {
      */
     public void voegLevelToe(Level lvl)
     {
+        if (lvl.getNaam().equals(""))
+        {
+            lvl.setNaam("Level " + levels.size());
+        }
         levels.add(lvl);
     }
 

@@ -81,7 +81,7 @@ public class ResourceManager {
 
             resname += "lorry";
         }
-        resname += (voertuig.getOrientatie() == Orientatie.Horizontaal)?"EW":"NW";
+        resname += (voertuig.getOrientatie() == Orientatie.Horizontaal)?"EW":"NS";
         resname += ".gif";
 
         return new ImageIcon(this.getClass().getResource(resname));

@@ -5,8 +5,8 @@ import java.awt.*;
 import java.awt.event.*;
 import RushHour.*;
 import TrafficSwing.views.*;
+import java.io.IOException;
 import javax.swing.*;
-import java.util.*;
 
 /**
  * The main Swing Application
@@ -26,17 +26,52 @@ public class Application extends JFrame {
         super("TrafficSwing");
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initMenuBar();
-        super.getContentPane().add(Application.DEFAULT_PANEL());
+        super.getContentPane().add(DEFAULT_PANEL());
         hsv = new HighScoreView();
-        //debug();
+        debug();
         super.setPreferredSize(new Dimension(800, 600));
         pack();
+
+        super.addWindowListener(new WindowListener() {
+
+            public void windowOpened(WindowEvent e) {
+            }
+
+            public void windowClosing(WindowEvent e) {
+                try {
+                    HighScores.getInstance().opslaan();
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(Application.getInstance(), "Er is een fout opgetreden bij het opslaan van de highscores.\n" + ex.getLocalizedMessage(),"Fout",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+
+            public void windowClosed(WindowEvent e) {
+            }
+
+            public void windowIconified(WindowEvent e) {
+            }
+
+            public void windowDeiconified(WindowEvent e) {
+            }
+
+            public void windowActivated(WindowEvent e) {
+            }
+
+            public void windowDeactivated(WindowEvent e) {
+            }
+        });
     }
 
     protected void debug()
     {
-        HighScoreRecord hsr = new HighScoreRecord(5, "Testlevel", "Testspeler");
-        HighScores.getInstance().voegHighScoreToe(hsr);
+        Level lvl = new Level();
+        Auto beginAuto = new Auto(0, 2, Kleur.Rood);
+        beginAuto.setOrientatie(Orientatie.Horizontaal);
+        lvl.voegVoertuigToe(beginAuto);
+        Auto tweedeAuto = new Auto(2, 0, Kleur.Blauw);
+        tweedeAuto.setOrientatie(Orientatie.Verticaal);
+        lvl.voegVoertuigToe(tweedeAuto);
+        LevelManager.getInstance().voegLevelToe(lvl);
     }
 
     protected void initMenuBar()
@@ -46,22 +81,7 @@ public class Application extends JFrame {
         JMenu fileMenu = new JMenu("Bestand");
         mainMenuBar.add(fileMenu);
 
-        JMenuItem startItem = new JMenuItem("Nieuw spel");
-        fileMenu.add(startItem);
-        startItem.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                // Simulatie van een simpele lvl voor debug redenen
-                Level lvl = new Level();
-                Auto auto1 = new Auto(2, 2,Kleur.Geel);
-                auto1.setOrientatie(Orientatie.Horizontaal);
-                lvl.voegVoertuigToe(auto1);
-                lvl.setNaam("Testlevel");
-                LevelView lvllw = new LevelView(lvl);
-                setView(lvllw);
-            }
-        });
-        fileMenu.add(new JPopupMenu.Separator());
+        
 
         JMenuItem hoofdMenu = new JMenuItem("Hoofdmenu");
         fileMenu.add(hoofdMenu);
@@ -75,7 +95,7 @@ public class Application extends JFrame {
         super.setJMenuBar(mainMenuBar);
     }
 
-    protected static JPanel DEFAULT_PANEL()
+    protected JPanel DEFAULT_PANEL()
     {
         JPanel panel = new JPanel(new BorderLayout());
         JPanel menuPanel = new JPanel(new GridLayout(3, 0));
@@ -85,7 +105,33 @@ public class Application extends JFrame {
         newGame.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(Application.getInstance(), "Dit is nog niet ingebouwd","Ontwikkeling",JOptionPane.WARNING_MESSAGE);
+                String[] levelNames = new String[LevelManager.getInstance().aantalLevels()];
+                Level[] levels = LevelManager.getInstance().toArray();
+
+                if (levels.length <= 0)
+                {
+                    JOptionPane.showMessageDialog(Application.getInstance(), "Er zijn geen levels geladen.", "Fout", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                for (int i = 0; i < levels.length; i++)
+                {
+                    levelNames[i] = levels[i].getNaam();
+                }
+
+                String selectedLevel = null;
+
+                do {
+                    selectedLevel = (String) JOptionPane.showInputDialog(Application.getInstance(), "Kies een level", "Levelselectie", JOptionPane.INFORMATION_MESSAGE, null, levelNames, levelNames[0]);
+                } while (selectedLevel == null);
+
+                for (Level level : levels) {
+                    if (level.getNaam().equals(selectedLevel));
+                    {
+                        setView(new LevelView(level));
+                        break;
+                    }
+                }
             }
         });
         menuPanel.add(newGame);
@@ -111,15 +157,15 @@ public class Application extends JFrame {
     }
 
     /**
-     *
+     * Geeft de huidige level
      * @return geeft de huidige level terug
      * @exception UnsupportedOperationException
      */
     public Level getHuidigeLevel() throws UnsupportedOperationException
     {
-        if (super.getContentPane().getComponent(0) instanceof LevelView)
+        if (super.getContentPane() instanceof LevelView)
         {
-            return ((LevelView)super.getContentPane().getComponent(0)).getLevel();
+            return ((LevelView)super.getContentPane()).getLevel();
         }
         else
             throw new UnsupportedOperationException("Er draait nu geen level");
@@ -158,7 +204,10 @@ public class Application extends JFrame {
             super.setContentPane(view);
             view.updateUI();
             if (view instanceof LevelView)
+            {
                 super.setPreferredSize(calculateSize(new Dimension(LevelView.BORD_BREEDTE, LevelView.BORD_HOOGTE)));
+                super.setMinimumSize(super.getPreferredSize());
+            }
             
             pack();
         }

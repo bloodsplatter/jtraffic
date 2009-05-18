@@ -1,12 +1,13 @@
-
 package TrafficSwing.views;
 
 import RushHour.*;
 import TrafficSwing.resources.*;
 import TrafficSwing.*;
+import java.awt.event.MouseEvent;
 import javax.imageio.*;
 import java.io.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
 import java.awt.image.*;
 import java.awt.geom.*;
 import javax.swing.*;
@@ -18,36 +19,66 @@ import java.util.*;
  * @version 2009.05.15
  */
 public class LevelView extends View {
+
     protected Level level;
     protected BufferedImage speelveld;
     protected java.util.List<VoertuigView> voertuigLijst;
     public static final int BORD_BREEDTE = 527;
     public static final int BORD_HOOGTE = 586;
     private final Rectangle viewSize = new Rectangle(new Dimension(BORD_BREEDTE, BORD_HOOGTE));
+    protected final Font levelNameFont = new Font("Arial", Font.BOLD, 16);
+    protected final Font stappenFont = new Font("Arial",Font.PLAIN,14);
 
-    public LevelView(Level level)
-    {
+    public LevelView(Level level) {
+        super(null);
         try {
             speelveld = ImageIO.read(ResourceManager.getInstance().getBord());
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(Application.getInstance(), e);
         }
         this.level = level;
         voertuigLijst = new ArrayList<VoertuigView>();
-        
+
         // creëert views voor alle auto's
         for (Voertuig voertuig : level.getVoertuigen()) {
-            if (voertuig instanceof Auto)
-            {
-                voertuigLijst.add(AutoView.createAutoView((Auto)voertuig));
-            } else if (voertuig instanceof Vrachtwagen)
-            {
-                voertuigLijst.add(VrachtwagenView.createView((Vrachtwagen)voertuig));
+            if (voertuig instanceof Auto) {
+                voertuigLijst.add(AutoView.createAutoView((Auto) voertuig));
+            } else if (voertuig instanceof Vrachtwagen) {
+                voertuigLijst.add(VrachtwagenView.createView((Vrachtwagen) voertuig));
             }
         }
 
-        super.setSize(LevelView.BORD_BREEDTE,LevelView.BORD_HOOGTE);
+        for (VoertuigView voertuigView : voertuigLijst) {
+            voertuigView.getVoertuig().setLevel(level);
+            Rectangle r = voertuigView.getBounds();
+            r.x = voertuigView.getPositie().x;
+            r.y = voertuigView.getPositie().y;
+            voertuigView.setBounds(r);
+            add(voertuigView);
+        }
+
+        super.setSize(LevelView.BORD_BREEDTE, LevelView.BORD_HOOGTE);
+
+        super.addMouseListener(new MouseListener() {
+
+            public void mouseClicked(MouseEvent e) {
+                for (VoertuigView voertuig : voertuigLijst) {
+                    voertuig.verbergKnoppen();
+                }
+            }
+
+            public void mousePressed(MouseEvent e) {
+            }
+
+            public void mouseReleased(MouseEvent e) {
+            }
+
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            public void mouseExited(MouseEvent e) {
+            }
+        });
     }
 
     @Override
@@ -60,18 +91,7 @@ public class LevelView extends View {
         return true;
     }
 
-    @Override
-    public void updateUI() {
-        // bereken hier alle posities, stel alle labels in
-        if(voertuigLijst != null){
-            for (VoertuigView voertuigview : voertuigLijst) {
-                voertuigview.setPositie(transformeerPunt(voertuigview.positie));
-            }
-        }
-        super.updateUI();
-    }
-
-    protected Point transformeerPunt(Point point){
+    protected Point transformeerPunt(Point point) {
         return new Point(50 + (point.x * 72), 71 + (point.y * 72));
     }
 
@@ -79,17 +99,35 @@ public class LevelView extends View {
      * Geeft de onderliggende level
      * @return de onderliggende level
      */
-    public Level getLevel()
-    {
+    public Level getLevel() {
         return this.level;
     }
 
     @Override
     public void paint(Graphics g) {
-        super.paint(g);
+        g.setColor(Color.gray);
+        g.fillRect(0, 0, viewSize.width, viewSize.height);
         g.drawImage(speelveld, 0, 0, null);
+        g.setColor(Color.BLACK);
+        g.setFont(levelNameFont);
         FontMetrics fm = g.getFontMetrics();
         Rectangle2D stringSize = fm.getStringBounds(level.getNaam(), g);
-        g.drawString(level.getNaam(), viewSize.width / 2 - (int)stringSize.getWidth() / 2, viewSize.height - 30);
+        g.drawString(level.getNaam(), 20, 30);
+        g.setFont(stappenFont);
+        stringSize = fm.getStringBounds("Aantal stappen: "+level.getAantalStappen(), g);
+        g.drawString("Aantal stappen: "+level.getAantalStappen(), viewSize.width / 2 - (int) stringSize.getWidth(), viewSize.height - 50);
+
+        if (voertuigLijst != null) {
+            for (VoertuigView voertuigView : voertuigLijst) {
+                Rectangle bnds = voertuigView.getBounds();
+                bnds.x = transformeerPunt(voertuigView.getPositie()).x;
+                bnds.y = transformeerPunt(voertuigView.getPositie()).y;
+                voertuigView.setBounds(bnds);
+                voertuigView.repaint();
+                System.out.println(bnds.toString());
+                System.out.println(voertuigView.getPositie().toString());
+            }
+        }
+
     }
 }
