@@ -49,7 +49,6 @@ public class LevelView extends View {
         }
 
         for (VoertuigView voertuigView : voertuigLijst) {
-            voertuigView.getVoertuig().setLevel(level);
             Rectangle r = voertuigView.getBounds();
             r.x = voertuigView.getPositie().x;
             r.y = voertuigView.getPositie().y;
@@ -125,8 +124,8 @@ public class LevelView extends View {
                 voertuigView.setBounds(bnds);
                 voertuigView.repaint();
                 System.out.println(bnds.toString());
-                System.out.println(voertuigView.getPositie().toString());
             }
+            System.out.println(level.toString());
         }
 
     }

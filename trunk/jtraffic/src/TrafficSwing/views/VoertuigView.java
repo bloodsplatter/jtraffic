@@ -59,4 +59,9 @@ public abstract class VoertuigView extends JPanel {
         odirButton.setVisible(false);
         dirButton.setVisible(false);
     }
+
+    public boolean knoppenZichtbaar()
+    {
+        return odirButton.isVisible() && dirButton.isVisible();
+    }
 }

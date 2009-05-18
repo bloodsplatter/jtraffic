@@ -21,14 +21,13 @@ public class VrachtwagenView extends VoertuigView {
      * @param orientatie de oriëntatie van de auto
      * @param kleur de kleur van de auto
      */
-    public VrachtwagenView(Orientatie orientatie,Kleur kleur)
+    public VrachtwagenView(Vrachtwagen vrachtwagen)
     {
         super();
-        voertuig = new Vrachtwagen(orientatie);
-        voertuig.setKleur(kleur);
+        voertuig = vrachtwagen;
         img = ResourceManager.getInstance().getAfbeeldingVoorVoertuig(voertuig);
         super.add(new JLabel(img), BorderLayout.CENTER);
-        
+
         if (voertuig.getOrientatie() == Orientatie.Horizontaal)
         {
             // knop naar links
@@ -36,7 +35,10 @@ public class VrachtwagenView extends VoertuigView {
             dirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    voertuig.NaarLinks();
+                    if (voertuig.NaarLinks())
+                    {
+                        setBounds(voertuig.getX(), voertuig.getY(), getSize().width, getSize().height);
+                    }
                 }
             });
             dirButton.setVisible(false);
@@ -47,7 +49,10 @@ public class VrachtwagenView extends VoertuigView {
             odirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    voertuig.NaarRechts();
+                    if (voertuig.NaarRechts())
+                    {
+                        setBounds(voertuig.getX(), voertuig.getY(), getSize().width, getSize().height);
+                    }
                 }
             });
             odirButton.setVisible(false);
@@ -59,7 +64,9 @@ public class VrachtwagenView extends VoertuigView {
             dirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    voertuig.NaarBoven();
+                    if (voertuig.NaarBoven())
+                        setBounds(voertuig.getX(), voertuig.getY(), getSize().width, getSize().height);
+
                 }
             });
             dirButton.setVisible(false);
@@ -70,7 +77,8 @@ public class VrachtwagenView extends VoertuigView {
             odirButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    voertuig.NaarBeneden();
+                    if (voertuig.NaarBeneden())
+                        setBounds(voertuig.getX(), voertuig.getY(), getSize().width, getSize().height);
                 }
             });
             odirButton.setVisible(false);
@@ -79,9 +87,7 @@ public class VrachtwagenView extends VoertuigView {
 
         super.addMouseListener(new MouseListener() {
 
-            public void mouseClicked(MouseEvent e) {
-                odirButton.setVisible(!odirButton.isVisible());
-                dirButton.setVisible(!dirButton.isVisible());
+             public void mouseClicked(MouseEvent e) {
             }
 
             public void mousePressed(MouseEvent e) {
@@ -91,12 +97,22 @@ public class VrachtwagenView extends VoertuigView {
             }
 
             public void mouseEntered(MouseEvent e) {
+                if (!knoppenZichtbaar())
+                {
+                    odirButton.setVisible(true);
+                    dirButton.setVisible(true);
+                }
             }
 
             public void mouseExited(MouseEvent e) {
+                if (knoppenZichtbaar())
+                {
+                    odirButton.setVisible(false);
+                    dirButton.setVisible(false);
+                }
             }
         });
-        this.setBounds(0, 0, (voertuig.getOrientatie()==Orientatie.Horizontaal)?IMAGE_WIDTH:IMAGE_HEIGHT, (voertuig.getOrientatie()==Orientatie.Verticaal)?IMAGE_WIDTH:IMAGE_HEIGHT);
+        this.setBounds(voertuig.getX(), voertuig.getY(), (voertuig.getOrientatie()==Orientatie.Horizontaal)?IMAGE_WIDTH:IMAGE_HEIGHT, (voertuig.getOrientatie()==Orientatie.Verticaal)?IMAGE_WIDTH:IMAGE_HEIGHT);
     }
     
     /**
@@ -115,7 +131,7 @@ public class VrachtwagenView extends VoertuigView {
      */
     public static VrachtwagenView createView(Vrachtwagen vrachtwagen)
     {
-        VrachtwagenView vv = new VrachtwagenView(vrachtwagen.getOrientatie(), vrachtwagen.getKleur());
+        VrachtwagenView vv = new VrachtwagenView(vrachtwagen);
         vv.setPositie(new Point(vrachtwagen.getX(), vrachtwagen.getY()));
         return vv;
     }
