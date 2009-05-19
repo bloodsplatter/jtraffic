@@ -31,6 +31,7 @@ public class LevelView extends View {
 
     public LevelView(Level level) {
         super(null);
+        super.setDoubleBuffered(true);
         try {
             speelveld = ImageIO.read(ResourceManager.getInstance().getBord());
         } catch (IOException e) {
@@ -103,18 +104,10 @@ public class LevelView extends View {
     }
 
     @Override
-    public void paint(Graphics g) {
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
         g.setColor(Color.gray);
-        g.fillRect(0, 0, viewSize.width, viewSize.height);
         g.drawImage(speelveld, 0, 0, null);
-        g.setColor(Color.BLACK);
-        g.setFont(levelNameFont);
-        FontMetrics fm = g.getFontMetrics();
-        Rectangle2D stringSize = fm.getStringBounds(level.getNaam(), g);
-        g.drawString(level.getNaam(), 20, 30);
-        g.setFont(stappenFont);
-        stringSize = fm.getStringBounds("Aantal stappen: "+level.getAantalStappen(), g);
-        g.drawString("Aantal stappen: "+level.getAantalStappen(), viewSize.width / 2 - (int) stringSize.getWidth(), viewSize.height - 50);
 
         if (voertuigLijst != null) {
             for (VoertuigView voertuigView : voertuigLijst) {
@@ -123,10 +116,18 @@ public class LevelView extends View {
                 bnds.y = transformeerPunt(voertuigView.getPositie()).y;
                 voertuigView.setBounds(bnds);
                 voertuigView.repaint();
-                System.out.println(bnds.toString());
             }
             System.out.println(level.toString());
+            System.out.println("Aantal stappen: "+level.getAantalStappen());
         }
 
+        g.setColor(Color.BLACK);
+        g.setFont(levelNameFont);
+        FontMetrics fm = g.getFontMetrics();
+        Rectangle2D stringSize = fm.getStringBounds(level.getNaam(), g);
+        g.drawString(level.getNaam(), 20, 30);
+        g.setFont(stappenFont);
+        stringSize = fm.getStringBounds("Aantal stappen: "+level.getAantalStappen(), g);
+        g.drawString("Aantal stappen: "+level.getAantalStappen(), viewSize.width / 2 - (int) stringSize.getWidth(), viewSize.height - 50);
     }
 }
