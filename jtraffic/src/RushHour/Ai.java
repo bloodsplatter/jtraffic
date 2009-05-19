@@ -11,7 +11,7 @@ package RushHour;
 public class Ai {
 
     private Level lvl;
-    private int MaxStack = 6;
+    private int MaxStack = 20;
     private int Thisstack = 0;
     private int MaxLoops = 20;
     private Voertuig rootvrt[] = new Voertuig[MaxStack];
@@ -36,14 +36,14 @@ public class Ai {
         Voertuig tmpvt;
         int loops = 0;
         mainvt = lvl.voertuigOpPlaats(0);
-        while ((mainvt.getX() >= 0) && (loops < MaxLoops)) {
-            tmpvt = lvl.voertuigOpPositie((mainvt.getX() - 1), mainvt.getY());
+        while ((mainvt.getX() + mainvt.getGrootte() <= lvl.getVeld().getBreedte()) && (loops < MaxLoops)) {
+            tmpvt = lvl.voertuigOpPositie((mainvt.getX() + mainvt.getGrootte()), mainvt.getY());
             if (tmpvt != null) {
                 rootvrt[0] = mainvt;
-                setProbleem(tmpvt, mainvt.getX() - 1, mainvt.getY(), 0);
+                setProbleem(tmpvt, mainvt.getX() + mainvt.getGrootte(), mainvt.getY(), 0);
             } else {
                 movesvrt[move++] = new AiMove(mainvt,4);
-                mainvt.NaarLinks();
+                mainvt.NaarRechts();
                 System.out.println(lvl.toString());
             }
         }
@@ -219,6 +219,7 @@ public class Ai {
             rootvrt[Thisstack] = null;
             return true;
         } else {
+            rootvrt[Thisstack] = null;
             return false;
         }
 
@@ -271,7 +272,7 @@ public class Ai {
             int tellerp = 0;
 
             boolean FoundX = false;
-            while (teller >= 0 && (movesvrt[teller].getVoertuig().hashCode() != rootvrt[tellerp].hashCode())) {
+            while (teller > 0 && (movesvrt[teller].getVoertuig().hashCode() != rootvrt[tellerp].hashCode())) {
                 teller--;
             }
             if (movesvrt[teller].getVoertuig().hashCode() == rootvrt[tellerp].hashCode()) {

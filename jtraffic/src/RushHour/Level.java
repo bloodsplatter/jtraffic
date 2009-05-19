@@ -178,7 +178,7 @@ public class Level {
                 if (i == 0 || i == hoogtem - 1) {
                     dispmatrx[i][j] = '-';
                     dispmatrx[i][j + 1] = '-';
-                } else if (i == hoogtem / 2 && j == 0) {
+                } else if (i == 3 && j == (breetem * 2)-2) {
                     dispmatrx[i][j] = ' ';
                     dispmatrx[i][j + 1] = ' ';
                 } else if (j == 0) {
