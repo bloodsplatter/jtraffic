@@ -231,16 +231,10 @@ public abstract class Voertuig implements Serializable {
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.B1AD730E-66D4-8101-094D-90D4ACA88853]
     // </editor-fold> 
-    public boolean setPositie (int X, int Y) {
+    public void setPositie (int X, int Y) {
         // TODO hier moeten nog checks uitgevoerd worden.
-        if(((this.y + this.getGrootte()) < this.level.getVeld().getHoogte()) && this.y > 0 && ((this.x + this.getGrootte()) < this.level.getVeld().getBreedte()) && this.x > 0  && level.voertuigOpPositie(this.x, this.y) == null){
-            this.x = X;
-            this.y = Y;
-            return true;
-        }else{
-            return false;
-        }
-
+        this.x = X;
+        this.y = Y;
     }
 
     /**

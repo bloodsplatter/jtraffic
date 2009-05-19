@@ -87,7 +87,13 @@ public class VrachtwagenView extends VoertuigView {
 
         super.addMouseListener(new MouseListener() {
 
-             public void mouseClicked(MouseEvent e) {
+            public void mouseClicked(MouseEvent e) {
+
+                if (!knoppenZichtbaar())
+                {
+                    odirButton.setVisible(true);
+                    dirButton.setVisible(true);
+                }
             }
 
             public void mousePressed(MouseEvent e) {
@@ -97,19 +103,9 @@ public class VrachtwagenView extends VoertuigView {
             }
 
             public void mouseEntered(MouseEvent e) {
-                if (!knoppenZichtbaar())
-                {
-                    odirButton.setVisible(true);
-                    dirButton.setVisible(true);
-                }
             }
 
             public void mouseExited(MouseEvent e) {
-                if (knoppenZichtbaar())
-                {
-                    odirButton.setVisible(false);
-                    dirButton.setVisible(false);
-                }
             }
         });
         this.setBounds(voertuig.getX(), voertuig.getY(), (voertuig.getOrientatie()==Orientatie.Horizontaal)?IMAGE_WIDTH:IMAGE_HEIGHT, (voertuig.getOrientatie()==Orientatie.Verticaal)?IMAGE_WIDTH:IMAGE_HEIGHT);
