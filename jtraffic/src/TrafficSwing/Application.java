@@ -38,6 +38,11 @@ public class Application extends JFrame {
             }
 
             public void windowClosing(WindowEvent e) {
+                Container c = getContentPane();
+                if (c instanceof LevelView && ((LevelView)c).sluit())
+                {
+                    setContentPane(DEFAULT_PANEL());
+                }
                 try {
                     HighScores.getInstance().opslaan();
                 } catch (IOException ex) {

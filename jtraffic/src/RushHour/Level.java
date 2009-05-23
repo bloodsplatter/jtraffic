@@ -260,7 +260,7 @@ public class Level implements Serializable {
     public boolean isLevelUit()
     {
         // TODO add checks here
-        return (voertuigOpPlaats(0).getX() < 0 && voertuigOpPlaats(0).getY() == (getVeld().getHoogte() / 2));
+        return (voertuigOpPlaats(0).getX()+1 >= 6 && voertuigOpPlaats(0).getY() == (getVeld().getHoogte() / 2));
     }
 
     /**

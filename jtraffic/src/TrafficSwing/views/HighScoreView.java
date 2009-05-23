@@ -53,7 +53,11 @@ public class HighScoreView extends JFrame {
         super.add(scrollPane,BorderLayout.CENTER);
     }
 
-    public void voegHighScoreToe()
+    /**
+     * Voegt een high score toe
+     * @param steps
+     */
+    public void voegHighScoreToe(int steps)
     {
         try {
             //Level lvl = Application.getInstance().getHuidigeLevel();
@@ -63,7 +67,7 @@ public class HighScoreView extends JFrame {
             } while (gebruikersnaam == null);
 
             HighScoreRecord hsr = new HighScoreRecord("Testlevel", gebruikersnaam);
-            hsr.setSteps(5);
+            hsr.setSteps(steps);
             HighScores.getInstance().voegHighScoreToe(hsr);
             scrollPane.updateUI();
         } catch (UnsupportedOperationException uoe)

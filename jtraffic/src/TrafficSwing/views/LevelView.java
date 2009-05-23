@@ -83,12 +83,18 @@ public class LevelView extends View {
 
     @Override
     public boolean sluit() {
-        /* TODO
-         * Controlleer of de level nog bezig is, want dan moeten we eerst waarschuwen,
-         * als de gebruiker dan nog wilt afsluiten kunnen we de huidige score opvragen.
-         * Dan pas kan er veilig afgesloten worden.
-         */
-        return true;
+        if (level.isLevelUit())
+        {
+            Application.getInstance().setDefaultPanel();
+            return true;
+        } else
+        {
+            int answer = JOptionPane.showConfirmDialog(Application.getInstance(), "Weet u zeker dat u wilt stoppen?", "Waarschuwing", JOptionPane.WARNING_MESSAGE);
+            if (answer == 0)
+                return true;
+            else
+                return false;
+        }
     }
 
     protected Point transformeerPunt(Point point) {
@@ -109,6 +115,13 @@ public class LevelView extends View {
         g.setColor(Color.gray);
         g.drawImage(speelveld, 0, 0, null);
 
+        if (level.isLevelUit())
+        {
+            HighScoreView hsv = new HighScoreView();
+            hsv.voegHighScoreToe(level.getAantalStappen());
+            sluit();
+        }
+
         if (voertuigLijst != null) {
             for (VoertuigView voertuigView : voertuigLijst) {
                 Rectangle bnds = voertuigView.getBounds();
@@ -116,9 +129,8 @@ public class LevelView extends View {
                 bnds.y = transformeerPunt(voertuigView.getPositie()).y;
                 voertuigView.setBounds(bnds);
                 voertuigView.repaint();
+                System.out.println(voertuigView.getPositie().toString());
             }
-            System.out.println(level.toString());
-            System.out.println("Aantal stappen: "+level.getAantalStappen());
         }
 
         g.setColor(Color.BLACK);
