@@ -153,7 +153,6 @@ public abstract class Voertuig implements Serializable {
      * @param kleur
      */
     public void setKleur(Kleur kleur) {
-        // TODO hier moeten nog checks uitgevoerd worden.
         this.kleur = kleur;
     }
 
@@ -167,7 +166,6 @@ public abstract class Voertuig implements Serializable {
      * @return true als het gelukt is, anders false
      */
     public boolean NaarBoven() {
-        // TODO hier moeten nog checks uitgevoerd worden.
         if(this.getOrientatie() == Orientatie.Verticaal && ( this.y > 0) && (level.voertuigOpPositie(this.x, this.y - 1) == null)){
             this.y -= 1;
             level.voegStapToe();
@@ -181,7 +179,6 @@ public abstract class Voertuig implements Serializable {
      * @return true als het gelukt is, anders false
      */
     public boolean NaarBeneden() {
-        // TODO hier moeten nog checks uitgevoerd worden.
         if(this.getOrientatie() == Orientatie.Verticaal && ((this.y + this.getGrootte()) < this.level.getVeld().getHoogte()) && (level.voertuigOpPositie(this.x, this.y + this.getGrootte()) == null)){
             this.y += 1;
             level.voegStapToe();
@@ -195,7 +192,6 @@ public abstract class Voertuig implements Serializable {
      * @return true als het gelukt is, anders false
      */
     public boolean NaarLinks() {
-        // TODO hier moeten nog checks uitgevoerd worden.
         if(this.getOrientatie() == Orientatie.Horizontaal && ( this.x >= ((this.getY()==level.getVeld().getHoogte()/2)?0:1))  && (level.voertuigOpPositie(this.x - 1, this.y) == null)){
             this.x -= 1;
             level.voegStapToe();
@@ -210,9 +206,7 @@ public abstract class Voertuig implements Serializable {
      * @return true als het gelukt is, anders false
      */
     public boolean NaarRechts() {
-        // TODO hier moeten nog checks uitgevoerd worden.
-        if (this.getOrientatie() == Orientatie.Horizontaal && this.getKleur() == Kleur.Rood && this.getGrootte() == 2 && (this.x + this.getGrootte() + 1 < this.level.getVeld().getBreedte()))
-            return true;
+        // TODO check om te zien of level uitgespeeld is
 
         if(this.getOrientatie() == Orientatie.Horizontaal && ((this.x + this.getGrootte()) < this.level.getVeld().getBreedte())  && (level.voertuigOpPositie(this.x + this.getGrootte(), this.y) == null)){
             this.x += 1;
@@ -235,7 +229,6 @@ public abstract class Voertuig implements Serializable {
     // #[regen=yes,id=DCE.B1AD730E-66D4-8101-094D-90D4ACA88853]
     // </editor-fold> 
     public void setPositie (int X, int Y) {
-        // TODO hier moeten nog checks uitgevoerd worden.
         this.x = X;
         this.y = Y;
     }

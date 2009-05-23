@@ -39,9 +39,15 @@ public class Application extends JFrame {
 
             public void windowClosing(WindowEvent e) {
                 Container c = getContentPane();
-                if (c instanceof LevelView && ((LevelView)c).sluit())
+                if (c instanceof LevelView )
                 {
-                    setContentPane(DEFAULT_PANEL());
+                    if (((LevelView)c).sluit())
+                    {
+                        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        
+                    } else
+                        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+                    
                 }
                 try {
                     HighScores.getInstance().opslaan();
