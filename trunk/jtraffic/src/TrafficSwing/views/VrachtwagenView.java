@@ -6,6 +6,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import RushHour.*;
 import TrafficSwing.resources.ResourceManager;
+import TrafficSwing.Application;
 
 /**
  * De view klasse voor Vrachtwagen
@@ -38,6 +39,7 @@ public class VrachtwagenView extends VoertuigView {
                     if (voertuig.NaarLinks())
                     {
                         setBounds(voertuig.getX(), voertuig.getY(), getSize().width, getSize().height);
+                        Application.getInstance().getContentPane().repaint();
                     }
                 }
             });
@@ -52,6 +54,7 @@ public class VrachtwagenView extends VoertuigView {
                     if (voertuig.NaarRechts())
                     {
                         setBounds(voertuig.getX(), voertuig.getY(), getSize().width, getSize().height);
+                        Application.getInstance().getContentPane().repaint();
                     }
                 }
             });
@@ -66,7 +69,7 @@ public class VrachtwagenView extends VoertuigView {
                 public void actionPerformed(ActionEvent e) {
                     if (voertuig.NaarBoven())
                         setBounds(voertuig.getX(), voertuig.getY(), getSize().width, getSize().height);
-
+                        Application.getInstance().getContentPane().repaint();
                 }
             });
             dirButton.setVisible(false);
@@ -79,6 +82,7 @@ public class VrachtwagenView extends VoertuigView {
                 public void actionPerformed(ActionEvent e) {
                     if (voertuig.NaarBeneden())
                         setBounds(voertuig.getX(), voertuig.getY(), getSize().width, getSize().height);
+                        Application.getInstance().getContentPane().repaint();
                 }
             });
             odirButton.setVisible(false);
