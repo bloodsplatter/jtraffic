@@ -35,7 +35,7 @@ public class Main {
         vrt3.setKleur('A');
         lvl.voegVoertuigToe(vrt3);
 
-        Vrachtwagen vrt1 = new Vrachtwagen(Orientatie.Verticaal);
+        Vrachtwagen vrt1 = new Vrachtwagen(Orientatie.Horizontaal);
         vrt1.setX(0);
         vrt1.setY(1);
         vrt1.setKleur('B');
