@@ -50,6 +50,10 @@ public class LevelManager {
         if (_instance == null) _instance = new LevelManager();
     }
 
+    /**
+     * Geeft de instance van LevelManager
+     * @return de LevelManager instance
+     */
     public static LevelManager getInstance()
     {
         if (_instance == null)
@@ -123,7 +127,7 @@ public class LevelManager {
             fos.close();
         } catch (IOException ioe)
         {
-            // should not happen
+            // kan niet gebeuren
         }
     }
 }

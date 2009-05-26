@@ -45,6 +45,10 @@ public abstract class Voertuig implements Serializable {
         this.orientatie = Orientatie.Horizontaal;
     }
 
+    /**
+     * Constructor
+     * @param orientatie de oriëntatie van het voertuig
+     */
     public Voertuig(Orientatie orientatie)
     {
         super();
@@ -156,6 +160,10 @@ public abstract class Voertuig implements Serializable {
         this.kleur = kleur;
     }
 
+    /**
+     * De char van de kleur
+     * @return de char
+     */
     public char getKleurChar()
     {
         return this.kleur.toString().charAt(0);

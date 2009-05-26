@@ -14,13 +14,18 @@ import TrafficSwing.Application;
  * @version 2009.05.13
  */
 public class VrachtwagenView extends VoertuigView {
+    /**
+     * De breedte van de afbeelding
+     */
     public static final int IMAGE_WIDTH = 215;
+    /**
+     * De hoogte van de afbeelding
+     */
     public static final int IMAGE_HEIGHT = 72;
     
     /**
      * Constructor
-     * @param orientatie de oriëntatie van de auto
-     * @param kleur de kleur van de auto
+     * @param vrachtwagen
      */
     public VrachtwagenView(Vrachtwagen vrachtwagen)
     {
@@ -116,7 +121,7 @@ public class VrachtwagenView extends VoertuigView {
     }
     
     /**
-     * 
+     * Geeft het modelobject
      * @return de onderliggende vrachtwagen
      */
     public Vrachtwagen getVrachtwagen()

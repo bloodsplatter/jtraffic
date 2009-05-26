@@ -12,11 +12,30 @@ import java.awt.event.*;
  * @version 2009.05.15
  */
 public class HighScoreView extends JFrame {
+    /**
+     *
+     */
     protected HighScoresTableModel hstm;
+    /**
+     *
+     */
     protected JTable tabel;
+    /**
+     * Een scrollpane voor de tabel
+     */
     protected JScrollPane scrollPane;
+    /**
+     * het onderste panel
+     */
     protected JPanel bottomPane;
+    /**
+     * De OK knop
+     */
     protected JButton okButton;
+    /**
+     * Een knop om alle highscores te verwijderen
+     */
+    protected JButton removeAllButton;
 
     /**
      * Constructor
@@ -39,11 +58,23 @@ public class HighScoreView extends JFrame {
         });
         bottomPane.add(okButton);
 
+        removeAllButton = new JButton("HighScores verwijderen");
+        removeAllButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                HighScores.getInstance().verwijderHighScores();
+            }
+        });
+        bottomPane.add(removeAllButton);
+
         super.add(bottomPane,BorderLayout.SOUTH);
         super.add(scrollPane,BorderLayout.CENTER);
         super.pack();
     }
 
+    /**
+     *
+     */
     protected void initTable()
     {
         tabel = new JTable(new HighScoresTableModel());

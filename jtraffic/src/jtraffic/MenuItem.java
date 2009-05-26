@@ -8,8 +8,17 @@ import java.util.Scanner;
  * @version 2009.04.20 */
 public abstract class MenuItem {
 
+    /**
+     * De naam van het menu item
+     */
     protected String naam;
+    /**
+     * Of er bevestiging gevraagd moet worden
+     */
     protected boolean confirms;
+    /**
+     * De ouder
+     */
     protected Menu parent;
 
     /**
@@ -22,12 +31,15 @@ public abstract class MenuItem {
 
     /**
      * Stelt de naam van het menu item in
-     * @param de naam van het menu item
+     * @param naam
      */
     public void setNaam(String naam) {
         this.naam = naam;
     }
 
+    /**
+     * De actie om uit te voeren
+     */
     public abstract void doAction();
 
     @Override
@@ -37,7 +49,9 @@ public abstract class MenuItem {
 
     /**
      * Constructor
+     * @param parent 
      * @param naam de naam van het menu item
+     * @param confirms
      */
     public MenuItem(Menu parent, String naam, boolean confirms) {
         this.naam = naam;

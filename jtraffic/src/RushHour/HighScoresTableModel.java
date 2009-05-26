@@ -11,8 +11,14 @@ import javax.swing.table.*;
  * @version 2009.05.11
  */
 public class HighScoresTableModel implements TableModel {
+    /**
+     * De namen van de kolommen
+     */
     protected final String[] columnNames = {"Aantal stappen","Spelernaam","Levelnaam"};
 
+    /**
+     * Constructor
+     */
     public HighScoresTableModel()
     {
         
