@@ -11,10 +11,10 @@ package RushHour;
 public class Ai {
 
     private Level lvl;
-    private int MaxStack = 20;
+    private int MaxStack = 16;
     private int Thisstack = 0;
-    private int MaxLoops = 20;
-    private Voertuig rootvrt[] = new Voertuig[MaxStack];
+    private int MaxLoops = 16;
+    private AiMove rootvrt[] = new AiMove[MaxStack];
     private AiMove movesvrt[] = new AiMove[40];
     private int movesrichtig[] = new int[40];
     private int move = 0;
@@ -39,10 +39,10 @@ public class Ai {
         while ((mainvt.getX() + mainvt.getGrootte() <= lvl.getVeld().getBreedte()) && (loops < MaxLoops)) {
             tmpvt = lvl.voertuigOpPositie((mainvt.getX() + mainvt.getGrootte()), mainvt.getY());
             if (tmpvt != null) {
-                rootvrt[0] = mainvt;
+                rootvrt[0] = new AiMove(mainvt,2);
                 setProbleem(tmpvt, mainvt.getX() + mainvt.getGrootte(), mainvt.getY(), 0);
             } else {
-                movesvrt[move++] = new AiMove(mainvt,4);
+                movesvrt[move++] = new AiMove(mainvt,2);
                 mainvt.NaarRechts();
                 System.out.println(lvl.toString());
             }
@@ -69,9 +69,15 @@ public class Ai {
                 // Chek of hij move's aan het reversen is,
                 // zoja, voer de ai uit met omgekeerde choise prioriteit
                 // Door deze opnieuw op te gooien maar dan met voorkeur voor choise 1
-                if (CheckMoveLoop()) {
-                    rootvrt[Thisstack] = tmpvt;
-                    setProbleem(tmpvt, FreeposX, FreeposY, 1);
+                int movmnt = CheckMoveLoop();
+                if (movmnt != 0) {
+                    if(!ChekRootTree(tmpvt)){
+                    
+                        if(movmnt == 4 || movmnt == 1){
+                            rootvrt[Thisstack] =  new AiMove(tmpvt,3);
+                            setProbleem(tmpvt, FreeposX, FreeposY, 1);
+                        }
+                    }
                 }
 
                 //Chek of oplossing mogelijk is
@@ -86,12 +92,16 @@ public class Ai {
                                 rootvrt[Thisstack] = null;
                                 return false;
                             }
-                            if (ChekEndlessLoop(nwvrt)) {
-                                if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() - 1, 1) == false) {
-                                    break;
+                            int movmnttmp = ChekEndlessLoop(nwvrt);
+                            if (movmnttmp != 0) {
+                                if(movmnt == 4 || movmnt == 1){
+                                rootvrt[Thisstack] =  new AiMove(tmpvt,1);;
+                                    if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() - 1, 1) == false) {
+                                        break;
+                                    }
                                 }
                             } else {
-                                rootvrt[Thisstack] = tmpvt;
+                                rootvrt[Thisstack] =  new AiMove(tmpvt,1);;
                                 if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() - 1, 0) == false) {
                                     break;
                                 }
@@ -121,12 +131,16 @@ public class Ai {
                                 rootvrt[Thisstack] = null;
                                 return false;
                             }
-                            if (ChekEndlessLoop(nwvrt)) {
-                                if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() + tmpvt.getGrootte(), 1) == false) {
-                                    break;
+                            int movmnttmp = ChekEndlessLoop(nwvrt);
+                            if (movmnttmp != 0) {
+                                if(movmnt == 4 || movmnt == 1){
+                                    rootvrt[Thisstack] = new AiMove(tmpvt,3);
+                                    if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() + tmpvt.getGrootte(), 1) == false) {
+                                        break;
+                                    }
                                 }
                             } else {
-                                rootvrt[Thisstack] = tmpvt;
+                                rootvrt[Thisstack] = new AiMove(tmpvt,3);
                                 if (setProbleem(nwvrt, tmpvt.getX(), tmpvt.getY() + tmpvt.getGrootte(), 0) == false) {
                                     break;
                                 }
@@ -146,9 +160,15 @@ public class Ai {
                 // Chek of hij move's aan het reversen is,
                 // zoja, voer de ai uit met omgekeerde choise prioriteit
                 // Door deze opnieuw op te gooien maar dan met voorkeur voor choise 1
-                if (CheckMoveLoop()) {
-                    rootvrt[Thisstack] = tmpvt;
-                    setProbleem(tmpvt, FreeposX, FreeposY, 1);
+                int movmnt = CheckMoveLoop();
+                if (movmnt != 0) {
+                    if(!ChekRootTree(tmpvt)){
+                    
+                        if(movmnt == 4 || movmnt == 1){
+                            rootvrt[Thisstack] = new AiMove(tmpvt,2);
+                            setProbleem(tmpvt, FreeposX, FreeposY, 1);
+                        }
+                    }
                 }
 
                 //Check of oplossing mogelijk is
@@ -163,12 +183,16 @@ public class Ai {
                                 rootvrt[Thisstack] = null;
                                 return false;
                             }
-                            if (ChekEndlessLoop(nwvrt)) {
-                                if (setProbleem(nwvrt, tmpvt.getX() - 1, tmpvt.getY(), 1) == false) {
-                                    break;
+                            int movmnttmp = ChekEndlessLoop(nwvrt);
+                            if (movmnttmp != 0) {
+                                if(movmnt == 4 || movmnt == 1){
+                                    rootvrt[Thisstack] = new AiMove(tmpvt,4);
+                                    if (setProbleem(nwvrt, tmpvt.getX() - 1, tmpvt.getY(), 1) == false) {
+                                        break;
+                                    }
                                 }
                             } else {
-                                rootvrt[Thisstack] = tmpvt;
+                                rootvrt[Thisstack] = new AiMove(tmpvt,4);
                                 if (setProbleem(nwvrt, tmpvt.getX() - 1, tmpvt.getY(), 0) == false) {
                                     break;
                                 }
@@ -196,12 +220,16 @@ public class Ai {
                                 rootvrt[Thisstack] = null;
                                 return false;
                             }
-                            if (ChekEndlessLoop(nwvrt)) {
-                                if (setProbleem(nwvrt, tmpvt.getX() + tmpvt.getGrootte(), tmpvt.getY(), 1) == false) {
-                                    break;
+                            int movmnttmp = ChekEndlessLoop(nwvrt);
+                            if (movmnttmp != 0) {
+                                if(movmnt == 4 || movmnt == 1){
+                                    rootvrt[Thisstack] = new AiMove(tmpvt,2);
+                                    if (setProbleem(nwvrt, tmpvt.getX() + tmpvt.getGrootte(), tmpvt.getY(), 1) == false) {
+                                        break;
+                                    }
                                 }
                             } else {
-                                rootvrt[Thisstack] = tmpvt;
+                                rootvrt[Thisstack] = new AiMove(tmpvt,2);
                                 if (setProbleem(nwvrt, tmpvt.getX() + tmpvt.getGrootte(), tmpvt.getY(), 0) == false) {
                                     break;
                                 }
@@ -264,9 +292,9 @@ public class Ai {
             return false;
         }
     }
-
-    private boolean CheckMoveLoop() {
+    private int CheckMoveLoop() {
         boolean IsTree = false;
+        int movment = 0;
         if (move > 0) {
             int teller = move - 1;
             int tellerp = 0;
@@ -278,6 +306,7 @@ public class Ai {
             if (movesvrt[teller].getVoertuig().hashCode() == rootvrt[tellerp].hashCode()) {
                     if (tellerp == 0 && FoundX == false) {
                         IsTree = true;
+                        movment = movesvrt[teller].getRichting();
                     }
                     while (tellerp < (Thisstack) && teller < (move - 1)){
                         if (movesvrt[teller].getVoertuig().hashCode() == rootvrt[tellerp].hashCode()) {
@@ -295,21 +324,24 @@ public class Ai {
             }
 
         }
-
-        return IsTree;
+        if(IsTree){
+            return movment;
+        }else{
+                return 0;
+        }
     }
 
-    private boolean ChekEndlessLoop(Voertuig tmpvrt) {
+    private int ChekEndlessLoop(Voertuig tmpvrt) {
         int teller = 0;
         while (teller < Thisstack) {
             //tmpvrt
             if (rootvrt[teller].hashCode() == tmpvrt.hashCode()) {
-                return true;
+                return rootvrt[teller].getRichting();
             } else {
                 teller++;
             }
         }
 
-        return false;
+        return 0;
     }
 }
