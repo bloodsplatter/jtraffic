@@ -23,7 +23,7 @@ public class Auto extends Voertuig {
      * Maak een auto op de opgegeven locatie aan
      * @param X de X-coördinaat
      * @param Y de Y-coördinaat
-     * @param Kleur de kleur van de wagen
+     * @param kleur de kleur van de auto
      */
     public Auto(int X, int Y,Kleur kleur) {
         super();

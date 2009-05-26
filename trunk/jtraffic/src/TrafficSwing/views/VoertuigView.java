@@ -11,11 +11,23 @@ import RushHour.Voertuig;
  * @version 2009.05.13
  */
 public abstract class VoertuigView extends JPanel {
+    /**
+     * Het modelobject
+     */
     protected Voertuig voertuig;
+    /**
+     * De afbeelding van het voertuig
+     */
     protected ImageIcon img;
     //left or up
+    /**
+     * De knop om naar links of naar boven te gaan
+     */
     protected JButton dirButton;
     // right or down
+    /**
+     * De knop om naar rechts of naar onderen te gaan
+     */
     protected JButton odirButton;
 
     /**
@@ -29,7 +41,7 @@ public abstract class VoertuigView extends JPanel {
     }
 
     /**
-     * geeft het onderliggende voertuig
+     * Geeft het onderliggende voertuig
      * @return het onderliggende voertuig
      */
     public Voertuig getVoertuig()
@@ -54,12 +66,19 @@ public abstract class VoertuigView extends JPanel {
         voertuig.setY(positie.y);
     }
 
+    /**
+     * Verbergt de knoppen
+     */
     public void verbergKnoppen()
     {
         odirButton.setVisible(false);
         dirButton.setVisible(false);
     }
 
+    /**
+     * Kijkt of de knoppen zichtbaar zijn
+     * @return true als de knoppen zichtbaar zijn
+     */
     public boolean knoppenZichtbaar()
     {
         return odirButton.isVisible() && dirButton.isVisible();

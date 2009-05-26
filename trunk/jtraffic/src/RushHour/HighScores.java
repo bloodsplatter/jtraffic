@@ -135,6 +135,8 @@ public class HighScores {
 
     /**
      * Sla de highscores op
+     * @throws FileNotFoundException als het highscores bestand niet gevonden is
+     * @throws IOException een fout bij het uitlezen van de highscores
      */
     public void opslaan() throws FileNotFoundException, IOException
     {

@@ -2,7 +2,6 @@ package TrafficSwing.views;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
 /**
  * De basis van de view klasse
@@ -11,15 +10,26 @@ import java.awt.event.*;
  */
 public abstract class View extends JPanel {
 
+    /**
+     * Constructor
+     */
     public View()
     {
         super();
     }
 
+    /**
+     * Constructor
+     * @param lm een LayoutManager
+     */
     public View(LayoutManager lm)
     {
         super(lm);
     }
 
+    /**
+     * Om de view te sluiten
+     * @return true als het gelukt is
+     */
     public abstract boolean sluit();
 }

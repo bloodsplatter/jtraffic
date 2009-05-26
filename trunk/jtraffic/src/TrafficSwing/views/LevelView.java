@@ -20,15 +20,44 @@ import java.util.*;
  */
 public class LevelView extends View {
 
+    /**
+     * Vlag om te zien of de view gesloten is
+     */
+    protected boolean gesloten = false;
+    /**
+     * Het modelobject
+     */
     protected Level level;
+    /**
+     * De afbeelding van het speelveld
+     */
     protected BufferedImage speelveld;
+    /**
+     * De lijst van voertuigviews
+     */
     protected java.util.List<VoertuigView> voertuigLijst;
+    /**
+     * De breedte van het bord
+     */
     public static final int BORD_BREEDTE = 527;
+    /**
+     * De hoogte van het bord
+     */
     public static final int BORD_HOOGTE = 586;
     private final Rectangle viewSize = new Rectangle(new Dimension(BORD_BREEDTE, BORD_HOOGTE));
+    /**
+     * De font om de naam van de level te tekenen
+     */
     protected final Font levelNameFont = new Font("Arial", Font.BOLD, 16);
-    protected final Font stappenFont = new Font("Arial",Font.PLAIN,14);
+    /**
+     * De font om de score te tekenen
+     */
+    protected final Font stappenFont = new Font("Arial", Font.PLAIN, 14);
 
+    /**
+     * Constructor
+     * @param level de level die weergeven moet worden
+     */
     public LevelView(Level level) {
         super(null);
         super.setDoubleBuffered(true);
@@ -81,22 +110,37 @@ public class LevelView extends View {
         });
     }
 
+    /**
+     * De sluitmethode
+     * @return true als het gelukt is
+     */
     @Override
     public boolean sluit() {
-        if (level.isLevelUit())
-        {
+        if (gesloten) {
+            return true;
+        }
+
+        if (level.isLevelUit()) {
+            gesloten = true;
+            super.removeAll();
             Application.getInstance().setDefaultPanel();
             return true;
-        } else
-        {
+        } else {
             int answer = JOptionPane.showConfirmDialog(Application.getInstance(), "Weet u zeker dat u wilt stoppen?", "Waarschuwing", JOptionPane.WARNING_MESSAGE);
-            if (answer == 0)
+            if (answer == 0) {
+                gesloten = true;
                 return true;
-            else
+            } else {
                 return false;
+            }
         }
     }
 
+    /**
+     * Zet een punt in het model om naar een punt in het scherm
+     * @param point het punt om om te zetten
+     * @return het omgezette punt
+     */
     protected Point transformeerPunt(Point point) {
         return new Point(50 + (point.x * 72), 71 + (point.y * 72));
     }
@@ -111,35 +155,37 @@ public class LevelView extends View {
 
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.setColor(Color.gray);
-        g.drawImage(speelveld, 0, 0, null);
+        if (!gesloten) {
+            super.paintComponent(g);
+            g.setColor(Color.gray);
+            g.drawImage(speelveld, 0, 0, null);
 
-        if (level.isLevelUit())
-        {
-            HighScoreView hsv = new HighScoreView();
-            hsv.voegHighScoreToe(level.getAantalStappen());
-            sluit();
-        }
-
-        if (voertuigLijst != null) {
-            for (VoertuigView voertuigView : voertuigLijst) {
-                Rectangle bnds = voertuigView.getBounds();
-                bnds.x = transformeerPunt(voertuigView.getPositie()).x;
-                bnds.y = transformeerPunt(voertuigView.getPositie()).y;
-                voertuigView.setBounds(bnds);
-                voertuigView.repaint();
-                System.out.println(voertuigView.getPositie().toString());
+            if (level.isLevelUit() && !gesloten) {
+                HighScoreView hsv = new HighScoreView();
+                sluit();
+                hsv.voegHighScoreToe(level.getAantalStappen());
             }
-        }
 
-        g.setColor(Color.BLACK);
-        g.setFont(levelNameFont);
-        FontMetrics fm = g.getFontMetrics();
-        Rectangle2D stringSize = fm.getStringBounds(level.getNaam(), g);
-        g.drawString(level.getNaam(), 20, 30);
-        g.setFont(stappenFont);
-        stringSize = fm.getStringBounds("Aantal stappen: "+level.getAantalStappen(), g);
-        g.drawString("Aantal stappen: "+level.getAantalStappen(), viewSize.width / 2 - (int) stringSize.getWidth(), viewSize.height - 50);
+            if (voertuigLijst != null) {
+                for (VoertuigView voertuigView : voertuigLijst) {
+                    Rectangle bnds = voertuigView.getBounds();
+                    bnds.x = transformeerPunt(voertuigView.getPositie()).x;
+                    bnds.y = transformeerPunt(voertuigView.getPositie()).y;
+                    voertuigView.setBounds(bnds);
+                    voertuigView.repaint();
+                    System.out.println(voertuigView.getPositie().toString());
+                }
+                System.out.println();
+            }
+
+            g.setColor(Color.BLACK);
+            g.setFont(levelNameFont);
+            FontMetrics fm = g.getFontMetrics();
+            Rectangle2D stringSize = fm.getStringBounds(level.getNaam(), g);
+            g.drawString(level.getNaam(), 20, (int) stringSize.getHeight() * 2);
+            g.setFont(stappenFont);
+            stringSize = fm.getStringBounds("Aantal stappen: " + level.getAantalStappen(), g);
+            g.drawString("Aantal stappen: " + level.getAantalStappen(), viewSize.width / 2 - (int) stringSize.getWidth(), viewSize.height - 50);
+        }
     }
 }

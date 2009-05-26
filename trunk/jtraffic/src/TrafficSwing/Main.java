@@ -10,6 +10,10 @@ import javax.swing.UIManager;
  * @version 2009.05.12
  */
 public class Main {
+    /**
+     * EP
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

@@ -11,10 +11,25 @@ import java.net.*;
  */
 public class ResourceManager {
 
+    /**
+     * De instance
+     */
     protected static ResourceManager _instance;
+    /**
+     * De constante voor de pijl naar links
+     */
     public static final String PIJL_LINKS = "Links";
+    /**
+     * De constante voor de pijl naar rechts
+     */
     public static final String PIJL_RECHTS = "Rechts";
+    /**
+     * De constante voor de pijl naar beneden
+     */
     public static final String PIJL_BENEDEN = "Beneden";
+    /**
+     * De constante voor de pijl naar boven
+     */
     public static final String PIJL_BOVEN = "Boven";
 
     /**
@@ -24,7 +39,7 @@ public class ResourceManager {
     }
 
     /**
-     * 
+     * Maakt een instance aan als deze nog niet bestaat
      */
     protected static void createInstance() {
         if (_instance == null) {
@@ -33,8 +48,8 @@ public class ResourceManager {
     }
 
     /**
-     * Gets the ResourceManager instance
-     * @return the ResourceManager instance
+     * Geeft de ResourceManagerInstance
+     * @return de ResourceManager instance
      */
     public static ResourceManager getInstance() {
         if (_instance == null) {

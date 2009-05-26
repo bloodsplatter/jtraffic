@@ -14,8 +14,17 @@ import javax.swing.*;
  * @version 2009.05.15
  */
 public class Application extends JFrame {
+    /**
+     *
+     */
     protected static Application _instance = null;
+    /**
+     *
+     */
     protected JMenuBar mainMenuBar;
+    /**
+     *
+     */
     protected HighScoreView hsv;
 
     /**
@@ -73,6 +82,9 @@ public class Application extends JFrame {
         });
     }
 
+    /**
+     *
+     */
     protected void debug()
     {
         Level lvl = new Level();
@@ -89,27 +101,19 @@ public class Application extends JFrame {
         LevelManager.getInstance().voegLevelToe(lvl);
     }
 
+    /**
+     *
+     */
     protected void initMenuBar()
     {
         mainMenuBar = new JMenuBar();
-
-        JMenu fileMenu = new JMenu("Bestand");
-        mainMenuBar.add(fileMenu);
-
         
-
-        JMenuItem hoofdMenu = new JMenuItem("Hoofdmenu");
-        fileMenu.add(hoofdMenu);
-        hoofdMenu.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                setDefaultPanel();
-            }
-        });
-
-        super.setJMenuBar(mainMenuBar);
     }
 
+    /**
+     *
+     * @return
+     */
     protected JPanel DEFAULT_PANEL()
     {
         JPanel panel = new JPanel(new BorderLayout());
@@ -165,6 +169,9 @@ public class Application extends JFrame {
         return panel;
     }
 
+    /**
+     * Creëert een instance als deze nog niet bestaat
+     */
     protected static void createInstance()
     {
         if (_instance == null)
@@ -198,6 +205,10 @@ public class Application extends JFrame {
         return _instance;
     }
 
+    /**
+     * Stel een view in
+     * @param view de view om te tonen
+     */
     public void setView(View view)
     {
         Component cp = super.getContentPane();
@@ -207,9 +218,10 @@ public class Application extends JFrame {
             View v = (View)cp;
             if (view.sluit())
             {
+                getContentPane().removeAll();
                 super.setContentPane(view);
                 view.updateUI();
-                super.pack();
+                pack();
             } else
             {
                 JOptionPane.showMessageDialog(this, "Deze optie is nu niet beschikbaar.","Fout!",JOptionPane.ERROR_MESSAGE);
@@ -228,6 +240,9 @@ public class Application extends JFrame {
         }
     }
 
+    /**
+     * Toon het standaard panel
+     */
     public void setDefaultPanel()
     {
         if (getContentPane() instanceof View)
@@ -235,6 +250,7 @@ public class Application extends JFrame {
             View v = (View)getContentPane();
             if (v.sluit())
             {
+                getContentPane().removeAll();
                 setContentPane(DEFAULT_PANEL());
             } else
                 JOptionPane.showMessageDialog(this, "Kan hoofdmenu nu niet tonen.","Fout",JOptionPane.ERROR_MESSAGE);

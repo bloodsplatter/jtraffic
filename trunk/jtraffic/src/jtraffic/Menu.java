@@ -31,7 +31,7 @@ public class Menu {
 
     /**
      * Stel de titel van het menu in
-     * @param Nieuwe titel voor het menu
+     * @param Titel de titel van het menu
      */
     public void setTitel(String Titel) {
         this.titel = Titel;
@@ -118,6 +118,7 @@ public class Menu {
     /**
      * Voert de actie die bij een menu item hoort uit
      * @param index de index van het menu item
+     * @return
      */
     public boolean selecteerItem(int index)
     {
