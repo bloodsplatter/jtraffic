@@ -63,6 +63,7 @@ public class HighScoreView extends JFrame {
 
             public void actionPerformed(ActionEvent e) {
                 HighScores.getInstance().verwijderHighScores();
+                tabel.updateUI();
             }
         });
         bottomPane.add(removeAllButton);

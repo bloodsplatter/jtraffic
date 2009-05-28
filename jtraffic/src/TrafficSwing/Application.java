@@ -1,4 +1,3 @@
-
 package TrafficSwing;
 
 import java.awt.*;
@@ -14,6 +13,7 @@ import javax.swing.*;
  * @version 2009.05.15
  */
 public class Application extends JFrame {
+
     /**
      *
      */
@@ -30,8 +30,7 @@ public class Application extends JFrame {
     /**
      * Constructor
      */
-    protected Application()
-    {
+    protected Application() {
         super("TrafficSwing");
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initMenuBar();
@@ -48,20 +47,19 @@ public class Application extends JFrame {
 
             public void windowClosing(WindowEvent e) {
                 Container c = getContentPane();
-                if (c instanceof LevelView )
-                {
-                    if (((LevelView)c).sluit())
-                    {
+                if (c instanceof LevelView) {
+                    if (((LevelView) c).sluit()) {
                         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                        
-                    } else
+
+                    } else {
                         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-                    
+                    }
+
                 }
                 try {
                     HighScores.getInstance().opslaan();
                 } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(Application.getInstance(), "Er is een fout opgetreden bij het opslaan van de highscores.\n" + ex.getLocalizedMessage(),"Fout",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(Application.getInstance(), "Er is een fout opgetreden bij het opslaan van de highscores.\n" + ex.getLocalizedMessage(), "Fout", JOptionPane.ERROR_MESSAGE);
                 }
             }
 
@@ -85,8 +83,7 @@ public class Application extends JFrame {
     /**
      *
      */
-    protected void debug()
-    {
+    protected void debug() {
         Level lvl = new Level();
         Auto beginAuto = new Auto(0, 2, Kleur.Rood);
         beginAuto.setOrientatie(Orientatie.Horizontaal);
@@ -104,18 +101,16 @@ public class Application extends JFrame {
     /**
      *
      */
-    protected void initMenuBar()
-    {
+    protected void initMenuBar() {
         mainMenuBar = new JMenuBar();
-        
+
     }
 
     /**
      *
      * @return
      */
-    protected JPanel DEFAULT_PANEL()
-    {
+    protected JPanel DEFAULT_PANEL() {
         JPanel panel = new JPanel(new BorderLayout());
         JPanel menuPanel = new JPanel(new GridLayout(3, 0));
 
@@ -127,22 +122,20 @@ public class Application extends JFrame {
                 String[] levelNames = new String[LevelManager.getInstance().aantalLevels()];
                 Level[] levels = LevelManager.getInstance().toArray();
 
-                if (levels.length <= 0)
-                {
+                if (levels.length <= 0) {
                     JOptionPane.showMessageDialog(Application.getInstance(), "Er zijn geen levels geladen.", "Fout", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
-                for (int i = 0; i < levels.length; i++)
-                {
+                for (int i = 0; i < levels.length; i++) {
                     levelNames[i] = levels[i].getNaam();
                 }
 
                 String selectedLevel = null;
 
-                do {
-                    selectedLevel = (String) JOptionPane.showInputDialog(Application.getInstance(), "Kies een level", "Levelselectie", JOptionPane.INFORMATION_MESSAGE, null, levelNames, levelNames[0]);
-                } while (selectedLevel == null);
+                selectedLevel = (String) JOptionPane.showInputDialog(Application.getInstance(), "Kies een level", "Levelselectie", JOptionPane.INFORMATION_MESSAGE, null, levelNames, levelNames[0]);
+                if (selectedLevel == null || selectedLevel.equals(""))
+                    return;
 
                 for (Level level : levels) {
                     if (level.getNaam().equals(selectedLevel));
@@ -165,17 +158,17 @@ public class Application extends JFrame {
         });
         menuPanel.add(highScores);
 
-        panel.add(menuPanel,BorderLayout.CENTER);
+        panel.add(menuPanel, BorderLayout.CENTER);
         return panel;
     }
 
     /**
      * Creëert een instance als deze nog niet bestaat
      */
-    protected static void createInstance()
-    {
-        if (_instance == null)
+    protected static void createInstance() {
+        if (_instance == null) {
             _instance = new Application();
+        }
     }
 
     /**
@@ -183,24 +176,22 @@ public class Application extends JFrame {
      * @return geeft de huidige level terug
      * @exception UnsupportedOperationException
      */
-    public Level getHuidigeLevel() throws UnsupportedOperationException
-    {
-        if (super.getContentPane() instanceof LevelView)
-        {
-            return ((LevelView)super.getContentPane()).getLevel();
-        }
-        else
+    public Level getHuidigeLevel() throws UnsupportedOperationException {
+        if (super.getContentPane() instanceof LevelView) {
+            return ((LevelView) super.getContentPane()).getLevel();
+        } else {
             throw new UnsupportedOperationException("Er draait nu geen level");
+        }
     }
 
     /**
      * De Application instance opvragen
      * @return de Application instance
      */
-    public static Application getInstance()
-    {
-        if (_instance == null)
+    public static Application getInstance() {
+        if (_instance == null) {
             createInstance();
+        }
 
         return _instance;
     }
@@ -209,33 +200,27 @@ public class Application extends JFrame {
      * Stel een view in
      * @param view de view om te tonen
      */
-    public void setView(View view)
-    {
+    public void setView(View view) {
         Component cp = super.getContentPane();
-        if (cp instanceof View)
-        {
+        if (cp instanceof View) {
 
-            View v = (View)cp;
-            if (view.sluit())
-            {
+            View v = (View) cp;
+            if (view.sluit()) {
                 getContentPane().removeAll();
                 super.setContentPane(view);
                 view.updateUI();
                 pack();
-            } else
-            {
-                JOptionPane.showMessageDialog(this, "Deze optie is nu niet beschikbaar.","Fout!",JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Deze optie is nu niet beschikbaar.", "Fout!", JOptionPane.ERROR_MESSAGE);
             }
-        } else if (cp instanceof JPanel)
-        {
+        } else if (cp instanceof JPanel) {
             super.setContentPane(view);
             view.updateUI();
-            if (view instanceof LevelView)
-            {
+            if (view instanceof LevelView) {
                 super.setPreferredSize(calculateSize(new Dimension(LevelView.BORD_BREEDTE, LevelView.BORD_HOOGTE)));
                 super.setMinimumSize(super.getPreferredSize());
             }
-            
+
             pack();
         }
     }
@@ -243,19 +228,18 @@ public class Application extends JFrame {
     /**
      * Toon het standaard panel
      */
-    public void setDefaultPanel()
-    {
-        if (getContentPane() instanceof View)
-        {
-            View v = (View)getContentPane();
-            if (v.sluit())
-            {
+    public void setDefaultPanel() {
+        if (getContentPane() instanceof View) {
+            View v = (View) getContentPane();
+            if (v.sluit()) {
                 getContentPane().removeAll();
                 setContentPane(DEFAULT_PANEL());
-            } else
-                JOptionPane.showMessageDialog(this, "Kan hoofdmenu nu niet tonen.","Fout",JOptionPane.ERROR_MESSAGE);
-        } else
+            } else {
+                JOptionPane.showMessageDialog(this, "Kan hoofdmenu nu niet tonen.", "Fout", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
             setContentPane(DEFAULT_PANEL());
+        }
 
         super.setPreferredSize(new Dimension(800, 600));
         pack();
@@ -264,14 +248,13 @@ public class Application extends JFrame {
     /**
      * Toont het HighScoreView
      */
-    public void toonHighScores()
-    {
-        if (!hsv.isVisible())
+    public void toonHighScores() {
+        if (!hsv.isVisible()) {
             hsv.setVisible(true);
+        }
     }
 
-    private Dimension calculateSize(Dimension d)
-    {
+    private Dimension calculateSize(Dimension d) {
         super.setPreferredSize(d);
         int extrah = super.getContentPane().getSize().height - d.width;
         int extraw = super.getContentPane().getSize().width - d.width;
