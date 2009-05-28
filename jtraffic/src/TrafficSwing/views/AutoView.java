@@ -1,4 +1,3 @@
-
 package TrafficSwing.views;
 
 import java.awt.*;
@@ -7,6 +6,7 @@ import javax.swing.*;
 import RushHour.*;
 import TrafficSwing.resources.ResourceManager;
 import TrafficSwing.Application;
+import javax.swing.border.EmptyBorder;
 
 /**
  * De view klasse voor Auto
@@ -30,10 +30,11 @@ public class AutoView extends VoertuigView {
     public AutoView(Auto auto)
     {
         super();
+
         voertuig = auto;
         img = ResourceManager.getInstance().getAfbeeldingVoorVoertuig(voertuig);
         super.add(new JLabel(img), BorderLayout.CENTER);
-        
+
         if (voertuig.getOrientatie() == Orientatie.Horizontaal)
         {
             // knop naar links
@@ -49,6 +50,7 @@ public class AutoView extends VoertuigView {
                 }
             });
             dirButton.setVisible(false);
+            dirButton.setBorder(new EmptyBorder(2, 2, 2, 2));
             super.add(dirButton,BorderLayout.WEST);
 
             // knop naar rechts
@@ -64,7 +66,9 @@ public class AutoView extends VoertuigView {
                 }
             });
             odirButton.setVisible(false);
+            odirButton.setBorder(new EmptyBorder(2, 2, 2, 2));
             super.add(odirButton,BorderLayout.EAST);
+
         } else
         {
             // knop naar boven
