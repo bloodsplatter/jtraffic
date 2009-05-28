@@ -123,6 +123,7 @@ public class LevelView extends View {
         if (level.isLevelUit()) {
             gesloten = true;
             super.removeAll();
+            level.reset();
             Application.getInstance().setDefaultPanel();
             return true;
         } else {
@@ -162,8 +163,8 @@ public class LevelView extends View {
 
             if (level.isLevelUit() && !gesloten) {
                 HighScoreView hsv = new HighScoreView();
-                sluit();
                 hsv.voegHighScoreToe(level.getAantalStappen());
+                sluit();
             }
 
             if (voertuigLijst != null) {

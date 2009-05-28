@@ -25,6 +25,7 @@ public class Level implements Serializable {
     // #[regen=yes,id=DCE.F0552C0C-0429-8133-D01A-6AFD160DF257]
     // </editor-fold> 
     private ArrayList<Voertuig> voertuigen;
+    private ArrayList<Voertuig> original;
     private String naam = "";
     private int stappen = 0;
 
@@ -53,6 +54,7 @@ public class Level implements Serializable {
      */
     public Level() {
         this.voertuigen = new ArrayList<Voertuig>();
+        this.original = new ArrayList<Voertuig>();
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -139,6 +141,7 @@ public class Level implements Serializable {
             voertuig.setLevel(this);
         }
         voertuigen.add(voertuig);
+        original.add(voertuig.geefKopie());
     }
 
     @Override
@@ -272,5 +275,18 @@ public class Level implements Serializable {
         Voertuig[] voertuigen = new Voertuig[this.voertuigen.size()];
         this.voertuigen.toArray(voertuigen);
         return voertuigen;
+    }
+
+    /**
+     * Reset de level
+     */
+    public void reset()
+    {
+        stappen = 0;
+        voertuigen.clear();
+        for(Voertuig voertuig : original)
+        {
+            voertuigen.add(voertuig.geefKopie());
+        }
     }
 }
