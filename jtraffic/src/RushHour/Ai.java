@@ -11,9 +11,9 @@ package RushHour;
 public class Ai {
 
     private Level lvl;
-    private int MaxStack = 16;
+    private int MaxStack = 36;
     private int Thisstack = 0;
-    private int MaxLoops = 16;
+    private int MaxLoops = 36;
     private AiMove rootvrt[] = new AiMove[MaxStack];
     private AiMove movesvrt[] = new AiMove[40];
     private int movesrichtig[] = new int[40];
