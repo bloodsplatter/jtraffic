@@ -87,14 +87,14 @@ public class Application extends JFrame {
         Level lvl = new Level();
         Auto beginAuto = new Auto(0, 2, Kleur.Rood);
         beginAuto.setOrientatie(Orientatie.Horizontaal);
-        lvl.voegVoertuigToe(beginAuto);
         Auto tweedeAuto = new Auto(2, 0, Kleur.Blauw);
         tweedeAuto.setOrientatie(Orientatie.Verticaal);
         Vrachtwagen vw = new Vrachtwagen(Orientatie.Verticaal);
-        lvl.voegVoertuigToe(vw);
-        lvl.voegVoertuigToe(tweedeAuto);
         vw.setPositie(3, 1);
         vw.setKleur(Kleur.DonkerGroen);
+        lvl.voegVoertuigToe(beginAuto);
+        lvl.voegVoertuigToe(vw);
+        lvl.voegVoertuigToe(tweedeAuto);
         LevelManager.getInstance().voegLevelToe(lvl);
     }
 

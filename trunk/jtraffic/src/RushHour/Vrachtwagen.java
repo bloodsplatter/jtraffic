@@ -40,6 +40,7 @@ public class Vrachtwagen extends Voertuig {
         ret.setPositie(this.getX(), this.getY());
         ret.setKleur(this.getKleur());
         ret.setOrientatie(this.getOrientatie());
+        ret.setLevel(this.getLevel());
         return ret;
     }
 

@@ -52,8 +52,11 @@ public class Auto extends Voertuig {
 
     
     public Voertuig geefKopie() {
-        Auto ret = new Auto(this.getX(), this.getY(), this.getKleur());
+        Auto ret = new Auto();
+        ret.setPositie(this.getX(), this.getY());
+        ret.setKleur(this.getKleur());
         ret.setOrientatie(this.getOrientatie());
+        ret.setLevel(this.getLevel());
         return ret;
     }
 
