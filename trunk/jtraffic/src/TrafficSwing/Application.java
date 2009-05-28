@@ -5,6 +5,7 @@ import java.awt.event.*;
 import RushHour.*;
 import TrafficSwing.views.*;
 import java.io.IOException;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -141,6 +142,8 @@ public class Application extends JFrame {
                     if (level.getNaam().equals(selectedLevel));
                     {
                         setView(new LevelView(level));
+                        // Simulate ai ?
+                        
                         break;
                     }
                 }
@@ -158,6 +161,49 @@ public class Application extends JFrame {
         });
         menuPanel.add(highScores);
 
+
+        // AI experimenteel addone
+        JButton SimulateAi = new JButton("Simulate AI");
+        SimulateAi.setFont(new Font("Arial", Font.BOLD, 36));
+        SimulateAi.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                String[] levelNames = new String[LevelManager.getInstance().aantalLevels()];
+                Level[] levels = LevelManager.getInstance().toArray();
+
+                if (levels.length <= 0) {
+                    JOptionPane.showMessageDialog(Application.getInstance(), "Er zijn geen levels geladen.", "Fout", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                for (int i = 0; i < levels.length; i++) {
+                    levelNames[i] = levels[i].getNaam();
+                }
+
+                String selectedLevel = null;
+
+                selectedLevel = (String) JOptionPane.showInputDialog(Application.getInstance(), "Kies een level", "Levelselectie", JOptionPane.INFORMATION_MESSAGE, null, levelNames, levelNames[0]);
+                if (selectedLevel == null || selectedLevel.equals(""))
+                    return;
+
+                for (Level level : levels) {
+                    if (level.getNaam().equals(selectedLevel));
+                    {
+                        View gamevw = new LevelView(level);
+                        setView(gamevw);
+                        //gamevw.updateUI();
+
+                        Ai simulateai = new Ai(level,gamevw);
+
+                        new Thread(simulateai).start();
+
+                        break;
+                    }
+                }
+            }
+        });
+        menuPanel.add(SimulateAi);
+        
         panel.add(menuPanel, BorderLayout.CENTER);
         return panel;
     }
