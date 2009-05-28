@@ -125,6 +125,10 @@ public class LevelView extends View {
             super.removeAll();
             level.reset();
             Application.getInstance().setDefaultPanel();
+            try {
+                super.finalize();
+            } catch (Throwable ex) {
+            }
             return true;
         } else {
             int answer = JOptionPane.showConfirmDialog(Application.getInstance(), "Weet u zeker dat u wilt stoppen?", "Waarschuwing", JOptionPane.WARNING_MESSAGE);

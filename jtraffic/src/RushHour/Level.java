@@ -283,10 +283,12 @@ public class Level implements Serializable {
     public void reset()
     {
         stappen = 0;
-        voertuigen.clear();
-        for(Voertuig voertuig : original)
+        voertuigen = (ArrayList<Voertuig>)original.clone();
+        original.clear();
+
+        for(Voertuig voertuig : voertuigen)
         {
-            voertuigen.add(voertuig.geefKopie());
+            original.add(voertuig.geefKopie());
         }
     }
 }
