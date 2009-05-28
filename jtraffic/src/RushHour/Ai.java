@@ -4,11 +4,13 @@
  */
 package RushHour;
 
+import TrafficSwing.views.View;
+
 /**
  *
  * @author chris
  */
-public class Ai {
+public class Ai implements Runnable {
 
     private Level lvl;
     private int MaxStack = 36;
@@ -18,33 +20,49 @@ public class Ai {
     private AiMove movesvrt[] = new AiMove[40];
     private int movesrichtig[] = new int[40];
     private int move = 0;
+    private View gameview;
 
     /**
      * Constructor
      * @param lvl de level die opgelost moet worden
      */
-    public Ai(Level lvl) {
+    public Ai(Level lvl,View gameview) {
         this.lvl = lvl;
+        this.gameview = gameview;
     }
 
     /**
      *
      * @throws java.lang.InterruptedException
      */
-    public void run() throws InterruptedException {
+
+
+
+    public void run() {
         Voertuig mainvt;
         Voertuig tmpvt;
         int loops = 0;
         mainvt = lvl.voertuigOpPlaats(0);
-        while ((mainvt.getX() + mainvt.getGrootte() <= lvl.getVeld().getBreedte()) && (loops < MaxLoops)) {
+
+        //wacht even...
+        UpdateOutput();
+        UpdateOutput();
+
+        while ((mainvt.getX() + mainvt.getGrootte() <= lvl.getVeld().getBreedte() - 1) && (loops < MaxLoops)) {
             tmpvt = lvl.voertuigOpPositie((mainvt.getX() + mainvt.getGrootte()), mainvt.getY());
             if (tmpvt != null) {
                 rootvrt[0] = new AiMove(mainvt,2);
+                try{
                 setProbleem(tmpvt, mainvt.getX() + mainvt.getGrootte(), mainvt.getY(), 0);
+                }catch(Exception e){
+                    
+                }
+                
             } else {
                 movesvrt[move++] = new AiMove(mainvt,2);
                 mainvt.NaarRechts();
-                System.out.println(lvl.toString());
+                UpdateOutput();
+                //System.out.println(lvl.toString());
             }
         }
         // Gewonnen
@@ -109,7 +127,7 @@ public class Ai {
                         } else {
                             movesvrt[move++] = new AiMove(tmpvt,1);
                             tmpvt.NaarBoven();
-                            System.out.println(lvl.toString());
+                            UpdateOutput();
                         }
                     }
 
@@ -148,7 +166,7 @@ public class Ai {
                         } else {
                             movesvrt[move++] = new AiMove(tmpvt,3);
                             tmpvt.NaarBeneden();
-                            System.out.println(lvl.toString());
+                            UpdateOutput();
                         }
                     }
 
@@ -200,7 +218,7 @@ public class Ai {
                         } else {
                             movesvrt[move++] = new AiMove(tmpvt,4);
                             tmpvt.NaarLinks();
-                            System.out.println(lvl.toString());
+                            UpdateOutput();
                         }
                     }
                     // Controleer nu of het is opgelost of hij is terug
@@ -237,7 +255,7 @@ public class Ai {
                         } else {
                             movesvrt[move++] = new AiMove(tmpvt,2);
                             tmpvt.NaarRechts();
-                            System.out.println(lvl.toString());
+                            UpdateOutput();
                         }
                     }
 
@@ -274,7 +292,7 @@ public class Ai {
                     movesvrt[teller].getVoertuig().NaarLinks();
                     break;
                 }
-                System.out.println(lvl.toString());
+                UpdateOutput();
             teller++;
         }
     }
@@ -344,4 +362,16 @@ public class Ai {
 
         return 0;
     }
+    
+    private void UpdateOutput(){
+        gameview.updateUI();
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException ex) {
+            // Rotzooi
+        }
+    }
+
+
+
 }
