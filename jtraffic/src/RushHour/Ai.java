@@ -4,7 +4,7 @@
  */
 package RushHour;
 
-import TrafficSwing.views.View;
+import TrafficSwing.views.LevelView;
 
 /**
  *
@@ -20,15 +20,15 @@ public class Ai implements Runnable {
     private AiMove movesvrt[] = new AiMove[40];
     private int movesrichtig[] = new int[40];
     private int move = 0;
-    private View gameview;
+    private LevelView gameview;
 
     /**
      * Constructor
      * @param lvl de level die opgelost moet worden
      * @param gameview 
      */
-    public Ai(Level lvl,View gameview) {
-        this.lvl = lvl;
+    public Ai(LevelView gameview) {
+        this.lvl = gameview.getLevel();
         this.gameview = gameview;
     }
 
