@@ -5,7 +5,6 @@ import java.awt.event.*;
 import RushHour.*;
 import TrafficSwing.views.*;
 import java.io.IOException;
-import java.util.logging.Logger;
 import javax.swing.*;
 import TrafficSwing.resources.ResourceManager;
 
@@ -88,17 +87,124 @@ public class Application extends JFrame {
      */
     protected void debug() {
         Level lvl = new Level();
-        Auto beginAuto = new Auto(0, 2, Kleur.Rood);
-        beginAuto.setOrientatie(Orientatie.Horizontaal);
-        Auto tweedeAuto = new Auto(2, 0, Kleur.Blauw);
-        tweedeAuto.setOrientatie(Orientatie.Verticaal);
-        Vrachtwagen vw = new Vrachtwagen(Orientatie.Verticaal);
-        vw.setPositie(3, 1);
-        vw.setKleur(Kleur.DonkerGroen);
-        lvl.voegVoertuigToe(beginAuto);
-        lvl.voegVoertuigToe(vw);
-        lvl.voegVoertuigToe(tweedeAuto);
+        lvl.setNaam("Jam 20");
+        /*
+        Auto vrt2 = new Auto(Orientatie.Horizontaal);
+        vrt2.setX(1);
+        vrt2.setY(2);
+        vrt2.setKleur(Kleur.Rood);
+        lvl.voegVoertuigToe(vrt2);
+
+        Auto vrt3 = new Auto(Orientatie.Horizontaal);
+        vrt3.setX(0);
+        vrt3.setY(0);
+        vrt3.setKleur(Kleur.Blauw);
+        lvl.voegVoertuigToe(vrt3);
+
+        Vrachtwagen vrt1 = new Vrachtwagen(Orientatie.Verticaal);
+        vrt1.setX(0);
+        vrt1.setY(1);
+        vrt1.setKleur(Kleur.LichtGroen);
+        lvl.voegVoertuigToe(vrt1);
+
+        Auto vrt4 = new Auto(Orientatie.Verticaal);
+        vrt4.setX(0);
+        vrt4.setY(4);
+        vrt4.setKleur(Kleur.Paars);
+        lvl.voegVoertuigToe(vrt4);
+
+        Auto vrt5 = new Auto(Orientatie.Horizontaal);
+        vrt5.setX(4);
+        vrt5.setY(4);
+        vrt5.setKleur(Kleur.DonkerGroen);
+        lvl.voegVoertuigToe(vrt5);
+
+        Vrachtwagen vrt6 = new Vrachtwagen(Orientatie.Horizontaal);
+        vrt6.setX(2);
+        vrt6.setY(5);
+        vrt6.setKleur(Kleur.LichtGroen);
+        lvl.voegVoertuigToe(vrt6);
+
+        Vrachtwagen vrt7 = new Vrachtwagen(Orientatie.Verticaal);
+        vrt7.setX(3);
+        vrt7.setY(1);
+        vrt7.setKleur(Kleur.Roos);
+        lvl.voegVoertuigToe(vrt7);
+
+        Vrachtwagen vrt8 = new Vrachtwagen(Orientatie.Verticaal);
+        vrt8.setX(5);
+        vrt8.setY(0);
+        vrt8.setKleur(Kleur.Geel);
+        lvl.voegVoertuigToe(vrt8);
         LevelManager.getInstance().voegLevelToe(lvl);
+
+        Auto vrt2 = new Auto(Orientatie.Horizontaal);
+        vrt2.setX(1);
+        vrt2.setY(2);
+        vrt2.setKleur(Kleur.Blauw);
+        lvl.voegVoertuigToe(vrt2);
+
+        Auto vrt3 = new Auto(Orientatie.Horizontaal);
+        vrt3.setX(0);
+        vrt3.setY(0);
+        vrt3.setKleur(Kleur.LichtGroen);
+        lvl.voegVoertuigToe(vrt3);
+
+        Auto vrt1 = new Auto(Orientatie.Horizontaal);
+        vrt1.setX(0);
+        vrt1.setY(1);
+        vrt1.setKleur(Kleur.Zwart);
+        lvl.voegVoertuigToe(vrt1);
+
+        Auto vrt4 = new Auto(Orientatie.Verticaal);
+        vrt4.setX(2);
+        vrt4.setY(0);
+        vrt4.setKleur(Kleur.Geel);
+        lvl.voegVoertuigToe(vrt4);
+
+        Vrachtwagen vrt5 = new Vrachtwagen(Orientatie.Verticaal);
+        vrt5.setX(0);
+        vrt5.setY(2);
+        vrt5.setKleur(Kleur.Zwart);
+        lvl.voegVoertuigToe(vrt5);
+
+        Vrachtwagen vrt6 = new Vrachtwagen(Orientatie.Horizontaal);
+        vrt6.setX(1);
+        vrt6.setY(3);
+        vrt6.setKleur(Kleur.Roos);
+        lvl.voegVoertuigToe(vrt6);
+
+        Auto vrt7 = new Auto(Orientatie.Horizontaal);
+        vrt7.setX(4);
+        vrt7.setY(0);
+        vrt7.setKleur(Kleur.Geel);
+        lvl.voegVoertuigToe(vrt7);
+
+        Vrachtwagen vrt8 = new Vrachtwagen(Orientatie.Verticaal);
+        vrt8.setX(5);
+        vrt8.setY(1);
+        vrt8.setKleur(Kleur.LichtGroen);
+        lvl.voegVoertuigToe(vrt8);
+
+        Auto vrt9 = new Auto(Orientatie.Horizontaal);
+        vrt9.setX(4);
+        vrt9.setY(4);
+        vrt9.setKleur(Kleur.Rood);
+        lvl.voegVoertuigToe(vrt9);
+
+        Auto vrt10 = new Auto(Orientatie.Horizontaal);
+        vrt10.setX(4);
+        vrt10.setY(5);
+        vrt10.setKleur(Kleur.DonkerGroen);
+        lvl.voegVoertuigToe(vrt10);
+
+        Auto vrt11 = new Auto(Orientatie.Verticaal);
+        vrt11.setX(3);
+        vrt11.setY(4);
+        vrt11.setKleur(Kleur.Paars);
+        lvl.voegVoertuigToe(vrt11);
+        LevelManager.getInstance().voegLevelToe(lvl); */
+        
     }
 
     /**
@@ -106,7 +212,24 @@ public class Application extends JFrame {
      */
     protected void initMenuBar() {
         mainMenuBar = new JMenuBar();
+        JMenu bestand = new JMenu("Bestand");
+        mainMenuBar.add(bestand);
+        JMenuItem closeLevel = new JMenuItem("Sluit level");
+        closeLevel.addActionListener(new ActionListener() {
 
+            public void actionPerformed(ActionEvent e) {
+                if (getContentPane() instanceof LevelView)
+                {
+                    if (((LevelView)getContentPane()).sluit())
+                    {
+                        setDefaultPanel();
+                        pack();
+                    }
+                }
+            }
+        });
+        bestand.add(closeLevel);
+        super.setJMenuBar(mainMenuBar);
     }
 
     /**
@@ -144,8 +267,6 @@ public class Application extends JFrame {
                     if (level.getNaam().equals(selectedLevel));
                     {
                         setView(new LevelView(level));
-                        // Simulate ai ?
-                        
                         break;
                     }
                 }
