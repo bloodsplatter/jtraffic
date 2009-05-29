@@ -189,11 +189,11 @@ public class Application extends JFrame {
                 for (Level level : levels) {
                     if (level.getNaam().equals(selectedLevel));
                     {
-                        View gamevw = new LevelView(level);
+                        LevelView gamevw = new LevelView(level);
                         setView(gamevw);
                         //gamevw.updateUI();
 
-                        Ai simulateai = new Ai(level,gamevw);
+                        Ai simulateai = new Ai(gamevw);
 
                         new Thread(simulateai).start();
 
