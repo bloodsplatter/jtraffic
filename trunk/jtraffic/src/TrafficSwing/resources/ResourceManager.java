@@ -1,8 +1,11 @@
 package TrafficSwing.resources;
 
 import RushHour.*;
+import java.awt.Image;
+import java.io.IOException;
 import javax.swing.*;
 import java.net.*;
+import javax.imageio.ImageIO;
 
 /**
  * Resouce manager
@@ -128,5 +131,18 @@ public class ResourceManager {
             return new ImageIcon(this.getClass().getResource("arrowS.png"));
 
         return new ImageIcon();
+    }
+
+    /**
+     * Geeft het icoon voor het programma
+     * @return het image object voor het icoon
+     */
+    public Image getIcoon()
+    {
+        try {
+            Image img = ImageIO.read(this.getClass().getResource("icon.png"));
+            return img;
+        } catch (IOException ex) { }
+        return null;
     }
 }

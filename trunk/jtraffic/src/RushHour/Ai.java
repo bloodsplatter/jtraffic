@@ -32,9 +32,8 @@ public class Ai implements Runnable {
     }
 
     /**
-     *
+     * Start de AI
      */
-    
     public void run() {
         Voertuig mainvt;
         Voertuig tmpvt;
@@ -269,14 +268,7 @@ public class Ai implements Runnable {
     }
 
     /**
-     *
-     */
-    public void CleanupMoves() {
-
-    }
-
-    /**
-     *
+     * Niet gebruikt, voor later
      */
     public void ShowMoves() {
         int teller = 0;
@@ -371,7 +363,7 @@ public class Ai implements Runnable {
         try {
             Thread.sleep(1500);
         } catch (InterruptedException ex) {
-            // Rotzooi
+            // should not happen
         }
     }
 

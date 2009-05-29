@@ -7,6 +7,7 @@ import TrafficSwing.views.*;
 import java.io.IOException;
 import java.util.logging.Logger;
 import javax.swing.*;
+import TrafficSwing.resources.ResourceManager;
 
 /**
  * The main Swing Application
@@ -35,6 +36,7 @@ public class Application extends JFrame {
         super("TrafficSwing");
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initMenuBar();
+        super.setIconImage(ResourceManager.getInstance().getIcoon());
         super.getContentPane().add(DEFAULT_PANEL());
         hsv = new HighScoreView();
         debug();

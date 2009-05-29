@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package RushHour;
 
 /**
- *
+ * Een move voor de AI
  * @author chris
  */
 public class AiMove {
@@ -15,24 +11,24 @@ public class AiMove {
     private int richting;
 
     /**
-     *
-     * @param voertuig
-     * @param richting
+     * Constructor
+     * @param voertuig het voertuig
+     * @param richting de richting waarin bewogen wordt
      */
     public AiMove(Voertuig voertuig,int richting){
         this.voertuig = voertuig;
         this.richting = richting;
     }
     /**
-     *
-     * @return
+     * Geeft de richting
+     * @return de richting
      */
     public int getRichting(){
         return richting;
     }
     /**
-     * 
-     * @return
+     * Het voertuig dat bewogen wordt
+     * @return het voertuig
      */
     public Voertuig getVoertuig(){
         return voertuig;
