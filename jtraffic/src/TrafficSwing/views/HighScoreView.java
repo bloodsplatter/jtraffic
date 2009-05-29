@@ -47,6 +47,11 @@ public class HighScoreView extends JFrame {
         super.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         initTable();
 
+        if (Application.getInstance().getIconImage() != null)
+        {
+            super.setIconImage(Application.getInstance().getIconImage());
+        }
+
         bottomPane = new JPanel(new FlowLayout(FlowLayout.CENTER));
         
         okButton = new JButton("OK");
