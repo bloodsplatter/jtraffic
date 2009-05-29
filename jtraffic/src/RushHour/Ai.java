@@ -25,6 +25,7 @@ public class Ai implements Runnable {
     /**
      * Constructor
      * @param lvl de level die opgelost moet worden
+     * @param gameview 
      */
     public Ai(Level lvl,View gameview) {
         this.lvl = lvl;
@@ -33,7 +34,6 @@ public class Ai implements Runnable {
 
     /**
      *
-     * @throws java.lang.InterruptedException
      */
 
 
@@ -271,10 +271,16 @@ public class Ai implements Runnable {
 
     }
 
+    /**
+     *
+     */
     public void CleanupMoves() {
 
     }
 
+    /**
+     *
+     */
     public void ShowMoves() {
         int teller = 0;
         while (teller < (move)){

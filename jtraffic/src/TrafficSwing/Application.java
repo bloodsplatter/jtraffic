@@ -162,8 +162,8 @@ public class Application extends JFrame {
         menuPanel.add(highScores);
 
 
-        // AI experimenteel addone
-        JButton SimulateAi = new JButton("Simulate AI");
+        // AI experimenteel add on
+        JButton SimulateAi = new JButton("AI Simulatie");
         SimulateAi.setFont(new Font("Arial", Font.BOLD, 36));
         SimulateAi.addActionListener(new ActionListener() {
 
