@@ -7,7 +7,7 @@ package RushHour;
 import TrafficSwing.views.LevelView;
 
 /**
- *
+ * De AI
  * @author chris
  */
 public class Ai implements Runnable {
@@ -24,8 +24,7 @@ public class Ai implements Runnable {
 
     /**
      * Constructor
-     * @param lvl de level die opgelost moet worden
-     * @param gameview 
+     * @param gameview je geeft een level view door, op deze lvl gaat hij zijn ai laten inwerken en de update inwerken
      */
     public Ai(LevelView gameview) {
         this.lvl = gameview.getLevel();
@@ -35,9 +34,7 @@ public class Ai implements Runnable {
     /**
      *
      */
-
-
-
+    
     public void run() {
         Voertuig mainvt;
         Voertuig tmpvt;
